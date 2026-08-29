@@ -30,6 +30,9 @@ from evidently.ui.dashboards import CounterAgg, PlotType
 from evidently.renderers.html_widgets import WidgetSize
 
 
+DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+
+
 class HousePricePrediction():
     def __init__(self):
         self.df = None
@@ -100,9 +103,7 @@ class HousePricePrediction():
 
 
     def save_df_to_postgres(self, X, y, mode='replace'):
-        #connstr = 'postgresql+psycopg://postgres:Syncfusion%40123@localhost:5432/feast_offline'
-        connstr = 'postgresql+psycopg2://postgres:root@localhost:5432/feast_offline'
-        engine = db.create_engine(connstr)
+        engine = db.create_engine(DB_CONNECTION_STRING)
         X.to_sql('house_features_sql', engine, if_exists=mode, index=False)
         y.to_sql('house_target_sql', engine, if_exists=mode, index=False)
         print("Pushed data to offline store!")

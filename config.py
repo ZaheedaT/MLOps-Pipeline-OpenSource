@@ -1,12 +1,10 @@
-
-
-
-ROOT_DIR = "/home/edwin/git/mlops-open-source-tools/"
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
 
 #Feast
 ENTITY_NAME = ""
 OFFLINE_DB = "feast_offline"
-DB_CONNECTION_STRING = "postgresql+psycopg2://postgres:Syncfusion%40123@localhost:5432/feast_offline"
+DB_CONNECTION_STRING = "postgresql+psycopg2://postgres:73200@localhost:5432/feast_offline"
 FEATURE_TABLE = "house_features_sql"
 TARGET_TABLE = "house_target_sql"
 FEATURE_LIST = [ 

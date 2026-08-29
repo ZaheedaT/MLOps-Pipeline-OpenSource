@@ -6,6 +6,8 @@ from feast.data_source import PushMode
 import pandas as pd
 from datetime import datetime
 
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
 
 class ExecuteFeatureStore():
     def __init__(self):
@@ -16,8 +18,8 @@ class ExecuteFeatureStore():
         ] 
 
     def save_df_to_postgres(self, X, y, mode='replace'):
-        #connstr = 'postgresql+psycopg://postgres:Syncfusion%40123@localhost:5432/feast_offline'
-        connstr = 'postgresql+psycopg2://postgres:Syncfusion%40123@localhost:5432/feast_offline'
+
+        connstr = 'postgresql+psycopg2://postgres:73200@localhost:5432/feast_offline'
         engine = db.create_engine(connstr)
         X.to_sql('house_features_sql', engine, if_exists=mode, index=False)
         y.to_sql('house_target_sql', engine, if_exists=mode, index=False)

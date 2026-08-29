@@ -3,7 +3,7 @@ provider: local
 registry:
     registry_type: sql
     registry_store_type: PostgreSQLRegistryStore
-    path: postgresql+psycopg://postgres:root@localhost:5432/feast_registry
+    path: postgresql+psycopg://postgres:73200@localhost:5432/feast_registry
     cache_ttl_seconds: 60000
     sqlalchemy_config_kwargs:
         echo: false
@@ -15,7 +15,7 @@ online_store:
     database: feast_online
     db_schema: public
     user: postgres
-    password: root
+    password: '73200'
 offline_store:
     type: postgres
     host: localhost
@@ -23,5 +23,5 @@ offline_store:
     database: feast_offline
     db_schema: public
     user: postgres
-    password: root
+    password: '73200'
 entity_key_serialization_version: 2

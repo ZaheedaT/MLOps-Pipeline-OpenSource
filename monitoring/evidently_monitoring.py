@@ -45,7 +45,11 @@ class DataQualityReport(GenerateReport):
 class RegressionReport(GenerateReport):
     def create_report(self, workspace, project, reference, current, column_mapping):
         regression_performance_report = Report(metrics=[RegressionPreset()], tags=["regression_rep"])
-        regression_performance_report.run(reference_data=reference, current_data=current, column_mapping = column_mapping)
+        regression_performance_report.run(
+            reference_data=reference,
+            current_data=current,
+            column_mapping = column_mapping)
+
         workspace.add_report(project_id=project.id, report=regression_performance_report)
         return regression_performance_report
 

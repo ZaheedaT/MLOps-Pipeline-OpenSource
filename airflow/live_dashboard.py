@@ -17,6 +17,10 @@ from evidently.collector.config import IntervalTrigger
 from evidently.collector.config import ReportConfig
 from evidently.collector.config import RowsCountTrigger
 
+
+DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+
+
 logging.basicConfig(   
     filename="app.log",
     encoding="utf-8",
@@ -35,7 +39,6 @@ COLLECTOR_TGT_ID = "house_ev_tgt"
 COLLECTOR_REG_ID = "house_ev_reg"
 COLLECTOR_TEST_ID = "house_ev_test"
 
-
 class Dashboard():
     def __init__(self):
         self.monitoring = Monitoring(DataDriftReport())
@@ -48,8 +51,8 @@ class Dashboard():
         self.start_date = datetime.now() - timedelta(days=20)
         
     def get_db_connection(self):
-        connstr = 'postgresql+psycopg2://postgres:root@localhost:5432/feast_offline'
-        engine = create_engine(connstr)
+
+        engine = create_engine(DB_CONNECTION_STRING)
         return engine
     
     def get_reference_and_current_data(self):
@@ -282,7 +285,8 @@ class Dashboard():
         self.client.send_data(COLLECTOR_TEST_ID, current)
 
 if __name__ == "__main__":
-    os.chdir("/home/edwin/git/mlops-open-source-tools/")
+    print("EDWIN STUFF live_dashboard.py")
+    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback/") #BETTER TO USE ENV VARIABLE
     dashboard = Dashboard()
     if not os.path.exists(os.path.join(os.getcwd(), WORKSPACE)) or \
         len(Workspace.create(os.path.join(os.getcwd(), WORKSPACE)).search_project(PROJECT)) == 0:

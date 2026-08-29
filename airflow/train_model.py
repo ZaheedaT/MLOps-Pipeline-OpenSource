@@ -8,6 +8,8 @@ import logging
 sys.path.append(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+
 
 from feature_store.exec_feature_store import ExecuteFeatureStore
 from model.house_model import HouseModel
@@ -30,8 +32,7 @@ class TrainModel():
         self.house_model = HouseModel()
 
     def get_current_features(self):
-        connstr = 'postgresql+psycopg2://postgres:root@localhost:5432/feast_offline'
-        engine = db.create_engine(connstr)
+        engine = db.create_engine(DB_CONNECTION_STRING)
         logging.info("engine init")
         Y_hist = pd.read_sql(str.format("select house_id, price from public.house_target_sql"), con=engine)
         store = self.f_store.get_feature_store()
@@ -90,7 +91,8 @@ class TrainModel():
         logging.info(str.format('Imported model {0} to BentoML', model_name))
 
 if __name__ == "__main__":
-    os.chdir("/home/edwin/git/mlops-open-source-tools/")
+
+    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback")
     t = TrainModel()
     X_hist = t.get_current_features()
     X_new = t.predict_new_data()

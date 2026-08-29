@@ -10,13 +10,18 @@ BENTO_API_URL = "http://localhost:3000/predict"
 MONITORING_API_URL = "http://localhost:5001/monitor"
 TRAINING_TRIGGER_URL = "http://localhost:8000/"
 
+#-------------------------------------------------------------------------
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+SCRIPT_PATH= os.path.join(ROOT_PATH, "/airflow/update_datastore.py")
+DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
+#-------------------------------------------------------------------------
+
 
 def push_data_to_db():
-    python_path = "C:\\Users\\EdwinVivekN\\AppData\\Local\\Microsoft\\WindowsApps\\python"
-    script_path = os.path.join(os.getcwd(), "/airflow/update_datastore.py")
-    result = subprocess.run([python_path, script_path], capture_output=True, text=True)
+    result = subprocess.run([PYTHON_PATH, SCRIPT_PATH], capture_output=True, text=True)
     
-    if(result.stdout.endswith("Data pushed successfully\n")):
+    if result.stdout.endswith("Data pushed successfully\n"):
         st.write("Data pushed successfully")
     else:
         st.write("Error in pushing data to DB")

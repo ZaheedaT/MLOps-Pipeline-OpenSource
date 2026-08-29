@@ -9,6 +9,7 @@ from sqlalchemy import create_engine
 import logging
 from monitoring.evidently_monitoring import *
 
+DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
 WORKSPACE = 'monitoring workspace'
 PROJECT = 'monitoring project'
 
@@ -29,8 +30,7 @@ class MonitorDrift():
         self.start_date = datetime.now() - timedelta(days=20)
 
     def get_db_connection(self):
-        connstr = 'postgresql+psycopg2://postgres:root@localhost:5432/feast_offline'
-        engine = create_engine(connstr)
+        engine = create_engine(DB_CONNECTION_STRING)
         return engine
             
     def get_reference_and_current_data(self):
@@ -61,7 +61,8 @@ class MonitorDrift():
         return drift_detected
 
 if __name__ == "__main__":
-    os.chdir("/home/edwin/git/mlops-open-source-tools/")
+    print("EDWIN STUFF monitor_drift.py")
+    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback/")
     drift_monitor = MonitorDrift()
     refr, curr = drift_monitor.get_reference_and_current_data()
     drift = drift_monitor.monitor_drift(refr, curr)

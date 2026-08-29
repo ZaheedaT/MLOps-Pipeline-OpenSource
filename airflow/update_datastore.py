@@ -9,6 +9,8 @@ from sqlalchemy import create_engine
 import logging
 from feast.data_source import PushMode
 
+DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+
 
 logging.basicConfig(   
     filename="app.log",
@@ -28,8 +30,7 @@ class UpdateDataStore():
         self.end_date = datetime.now()
 
     def get_db_connection(self):
-        connstr = 'postgresql+psycopg2://postgres:Syncfusion%40123@localhost:5432/feast_offline'
-        engine = create_engine(connstr)
+        engine = create_engine(DB_CONNECTION_STRING)
         return engine
               
     def push_feedback_to_db(self):
@@ -72,7 +73,8 @@ class UpdateDataStore():
      
     
 if __name__ == "__main__":
-    os.chdir("/home/edwin/git/mlops-open-source-tools/")
+
+    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback")
     uds = UpdateDataStore()
     uds.push_feedback_to_db()
     logging.info("Data pushed successfully")

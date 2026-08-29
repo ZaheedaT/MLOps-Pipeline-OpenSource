@@ -60,7 +60,7 @@ class HouseModel:
         return prediction
 
     def metrics(self, y_pred):
-        rmse = mean_squared_error(self.y_test, y_pred, squared=False)
+        rmse = mean_squared_error(self.y_test, y_pred)
         mae = mean_absolute_error(self.y_test, y_pred)
         r2 = r2_score(self.y_test, y_pred)
         metric_dict = {
@@ -92,17 +92,28 @@ class HouseModel:
                 
                 # Log parameters and cross-validation metrics
                 mlflow.log_params(params)
-                mlflow.log_metric("mean_cv_score", mean_test_score)
-                mlflow.log_metric("std_cv_score", std_test_score)
+                # FIX: Explicitly pass step=i to differentiate database rows
+                mlflow.log_metric("mean_cv_score", mean_test_score, step=0) #, step=i)
+                mlflow.log_metric("std_cv_score", std_test_score, step=0) #, step=i)
 
                 # Refit model on the best parameters and evaluate on test data
                 model = self.grid_search.estimator.set_params(**params)
                 model.fit(self.x_train, self.y_train)
-                y_pred = model.predict(self.x_test)
-                mlflow.log_metrics(self.metrics(y_pred))
-                mlflow.sklearn.log_model(model, "model")
 
-                print(f"Logged run with params: {params}, mean_cv_score: {mean_test_score:.4f}, std_test_score: {std_test_score:.4f}")
+
+                # Save metrics after the model has completed saving
+                y_pred = model.predict(self.x_test)
+
+                #New code
+                custom_metrics = self.metrics(y_pred)
+                for metric_name, metric_value in custom_metrics.items():
+                    mlflow.log_metric(metric_name, metric_value, step=0)
+
+
+                #mlflow.log_metrics(self.metrics(y_pred))
+                mlflow.sklearn.log_model(model, "model", step=1)
+
+                print(f"Logged run with params: {params},  {mean_test_score:.4f}, std_test_score: {std_test_score:.4f}")
  
     def register(self):
         with mlflow.start_run(run_name="LinearReg_GridSearch_Best", log_system_metrics=True) as run:
@@ -110,15 +121,20 @@ class HouseModel:
             best_params = self.grid_search.best_params_
             best_score = self.grid_search.best_score_
             mlflow.log_params(best_params)
-            mlflow.log_metric("best_mean_cv_score", best_score)
+            mlflow.log_metric("best_mean_cv_score", best_score, step=0)
+
             y_pred = self.predict(self.x_test)
-            mlflow.log_metrics(self.metrics(y_pred))
+            parent_metrics = self.metrics(y_pred)
+            for k, v in parent_metrics.items():
+                mlflow.log_metric(k, v, step=0)
+
+            self.log_gridsearch()
 
             #Define signature
             signature = infer_signature(np.array(self.x_train), np.array(self.predict(self.x_test)))
 
             # Log all runs for each parameter combination
-            self.log_gridsearch()
+            #self.log_gridsearch()
 
             #Log and Register best model
             model_info = log_model(
@@ -126,6 +142,14 @@ class HouseModel:
                 artifact_path="house_model",
                 signature=signature,
                 input_example= self.x_train,
-                registered_model_name="house_price_prediction"
+                registered_model_name="house_price_prediction",
+                step=1
             )
+
+            # FIX: Log your parent evaluation metrics AFTER log_model has finished execution.
+            # This guarantees MLflow's internal database hook runs against an isolated slate.
+            #y_pred = self.predict(self.x_test)
+            #mlflow.log_metrics(self.metrics(y_pred))
+
+
         return model_info

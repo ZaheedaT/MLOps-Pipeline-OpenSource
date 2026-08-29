@@ -6,6 +6,13 @@ from datetime import datetime, timedelta
 import subprocess
 import logging
 
+#----------------------------------------------------------------------------------------------------------------------
+# ENV VARIABLES
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+
+#----------------------------------------------------------------------------------------------------------------------
+
 logging.basicConfig(   
     filename="app.log",
     encoding="utf-8",
@@ -17,11 +24,10 @@ logging.basicConfig(
 )
 
 def check_data_push():
-    python_path = "/home/edwin/anaconda3/bin/python"
-    script_path = "/home/edwin/git/mlops-open-source-tools/airflow/update_datastore.py"
-    result = subprocess.run([python_path, script_path], capture_output=True, text=True)
+    script_path = os.path.join(ROOT_PATH,"/airflow/update_datastore.py")
+    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     
-    if(result.stdout.endswith("Data pushed successfully\n")):
+    if result.stdout.endswith("Data pushed successfully\n"):
         logging.info(result.stderr)
         return "update_dashboard"
     else:
@@ -29,9 +35,10 @@ def check_data_push():
         return "no_update"
 
 def update_live_dashboard():
-    python_path = "/home/edwin/anaconda3/bin/python"
-    script_path = "/home/edwin/git/mlops-open-source-tools/airflow/live_dashboard.py"
-    result = subprocess.run([python_path, script_path], capture_output=True, text=True)
+    print("FIX THESE DAMN PATHS - pushdata-dag")
+
+    script_path = os.path.join(ROOT_PATH,"/airflow/live_dashboard.py")
+    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     
 
 # Define the DAG
@@ -64,4 +71,4 @@ with DAG(
         task_id='no_update'
     )
 
-check_drift_task >> [update_dashboard_task, no_update_task]
+#check_drift_task >> [update_dashboard_task, no_update_task]

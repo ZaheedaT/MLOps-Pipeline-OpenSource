@@ -6,6 +6,12 @@ from datetime import datetime, timedelta
 import subprocess
 import logging
 
+#----------------------------------------------------------------------------------------------------------------------
+# ENV VARIABLES
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+
+#----------------------------------------------------------------------------------------------------------------------
 logging.basicConfig(   
     filename="app.log",
     encoding="utf-8",
@@ -16,28 +22,27 @@ logging.basicConfig(
     force=True
 )
 
-def monitor_drift():
-    python_path = "/home/edwin/anaconda3/bin/python"
-    script_path = "/home/edwin/git/mlops-open-source-tools/airflow/monitor_drift.py"
+def monitor_drift( ):
+    script_path = os.path.join(ROOT_PATH, "/airflow/monitor_drift.py")
 
     # Run the command using a list
-    result = subprocess.run([python_path, script_path], capture_output=True, text=True)
+    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
 
-    if(result.stdout.endswith("Data drift detected! Retraining required.\n")):
+    if result.stdout.endswith("Data drift detected! Retraining required.\n"):
         return "trigger_retrain"
     else:
         return "no_retrain"
     
 def retrain_model():
-    python_path = "/home/edwin/anaconda3/bin/python"
-    script_path = "/home/edwin/git/mlops-open-source-tools/airflow/train_model.py"
+    script_path = os.path.join(ROOT_PATH,"/airflow/train_model.py")
 
     # Run the command using a list
-    result = subprocess.run([python_path, script_path], capture_output=True, text=True)
+    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     return "trigger_retrain"
 
-def deploy_model():
-    script_path = "/home/edwin/git/mlops-open-source-tools/serving/service.py"
+def deploy_model(script_path=ROOT_DIR):
+    script_path = os.path.join(ROOT_PATH,"/serving/service.py")
+
     # Serve the BentoML service with reload
     subprocess.run(["bentoml", "serve", script_path, "--reload"])
     
@@ -77,5 +82,5 @@ with DAG(
     )
 
 
-check_drift_task >> [retrain_task, no_retrain_task]
-retrain_task >> deploy_model_task
+#check_drift_task >> [retrain_task, no_retrain_task]
+#retrain_task >> deploy_model_task
