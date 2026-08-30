@@ -29,7 +29,7 @@ jobs:
 
     - name: Patch Deepchecks for NumPy 2.x compatibility
       run: |
-      # Dynamically locate the file within your environment and fix np.Inf
+        # Dynamically locate the file within your environment and fix np.Inf
         DEEPCHECKS_FILE=$(python -c "import deepchecks.tabular.checks.model_evaluation.performance_bias as m; print(m.__file__)")
         sed -i 's/np.Inf/np.inf/g' "$DEEPCHECKS_FILE"
 
