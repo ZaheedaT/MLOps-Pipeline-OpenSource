@@ -3,10 +3,10 @@ name: MLOps CI
 on:
   push:
     branches:
-      - main
+      - dev_branch
   pull_request:
     branches:
-      - main
+      - dev_branch
 permissions:
   contents: write
   pages: write
