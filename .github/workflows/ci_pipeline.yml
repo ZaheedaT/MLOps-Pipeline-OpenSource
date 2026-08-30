@@ -14,7 +14,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 #Use updated version instead
 
     - name: Setup Python
       uses: actions/setup-python@v4
@@ -26,7 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Model Validation (Deepchecks)
+    - name: Run Model Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
       run: python ci_cd/validation.py
     
     - name: Upload Deepchecks Report to GitHub Pages

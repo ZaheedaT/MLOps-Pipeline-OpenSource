@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 sys.path.append(os.getcwd())
 
 
-class ModelValidation():
+class ModelValidation:
     def __init__(self):
         pass
 
@@ -31,10 +31,10 @@ class ModelValidation():
         report_path = "deepchecks_report.html"
         result.save_as_html(report_path)
         if not result.passed():
-            print("Model validation failed! Check deepchecks_report.html", save_as_pickle=False)
+            print("Data validation failed! Check deepchecks_report.html", save_as_pickle=False)
             exit(1) 
         else:
-            print("Model validation passed!")
+            print("Data validation passed!")
         #assert result.passed(), "Validation failed! Check deepchecks_report.html"
 
 
