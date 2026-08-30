@@ -1,6 +1,7 @@
 import sys
 import os
 import pandas as pd
+import numpy as np
 from deepchecks.tabular import Dataset
 from deepchecks.tabular.suites import full_suite
 from deepchecks.tabular.suites import data_integrity
