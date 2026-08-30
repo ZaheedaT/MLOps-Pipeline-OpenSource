@@ -43,7 +43,7 @@ jobs:
       if: always()
       run: |
         mkdir -p gh-pages
-        mv deepchecks_report.html gh-pages/
+        mv index.html gh-pages/
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
