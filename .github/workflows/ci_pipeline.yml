@@ -29,9 +29,8 @@ jobs:
 
     - name: Patch Deepchecks for NumPy 2.x compatibility
       run: |
-        # Dynamically locate the file within your environment and fix np.Inf
-        DEEPCHECKS_FILE=$(python -c "import deepchecks.tabular.checks.model_evaluation.performance_bias as m; print(m.__file__)")
-        sed -i 's/np.Inf/np.inf/g' "$DEEPCHECKS_FILE"
+        # Find the performance_bias.py file across the python toolcache and replace np.Inf with np.inf
+        find /opt/hostedtoolcache/Python/ -name "performance_bias.py" -exec sed -i 's/np.Inf/np.inf/g' {} +
 
     - name: Run Model Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
       run: python ci_cd/validation.py
