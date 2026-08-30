@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r setup/requirements.txt
 
     - name: Run Model Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
       run: python ci_cd/validation.py
