@@ -42,7 +42,7 @@ jobs:
     - name: Upload Deepchecks Report to GitHub Pages
       if: always()
       run: |
-        mkdir -p gh-pages
+        mkdir -p ./gh-pages
         cp deepchecks_report.html ./gh-pages/index.html 
         #mv deepchecks_report.html gh-pages/
     

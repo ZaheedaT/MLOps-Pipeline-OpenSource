@@ -30,7 +30,7 @@ class ModelValidation:
         data_suite = data_integrity()
         result = data_suite.run(train_data, test_data)
         report_path = "deepchecks_report.html"
-        result.save_as_html(report_path)
+        result.save_as_html(report_path, as_widget=False, connected=False)
         if not result.passed():
             print("Data validation failed! Check deepchecks_report.html", save_as_pickle=False)
             exit(1) 
