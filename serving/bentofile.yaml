@@ -1,0 +1,32 @@
+service: "service:HouseService"
+name: house_service
+version: aqj4theyhcldlci4
+bentoml_version: 1.4.39
+labels:
+    owner: zahee
+    stage: dev
+include:
+  - "*.py"
+python_version: '3.10'
+python_requirements:
+  - bentoml==1.4.39
+  - deepchecks==0.19.1
+  - docker==7.2.0
+  - evidently==0.4.40
+  - feast==0.65.0
+  - mlflow==3.15.1
+  - numpy==2.0.2
+  - matplotlib==3.10.9
+  - pandas==2.3.3
+  - psycopg==3.3.4
+  - psycopg-pool==3.3.1
+  - psycopg2==2.9.12
+  - pytest==9.1.1
+  - scikit-learn==1.7.2
+  - scipy==1.15.3
+  - seaborn==0.13.2
+  - SQLAlchemy==2.0.52
+models:
+  - "house_price_model:latest"
+  - tag: "house_price_model:latest"
+    alias: "house_alias"
