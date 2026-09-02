@@ -1,3 +1,4 @@
+import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.empty import EmptyOperator
@@ -8,7 +9,7 @@ import logging
 
 #----------------------------------------------------------------------------------------------------------------------
 # ENV VARIABLES
-ROOT_PATH = os.environ["ROOT"]
+ROOT_PATH = os.environ["ROOT_PATH"]
 PYTHON_PATH = os.environ["PYTHON_PATH"]
 
 #----------------------------------------------------------------------------------------------------------------------

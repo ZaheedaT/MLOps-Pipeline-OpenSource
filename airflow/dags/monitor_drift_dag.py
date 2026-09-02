@@ -1,3 +1,4 @@
+import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.empty import EmptyOperator
@@ -8,9 +9,8 @@ import logging
 
 #----------------------------------------------------------------------------------------------------------------------
 # ENV VARIABLES
-ROOT_PATH = os.environ["ROOT"]
+ROOT_PATH = os.environ["ROOT_PATH"]
 PYTHON_PATH = os.environ["PYTHON_PATH"]
-
 #----------------------------------------------------------------------------------------------------------------------
 logging.basicConfig(   
     filename="app.log",
@@ -40,7 +40,7 @@ def retrain_model():
     result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     return "trigger_retrain"
 
-def deploy_model(script_path=ROOT_DIR):
+def deploy_model():
     script_path = os.path.join(ROOT_PATH,"/serving/service.py")
 
     # Serve the BentoML service with reload

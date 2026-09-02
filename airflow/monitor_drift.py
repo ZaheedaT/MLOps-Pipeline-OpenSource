@@ -9,9 +9,15 @@ from sqlalchemy import create_engine
 import logging
 from monitoring.evidently_monitoring import *
 
+#-------------------------------------------------------------------------
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+SCRIPT_PATH= os.path.join(ROOT_PATH, "/airflow/update_datastore.py")
+DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
 WORKSPACE = 'monitoring workspace'
 PROJECT = 'monitoring project'
+#-------------------------------------------------------------------------
 
 logging.basicConfig(   
     filename="app.log",

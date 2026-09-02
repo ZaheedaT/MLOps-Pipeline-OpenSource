@@ -32,7 +32,7 @@ class HouseService:
             writer = csv.DictWriter(file, fieldnames = fieldnames) 
             writer.writeheader() 
 
-    @bentoml.api
+    @bentoml.api # BentoML API Decorator , to receive new unseen Production data to then make predictions
     def predict(self, input_data:np.ndarray) -> np.ndarray:
         pred = self.model.predict(input_data)
         print(pred)

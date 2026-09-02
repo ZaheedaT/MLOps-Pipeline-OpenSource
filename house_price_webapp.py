@@ -5,7 +5,7 @@ import numpy as np
 import os
 import subprocess
 
-# Backend API Endpoints
+# Backend API Endpoints -------------------------------------------------
 BENTO_API_URL = "http://localhost:3000/predict"
 MONITORING_API_URL = "http://localhost:5001/monitor"
 TRAINING_TRIGGER_URL = "http://localhost:8000/"

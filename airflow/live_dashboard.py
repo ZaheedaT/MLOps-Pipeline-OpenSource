@@ -18,7 +18,14 @@ from evidently.collector.config import ReportConfig
 from evidently.collector.config import RowsCountTrigger
 
 
+#-------------------------------------------------------------------------
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+SCRIPT_PATH= os.path.join(ROOT_PATH, "/airflow/update_datastore.py")
+DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
+#-------------------------------------------------------------------------
+
 
 
 logging.basicConfig(   
@@ -39,6 +46,13 @@ COLLECTOR_TGT_ID = "house_ev_tgt"
 COLLECTOR_REG_ID = "house_ev_reg"
 COLLECTOR_TEST_ID = "house_ev_test"
 
+
+def get_db_connection():
+
+    engine = create_engine(DB_CONNECTION_STRING)
+    return engine
+
+
 class Dashboard():
     def __init__(self):
         self.monitoring = Monitoring(DataDriftReport())
@@ -49,18 +63,13 @@ class Dashboard():
         self.reference = None
         self.column_mapping = ColumnMapping()
         self.start_date = datetime.now() - timedelta(days=20)
-        
-    def get_db_connection(self):
 
-        engine = create_engine(DB_CONNECTION_STRING)
-        return engine
-    
     def get_reference_and_current_data(self):
         store = self.f_store.get_feature_store()
         features = self.f_store.get_historical_features()
         entity_df_ref = pd.DataFrame(features["house_id"])
         reference = self.f_store.get_online_features(store, entity_df_ref)
-        engine = self.get_db_connection()
+        engine = get_db_connection()
         entity_df_cur = pd.read_sql(str.format("select house_id, price from public.house_target_sql where event_timestamp >= '{0}'", self.start_date.strftime(r'%Y-%m-%d %H:%M:%S')), con=engine)
         current = self.f_store.get_online_features(store, pd.DataFrame(entity_df_cur["house_id"]))
         lr_model = self.house_model.load_model()        
@@ -110,7 +119,7 @@ class Dashboard():
         reg_rep_config = ReportConfig.from_report(reg_report)
 
 
-        #Data drfit test report
+        #Data Drift test report
         self.monitoring.set_strategy = DataDriftTestReport()
         print(self.monitoring.current_strategy)
         test_report = self.monitoring.execute_strategy(self.reference, current, self.ws)
@@ -120,7 +129,12 @@ class Dashboard():
         return rep_config, qual_rep_config, target_rep_config, reg_rep_config, test_rep_config
 
     def create_live_dashboard(self, project: evidently.ui.base.Project):
-         #Create dashboard panels
+        """
+        Inputs:
+            project: An Evidently UI Project.
+        A function that creates dashboard panels in Evidently
+        """
+
         self.monitoring.add_dashboard_panel(
             project, panel_type="Counter", 
             title = "House price Monitoring dashboard",
@@ -285,8 +299,8 @@ class Dashboard():
         self.client.send_data(COLLECTOR_TEST_ID, current)
 
 if __name__ == "__main__":
-    print("EDWIN STUFF live_dashboard.py")
-    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback/") #BETTER TO USE ENV VARIABLE
+
+    os.chdir(ROOT_PATH)
     dashboard = Dashboard()
     if not os.path.exists(os.path.join(os.getcwd(), WORKSPACE)) or \
         len(Workspace.create(os.path.join(os.getcwd(), WORKSPACE)).search_project(PROJECT)) == 0:

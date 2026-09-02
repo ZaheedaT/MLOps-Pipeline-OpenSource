@@ -24,4 +24,4 @@ offline_store:
     db_schema: public
     user: postgres
     password: '73200'
-entity_key_serialization_version: 2
+entity_key_serialization_version: 3

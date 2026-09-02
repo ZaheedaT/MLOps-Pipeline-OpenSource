@@ -1,0 +1,9 @@
+{
+  "check_interval": 1,
+  "collectors": {},
+  "storage": {
+    "type": "evidently:collector_storage:InMemoryStorage",
+    "max_log_events": 10
+  },
+  "autosave": true
+}

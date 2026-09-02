@@ -8,8 +8,13 @@ import logging
 sys.path.append(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+#-------------------------------------------------------------------------
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
-
+ROOT_PATH = os.environ["ROOT"]
+PYTHON_PATH = os.environ["PYTHON_PATH"]
+SCRIPT_PATH= os.path.join(ROOT_PATH, "/airflow/update_datastore.py")
+DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
+#-------------------------------------------------------------------------
 
 from feature_store.exec_feature_store import ExecuteFeatureStore
 from model.house_model import HouseModel
@@ -26,8 +31,9 @@ logging.basicConfig(
 )
 
 
-class TrainModel():
+class TrainModel:
     def __init__(self):
+        self.params = None
         self.f_store = ExecuteFeatureStore()
         self.house_model = HouseModel()
 
@@ -92,12 +98,12 @@ class TrainModel():
 
 if __name__ == "__main__":
 
-    os.chdir("/mnt/c/Users/zahee/coding/mlops-feedback")
-    t = TrainModel()
-    X_hist = t.get_current_features()
-    X_new = t.predict_new_data()
-    t.create_and_train_new_dataset_with_target(X_hist, X_new)
-    m_info = t.register_model()
-    t.serve_model(m_info)
+    os.chdir(ROOT_PATH)
+    trainer = TrainModel()
+    X_hist = trainer.get_current_features()
+    X_new = trainer.predict_new_data()
+    trainer.create_and_train_new_dataset_with_target(X_hist, X_new)
+    m_info = trainer.register_model()
+    trainer.serve_model(m_info)
     logging.info("Model trained and registered")
 
