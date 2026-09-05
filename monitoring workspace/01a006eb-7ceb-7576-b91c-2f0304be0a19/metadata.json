@@ -386,6 +386,197 @@
         "test_filters": [],
         "panel_type": "detailed",
         "time_agg": "1H"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "01a06e69-0c87-79a8-acad-1988d7a8997a",
+        "title": "House price Monitoring dashboard",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 2,
+        "agg": "none",
+        "value": {
+          "field_path": "",
+          "metric_id": null,
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": ""
+        },
+        "text": ""
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "01a06e69-0dd2-7d67-9c74-ebef641e0623",
+        "title": "Number of columns",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "number_of_columns",
+          "metric_id": "DatasetDriftMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": ""
+        },
+        "text": ""
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "01a06e69-1861-7fae-a02d-0ec628549a28",
+        "title": "Number of drifted columns",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "number_of_drifted_columns",
+          "metric_id": "DatasetDriftMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": ""
+        },
+        "text": ""
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "01a06e69-1862-740d-b564-b161244626b8",
+        "title": "Target column drift score",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "drift_score",
+          "metric_id": "ColumnDriftMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": ""
+        },
+        "text": ""
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelCounter",
+        "id": "01a06e69-1863-7a0a-8556-569d120904f2",
+        "title": "Number of missing values - Current",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "agg": "last",
+        "value": {
+          "field_path": "current.number_of_missing_values",
+          "metric_id": "DatasetMissingValuesMetric",
+          "metric_fingerprint": null,
+          "metric_args": {},
+          "legend": "Current - missing values"
+        },
+        "text": ""
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "01a06e69-1da6-7089-89f8-a52d723d7706",
+        "title": "Share of drifted columns",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "share_of_drifted_columns",
+            "metric_id": "DatasetDriftMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "share"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "01a06e69-23c3-7e96-a1ac-feaa395aa0b6",
+        "title": "R2 score - Current vs Reference",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.r2_score",
+            "metric_id": "RegressionQualityMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "R2 Current"
+          },
+          {
+            "field_path": "reference.r2_score",
+            "metric_id": "RegressionQualityMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "Reference R2"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelPlot",
+        "id": "01a06e69-29fd-7d0d-be38-f4d6c22ec4d6",
+        "title": "MAE score - Current vs Reference",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": false
+        },
+        "size": 1,
+        "values": [
+          {
+            "field_path": "current.mean_abs_error",
+            "metric_id": "RegressionQualityMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "MAE"
+          },
+          {
+            "field_path": "reference.mean_abs_error",
+            "metric_id": "RegressionQualityMetric",
+            "metric_fingerprint": null,
+            "metric_args": {},
+            "legend": "Reference MAE"
+          }
+        ],
+        "plot_type": "line"
+      },
+      {
+        "type": "evidently:dashboard_panel:DashboardPanelTestSuite",
+        "id": "01a06e69-3091-710a-bf20-7b4cc7483371",
+        "title": "All tests: detailed",
+        "filter": {
+          "metadata_values": {},
+          "tag_values": [],
+          "include_test_suites": true
+        },
+        "size": 2,
+        "test_filters": [],
+        "panel_type": "detailed",
+        "time_agg": "1H"
       }
     ],
     "tabs": [],

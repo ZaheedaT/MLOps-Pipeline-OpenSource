@@ -22,7 +22,7 @@ logging.basicConfig(
     force=True
 )
 
-class UpdateDataStore():
+class UpdateDataStore:
     def __init__(self):       
         self.f_store = ExecuteFeatureStore()      
         #self.features = None
@@ -66,10 +66,12 @@ class UpdateDataStore():
 
             end_date = df.loc[df["event_timestamp"].idxmax()]["event_timestamp"]
             self.f_store.materialize(start_date=self.start_date , end_date = self.end_date)
-            logging.info("Feedback data pushed to online feature store successfully!") 
-        except Exception as e:   
-            logging.error(e)
-        
+            logging.info("Feedback data pushed to online feature store successfully!")
+
+
+        except Exception as e:
+            logging.exception("Failed to update datastore")
+            raise
      
     
 if __name__ == "__main__":

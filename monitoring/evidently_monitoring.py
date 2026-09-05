@@ -89,9 +89,9 @@ class Monitoring:
     @property
     def current_strategy(self):
         return self._strategy
-        
+
     @current_strategy.setter
-    def set_strategy(self, strategy: DataDriftReport):
+    def current_strategy(self, strategy):
         self._strategy = strategy
 
     def execute_strategy(self, reference: pd.DataFrame, current: pd.DataFrame, workspace: WorkspaceBase = None, column_mapping : ColumnMapping = None):

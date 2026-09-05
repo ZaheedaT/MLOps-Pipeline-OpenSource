@@ -23,7 +23,7 @@ logging.basicConfig(
 )
 
 def monitor_drift( ):
-    script_path = os.path.join(ROOT_PATH, "/airflow/monitor_drift.py")
+    script_path = os.path.join(ROOT_PATH, "airflow","monitor_drift.py")
 
     # Run the command using a list
     result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
@@ -34,14 +34,14 @@ def monitor_drift( ):
         return "no_retrain"
     
 def retrain_model():
-    script_path = os.path.join(ROOT_PATH,"/airflow/train_model.py")
+    script_path = os.path.join(ROOT_PATH,"airflow","train_model.py")
 
     # Run the command using a list
     result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     return "trigger_retrain"
 
 def deploy_model():
-    script_path = os.path.join(ROOT_PATH,"/serving/service.py")
+    script_path = os.path.join(ROOT_PATH,"serving","service.py")
 
     # Serve the BentoML service with reload
     subprocess.run(["bentoml", "serve", script_path, "--reload"])
@@ -82,5 +82,5 @@ with DAG(
     )
 
 
-#check_drift_task >> [retrain_task, no_retrain_task]
-#retrain_task >> deploy_model_task
+check_drift_task >> [retrain_task, no_retrain_task]
+retrain_task >> deploy_model_task

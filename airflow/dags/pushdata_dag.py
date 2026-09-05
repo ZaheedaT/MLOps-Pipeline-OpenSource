@@ -25,7 +25,7 @@ logging.basicConfig(
 )
 
 def check_data_push():
-    script_path = os.path.join(ROOT_PATH,"/airflow/update_datastore.py")
+    script_path = os.path.join(ROOT_PATH,"airflow","update_datastore.py")
     result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     
     if result.stdout.endswith("Data pushed successfully\n"):
@@ -38,7 +38,7 @@ def check_data_push():
 def update_live_dashboard():
     print("FIX THESE DAMN PATHS - pushdata-dag")
 
-    script_path = os.path.join(ROOT_PATH,"/airflow/live_dashboard.py")
+    script_path = os.path.join(ROOT_PATH,"airflow", "live_dashboard.py")
     result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
     
 
@@ -61,7 +61,7 @@ with DAG(
     catchup=False,
 ) as dag:
     check_drift_task = BranchPythonOperator(
-        task_id='push_feedbac_data',
+        task_id='push_feedback_data',
         python_callable=check_data_push
     )
     update_dashboard_task = PythonOperator(
@@ -72,4 +72,4 @@ with DAG(
         task_id='no_update'
     )
 
-#check_drift_task >> [update_dashboard_task, no_update_task]
+check_drift_task >> [update_dashboard_task, no_update_task]

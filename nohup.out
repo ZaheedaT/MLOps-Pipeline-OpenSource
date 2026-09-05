@@ -1,0 +1,9 @@
+INFO:     Started server process [225064]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8002 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [225064]
+Anonimous usage reporting is enabled. To disable it, set env variable DO_NOT_TRACK to any value
