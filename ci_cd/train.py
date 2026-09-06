@@ -8,6 +8,15 @@ sys.path.append(os.getcwd())
 from model.house_model import HouseModel
 from serving.model_serving import BentoModel
 
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
 
 class TrainModel():
     def __init__(self):
@@ -69,7 +78,7 @@ if __name__ == "__main__":
     model_info = t.house_model.register()
 
     logger.info(f"MLflow model registered: {model_info.model_uri}")
-    print(f"MLflow model registered: {model_info.model_uri}")
+
 
     # Import registered model into BentoML
     bento_model = BentoModel()
@@ -77,7 +86,7 @@ if __name__ == "__main__":
         "house_price_model",
         model_info.model_uri
     )
-    
+
     logger.info(f"Bento model imported: {bento_model_name}")
-    print(f"BentoML model imported: {bento_model_name}")
+  
 
