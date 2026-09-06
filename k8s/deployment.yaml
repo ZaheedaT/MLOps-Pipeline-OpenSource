@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: house-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: house-service
+  template:
+    metadata:
+      labels:
+        app: house-service
+    spec:
+      containers:
+        - name: house-service
+          image: house_service:soibhnvj7sghakye
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 10

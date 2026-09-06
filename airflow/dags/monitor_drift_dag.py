@@ -22,16 +22,40 @@ logging.basicConfig(
     force=True
 )
 
-def monitor_drift( ):
-    script_path = os.path.join(ROOT_PATH, "airflow","monitor_drift.py")
+def monitor_drift():
+    script_path = os.path.join(
+        ROOT_PATH,
+        "airflow",
+        "monitor_drift.py"
+    )
 
-    # Run the command using a list
-    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
+    result = subprocess.run(
+        [PYTHON_PATH, script_path],
+        capture_output=True,
+        text=True
+    )
 
-    if result.stdout.endswith("Data drift detected! Retraining required.\n"):
+    print("========== MONITOR STDOUT ==========")
+    print(result.stdout)
+
+    print("========== MONITOR STDERR ==========")
+    print(result.stderr)
+
+    print("========== RETURN CODE ==========")
+    print(result.returncode)
+
+    if result.returncode == 1:
+        print("DRIFT DETECTED -> RETRAIN")
         return "trigger_retrain"
-    else:
+
+    elif result.returncode == 0:
+        print("NO DRIFT -> NO RETRAIN")
         return "no_retrain"
+
+    else:
+        raise AirflowException(
+            f"monitor_drift.py failed with exit code {result.returncode}"
+        )
     
 def retrain_model():
     script_path = os.path.join(ROOT_PATH,"airflow","train_model.py")
@@ -44,8 +68,12 @@ def deploy_model():
     script_path = os.path.join(ROOT_PATH,"serving","service.py")
 
     # Serve the BentoML service with reload
-    subprocess.run(["bentoml", "serve", script_path, "--reload"])
-    
+    #subprocess.run(["bentoml", "serve", script_path, "--reload"])
+    subprocess.Popen(
+        ["bentoml", "serve", script_path, "--reload"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
 
 # Define the DAG
 default_args = {

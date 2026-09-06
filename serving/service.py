@@ -23,7 +23,8 @@ from itertools import starmap
     }
 })
 class HouseService:
-    bento_model = bentoml.models.get("house_price_model:latest")
+    bento_model = bentoml.models.BentoModel("house_price_model:latest")
+    #bento_model = bentoml.models.get("house_price_model:latest")
 
     def __init__(self):
         self.model = self.bento_model.load_model()

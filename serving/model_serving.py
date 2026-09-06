@@ -48,7 +48,8 @@ class BentoModel:
     def get_model(self, model_name=None):
         if model_name is None:
             model_name = self.model_name
-        bento_model = bentoml.models.get(model_name)
+        #bento_model = bentoml.models.get(model_name)
+        bento_model = bentoml.models.BentoModel(model_name)
         runner = bento_model.to_runner()
         runner.init_local()
         return runner
