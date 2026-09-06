@@ -52,6 +52,18 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./gh-pages
 
+    - name: Start MLflow
+      run: |
+        mlflow server \
+          --host 127.0.0.1 \
+          --port 5000 \
+          > mlflow.log 2>&1 &
+        sleep 10
+
+    - name: Check MLflow
+      run: |
+        curl http://127.0.0.1:5000
+
     - name: Train model
       run: |  
         python ci_cd/train.py
