@@ -16,7 +16,7 @@ class HouseModel:
         self.grid_search = None
 
     # Custom scorer for MSE
-    def mse_scorer(y_true, y_pred):
+    def mse_scorer(self, y_true, y_pred):
         return mean_squared_error(y_true, y_pred)
     
     def train_model(self, features, target, test_size=0.25):
