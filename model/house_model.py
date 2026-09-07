@@ -30,7 +30,7 @@ class HouseModel:
         self.grid_search = GridSearchCV(
             estimator=model,
             param_grid=params,
-            scoring=make_scorer(self.mse_scorer, greater_is_better=False),  # Negative MSE
+            scoring="neg_mean_squared_error",  # Negative MSE
             cv=5,   
             return_train_score=True
         )
