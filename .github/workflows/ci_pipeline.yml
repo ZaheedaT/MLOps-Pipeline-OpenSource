@@ -17,60 +17,112 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    # --------------------------------------------------
+    # 1. Checkout
+    # --------------------------------------------------
     - name: Checkout code
-      uses: actions/checkout@v4 #Use updated version instead
+      uses: actions/checkout@v4 #Uses updated version instead
 
+    # --------------------------------------------------
+    # 2. Setup Python
+    # --------------------------------------------------
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.12'
+        python-version: "3.10"
+        cache: "pip"  #This means GitHub Actions can reuse your dependency cache between runs instead of reinstalling everything unnecessarily.
+        cache-dependency-path: setup/requirements.txt
 
+    # --------------------------------------------------
+    # 3. Install dependencies
+    # --------------------------------------------------
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r setup/requirements.txt
         pip install pkg-resources-backport
 
+    # --------------------------------------------------
+    # 4. Patch Deepchecks
+    # --------------------------------------------------
     - name: Patch Deepchecks for NumPy 2.x compatibility
       run: |
         # Find the performance_bias.py file across the python toolcache and replace np.Inf with np.inf
-        find /opt/hostedtoolcache/Python/ -name "performance_bias.py" -exec sed -i 's/np.Inf/np.inf/g' {} +
+        find "$pythonLocation" -name "performance_bias.py" -exec sed -i 's/np.Inf/np.inf/g' {} +
 
-    - name: Run Model Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
-      run: python ci_cd/validation.py
-    
-    - name: Upload Deepchecks Report to GitHub Pages
-      if: always()
-      run: |
-        mkdir -p ./gh-pages
-        cp deepchecks_report.html ./gh-pages/index.html 
-        #mv deepchecks_report.html gh-pages/
-    
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./gh-pages
-
+    # --------------------------------------------------
+    # 5. Start MLflow
+    # --------------------------------------------------
     - name: Start MLflow
       run: |
         mlflow server \
           --host 127.0.0.1 \
           --port 5000 \
           > mlflow.log 2>&1 &
+        
         sleep 10
-
+    # --------------------------------------------------
+    # 6. Check MLflow
+    # --------------------------------------------------
     - name: Check MLflow
       run: |
-        curl http://127.0.0.1:5000
+        curl --fail http://127.0.0.1:5000
 
+    # --------------------------------------------------
+    # 7. Train model
+    # --------------------------------------------------
     - name: Train model
-      run: |  
+      run: |
         python ci_cd/train.py
 
-    - name: Save the trained model
+    # --------------------------------------------------
+    # 8. Validate model
+    # --------------------------------------------------
+    - name: Run Data Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
+      run: |
+        python ci_cd/validation.py
+
+    # --------------------------------------------------
+    # 9. Upload Deepchecks report
+    # --------------------------------------------------
+    - name: Prepare Deepchecks Report
+      if: always()
+      run: |
+        mkdir -p ./gh-pages
+        
+        if [ -f deepchecks_report.html ]; then
+          cp deepchecks_report.html ./gh-pages/index.html
+        else
+          echo "Deepchecks report was not generated."
+        fi
+
+    # --------------------------------------------------
+    # 10. Deploy report to GitHub Pages
+    # --------------------------------------------------
+    - name: Deploy to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./gh-pages
+
+    # --------------------------------------------------
+    # 11. Save trained model
+    # --------------------------------------------------
+    - name: Save trained model
       uses: actions/upload-artifact@v4
       with:
         name: trained-model
         path: model/house_regression_model.pkl
+
+    # --------------------------------------------------
+    # 12. Upload MLflow log (if something goes wrong)
+    # --------------------------------------------------
+    - name: Upload MLflow log
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: mlflow-log
+        path: mlflow.log
+        if-no-files-found: ignore
          
