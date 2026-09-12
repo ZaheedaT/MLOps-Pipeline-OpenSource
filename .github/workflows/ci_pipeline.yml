@@ -64,9 +64,17 @@ jobs:
     # --------------------------------------------------
     # 6. Check MLflow
     # --------------------------------------------------
-    - name: Check MLflow
+    - name: Check MLflow Server
       run: |
-        curl --fail http://127.0.0.1:5000
+        echo "Waiting for server to start on port 5000..."
+        timeout 60s bash -c '
+          until curl -s http://127.0.0.1:5000 > /dev/null; do
+            echo "Server not ready yet, sleeping 3 seconds..."
+            sleep 3
+          done
+        '
+        echo "Server is up and running!"
+
 
     # --------------------------------------------------
     # 7. Data Validation

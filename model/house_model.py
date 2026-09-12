@@ -61,13 +61,22 @@ class HouseModel:
 
     # Load model
     def load_model(self):
-        with open("model/house_regression_model.pkl", "rb") as f:
-            loaded_obj = pickle.load(f)
+        # Check if the file exists before trying to open it
+        if not os.path.exists("model/house_regression_model.pkl"):
+            print("No saved model found on disk.")
+            return None
 
-        # If it's the full grid search, return just the underlying model for predictions
-        if isinstance(loaded_obj, GridSearchCV):
-            return loaded_obj.best_estimator_
-        return loaded_obj
+        try:
+            with open("model/house_regression_model.pkl", "rb") as f:
+                loaded_obj = pickle.load(f)
+
+            if isinstance(loaded_obj, GridSearchCV):
+                return loaded_obj.best_estimator_
+            return loaded_obj
+        except (AttributeError, KeyError, ImportError) as e:
+            # If scikit-learn version differences corrupt the pickle, catch it safely
+            print(f"Failed to load model due to version mismatch or corruption: {e}")
+            return None
 
     def predict(self, data):
         model = self.load_model()
