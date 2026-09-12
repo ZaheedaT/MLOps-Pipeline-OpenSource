@@ -75,6 +75,6 @@ class ModelValidation:
         return features, target
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     #validation = ModelValidation()
     #validation.validate()
