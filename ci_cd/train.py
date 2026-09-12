@@ -23,15 +23,22 @@ class TrainModel():
         self.house_model = HouseModel()
 
     def get_current_features(self):
-        features_path = "/feature_store/data/house_features.parquet"
-        target_path = "/feature_store/data/house_target.parquet"
-        X_hist = pd.read_parquet(os.getcwd() + features_path, columns=["area", "mainroad", "bedrooms"])
-        Y_hist = pd.read_parquet(os.getcwd() + target_path, columns=["price"])
+        features_path = os.path.join(
+            os.getcwd(), "feature_store", "data", "house_features.parquet"
+        )
+        target_path = os.path.join(
+            os.getcwd(), "feature_store", "data", "house_target.parquet"
+        )
+
+        X_hist = pd.read_parquet(features_path, columns=["area", "mainroad", "bedrooms"])
+        Y_hist = pd.read_parquet(target_path, columns=["price"])
+
         X_hist["price"] = Y_hist["price"]
+
         return X_hist
 
     def predict_new_data(self):
-        path = os.getcwd() + "//serving//feedback.csv"
+        path = os.path.join(os.getcwd(), "serving", "feedback.csv")
         #path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.path.pardir)), "serving/feedback.csv")
         X_new = pd.read_csv(path)
         X_new.drop(["event_timestamp", "prediction"], axis=1, inplace=True)
@@ -72,21 +79,3 @@ if __name__ == "__main__":
     X_new = t.predict_new_data()
 
     t.create_and_train_new_dataset_with_target(X_hist, X_new)
-
-    # Register trained model with MLflow
-    t.house_model.configure_mlflow()
-    model_info = t.house_model.register()
-
-    logger.info(f"MLflow model registered: {model_info.model_uri}")
-
-
-    # Import registered model into BentoML
-    bento_model = BentoModel()
-    bento_model_name = bento_model.import_model(
-        "house_price_model",
-        model_info.model_uri
-    )
-
-    logger.info(f"Bento model imported: {bento_model_name}")
-  
-

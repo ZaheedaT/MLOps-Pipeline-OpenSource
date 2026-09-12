@@ -1,0 +1,46 @@
+name: MLOps CD
+
+on:
+  workflow_run:
+    workflows: ["MLOps CI"]
+    types:
+      - completed
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-push:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+        aws-region: ${{ vars.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+
+    - name: Build Docker image
+      run: |
+        docker build -t house-price-model:${{ github.sha }} .
+
+    - name: Tag Docker image
+      run: |
+        docker tag \
+          house-price-model:${{ github.sha }} \
+          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+
+    - name: Push Docker image
+      run: |
+        docker push \
+          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}

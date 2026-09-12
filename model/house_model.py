@@ -1,3 +1,4 @@
+import os
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, make_scorer, r2_score
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -8,7 +9,12 @@ from mlflow.models import infer_signature
 from mlflow.sklearn import log_model
 
 EXPERIMENT_NAME = "House price prediction"
-EXPERIMENT_URI = "http://localhost:5000"
+EXPERIMENT_URI = os.getenv(
+    "MLFLOW_TRACKING_URI",
+    "http://127.0.0.1:5000"
+
+)
+
 
 class HouseModel:
     def __init__(self):

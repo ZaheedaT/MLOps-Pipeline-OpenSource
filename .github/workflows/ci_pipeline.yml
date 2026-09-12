@@ -69,21 +69,35 @@ jobs:
         curl --fail http://127.0.0.1:5000
 
     # --------------------------------------------------
-    # 7. Train model
+    # 7. Data Validation
+    # --------------------------------------------------
+    - name: Run Data Validation (Deepchecks)
+      run: |
+        python ci_cd/validation.py
+
+    # --------------------------------------------------
+    # 8. Train model
     # --------------------------------------------------
     - name: Train model
       run: |
         python ci_cd/train.py
 
     # --------------------------------------------------
-    # 8. Validate model
+    # 9. Model Validation
     # --------------------------------------------------
-    - name: Run Data Validation (Deepchecks) # Could use Evidently AI, Great Expectations or DeepChecks
+    - name: Validate trained model
       run: |
-        python ci_cd/validation.py
+        python ci_cd/model_validation.py
 
     # --------------------------------------------------
-    # 9. Upload Deepchecks report
+    # 10. Register model + Import into BentoML
+    # --------------------------------------------------
+    - name: Register and package model
+      run: |
+        python ci_cd/register_model.py
+
+    # --------------------------------------------------
+    # 11. Upload Deepchecks report
     # --------------------------------------------------
     - name: Prepare Deepchecks Report
       if: always()
@@ -97,7 +111,7 @@ jobs:
         fi
 
     # --------------------------------------------------
-    # 10. Deploy report to GitHub Pages
+    # 12. Deploy report to GitHub Pages
     # --------------------------------------------------
     - name: Deploy to GitHub Pages
       if: always()
@@ -107,7 +121,7 @@ jobs:
         publish_dir: ./gh-pages
 
     # --------------------------------------------------
-    # 11. Save trained model
+    # 13. Save trained model
     # --------------------------------------------------
     - name: Save trained model
       uses: actions/upload-artifact@v4
@@ -116,7 +130,7 @@ jobs:
         path: model/house_regression_model.pkl
 
     # --------------------------------------------------
-    # 12. Upload MLflow log (if something goes wrong)
+    # 14. Upload MLflow log (if something goes wrong)
     # --------------------------------------------------
     - name: Upload MLflow log
       if: always()
