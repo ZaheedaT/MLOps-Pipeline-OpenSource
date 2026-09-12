@@ -43,20 +43,34 @@ class TrainModel():
         X_new = pd.read_csv(path)
         X_new.drop(["event_timestamp", "prediction"], axis=1, inplace=True)
         lr_model = self.house_model.load_model()
+
+        # FIX 1: If no model exists yet, return None gracefully instead of crashing
+        if lr_model is None:
+            logger.warning("Cold Start Detected: No pre-existing model found to generate proxy targets.")
+            return None
+
         X_new = X_new[lr_model.feature_names_in_]
         Y_new = self.house_model.predict(X_new)
         X_new["proxy_target"] = Y_new
         return X_new  
 
-    def create_and_train_new_dataset_with_target(self, X_hist, X_new):  
-        new_data_combined = X_new.copy()
-        new_data_combined["price"] = new_data_combined["proxy_target"]      
-        historical_data_combined = X_hist.copy()
-        combined_data = pd.concat([historical_data_combined, new_data_combined], ignore_index=True)
-        X_combined = combined_data.drop(columns=["price", "proxy_target"])
-        y_combined = combined_data["price"]
-        print(combined_data)
-        #self.train_model(X_combined, y_combined)
+    def create_and_train_new_dataset_with_target(self, X_hist, X_new):
+
+        # FIX 2: If X_new is None, train exclusively on historical data to build the initial model
+        if X_new is None:
+            logger.info("Training initial model using historical data only...")
+            X_combined = X_hist.drop(columns=["price"])
+            y_combined = X_hist["price"]
+        else:
+            logger.info("Combining historical data with feedback data...")
+            new_data_combined = X_new.copy()
+            new_data_combined["price"] = new_data_combined["proxy_target"]
+            historical_data_combined = X_hist.copy()
+            combined_data = pd.concat([historical_data_combined, new_data_combined], ignore_index=True)
+            X_combined = combined_data.drop(columns=["price", "proxy_target"])
+            y_combined = combined_data["price"]
+            print(combined_data)
+            
         self.house_model.train_model(X_combined, y_combined, test_size=0.1)
         print("Model re-trained and saved as model.pkl")
 
