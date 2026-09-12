@@ -46,17 +46,29 @@ class HouseModel:
 
         # Save the trained model
         with open("model/house_regression_model.pkl", "wb") as f:
-            pickle.dump(self.grid_search.best_estimator_, f)
+            # Save the whole grid search wrapper so cv_results_ is preserved
+            pickle.dump(self.grid_search, f)
+        # ADD THIS: Save the data split so register_model.py can find it later
+        with open("model/dataset_splits.pkl", "wb") as f:
+            pickle.dump({
+                "x_train": self.x_train,
+                "x_test": self.x_test,
+                "y_train": self.y_train,
+                "y_test": self.y_test
+            }, f)
+            #pickle.dump(self.grid_search.best_estimator_, f)
         print("Model trained and saved as model.pkl")
 
-    # Load model 
+    # Load model
     def load_model(self):
-        #self.model = None
-        # Load the saved model
         with open("model/house_regression_model.pkl", "rb") as f:
-            model = pickle.load(f)
-        return model
-        
+            loaded_obj = pickle.load(f)
+
+        # If it's the full grid search, return just the underlying model for predictions
+        if isinstance(loaded_obj, GridSearchCV):
+            return loaded_obj.best_estimator_
+        return loaded_obj
+
     def predict(self, data):
         model = self.load_model()
         # Test data (sample input for prediction)
@@ -65,10 +77,10 @@ class HouseModel:
         #print(f"Prediction for {test_data}: {int(prediction[0])}")
         return prediction
 
-    def metrics(self, y_pred):
-        rmse = mean_squared_error(self.y_test, y_pred)
-        mae = mean_absolute_error(self.y_test, y_pred)
-        r2 = r2_score(self.y_test, y_pred)
+    def metrics(self, y_true, y_pred):
+        rmse = mean_squared_error(y_true, y_pred)
+        mae = mean_absolute_error(y_true, y_pred)
+        r2 = r2_score(y_true, y_pred)
         metric_dict = {
             "rmse": rmse,
             "mae": mae,
@@ -111,7 +123,7 @@ class HouseModel:
                 y_pred = model.predict(self.x_test)
 
                 #New code
-                custom_metrics = self.metrics(y_pred)
+                custom_metrics = self.metrics(self.y_test, y_pred)
                 for metric_name, metric_value in custom_metrics.items():
                     mlflow.log_metric(metric_name, metric_value, step=0)
 
@@ -121,7 +133,27 @@ class HouseModel:
 
                 print(f"Logged run with params: {params},  {mean_test_score:.4f}, std_test_score: {std_test_score:.4f}")
  
-    def register(self):
+
+    def register(self):  # FIX: Accept original features & target
+        if self.grid_search is None:
+            with open("model/house_regression_model.pkl", "rb") as f:
+                saved_obj = pickle.load(f)
+
+                if isinstance(saved_obj, GridSearchCV):
+                    self.grid_search = saved_obj
+                else:
+                    raise ValueError("Pickle file only contains the best_estimator, cannot log gridsearch history!")
+
+        # Re-split data to reconstruct train/test arrays matching the execution
+        #x_train, x_test, y_train, y_test = train_test_split(features, target, test_size=test_size)
+        # 2. Reload the saved data splits directly back into the class fields
+        if self.x_test is None:
+            with open("model/dataset_splits.pkl", "rb") as f:
+                splits = pickle.load(f)
+                self.x_train = splits["x_train"]
+                self.x_test = splits["x_test"]
+                self.y_train = splits["y_train"]
+                self.y_test = splits["y_test"]
         with mlflow.start_run(run_name="LinearReg_GridSearch_Best", log_system_metrics=True) as run:
             # Log the best parameters and metrics
             best_params = self.grid_search.best_params_
@@ -130,7 +162,7 @@ class HouseModel:
             mlflow.log_metric("best_mean_cv_score", best_score, step=0)
 
             y_pred = self.predict(self.x_test)
-            parent_metrics = self.metrics(y_pred)
+            parent_metrics = self.metrics(self.y_test, y_pred)
             for k, v in parent_metrics.items():
                 mlflow.log_metric(k, v, step=0)
 
@@ -138,9 +170,6 @@ class HouseModel:
 
             #Define signature
             signature = infer_signature(np.array(self.x_train), np.array(self.predict(self.x_test)))
-
-            # Log all runs for each parameter combination
-            #self.log_gridsearch()
 
             #Log and Register best model
             model_info = log_model(
