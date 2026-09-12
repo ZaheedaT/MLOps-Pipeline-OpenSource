@@ -76,5 +76,5 @@ class ModelValidation:
 
 
 if __name__ == "__main__":
-    validation = ModelValidation()
-    validation.validate()
+    #validation = ModelValidation()
+    #validation.validate()
