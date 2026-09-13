@@ -70,7 +70,7 @@ class TrainModel():
             X_combined = combined_data.drop(columns=["price", "proxy_target"])
             y_combined = combined_data["price"]
             print(combined_data)
-            
+
         self.house_model.train_model(X_combined, y_combined, test_size=0.1)
         print("Model re-trained and saved as model.pkl")
 
