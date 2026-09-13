@@ -42,6 +42,28 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
+
+    - name: Inspect Docker build context
+      run: |
+        echo "Current directory:"
+        pwd
+        
+        echo ""
+        echo "Files:"
+        ls -la
+        
+        echo ""
+        echo "Dockerfiles:"
+        find . -name "Dockerfile" -o -name "*.dockerfile"
+        
+        echo ""
+        echo ".go-version:"
+        if [ -f .go-version ]; then
+          cat .go-version
+        else
+          echo ".go-version NOT FOUND"
+        fi
+
     - name: Build Docker image
       run: |
         docker build -t house-price-model:${{ github.sha }} .
