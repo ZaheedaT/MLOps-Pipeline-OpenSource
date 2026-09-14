@@ -101,7 +101,8 @@ jobs:
 
     - name: Import BentoML model
       run: |
-        bentoml models import ./house_price_model.bentomodel
+        bentoml models import ${{ github.workspace }}/house_price_model.bentomodel
+
 
     - name: Build Bento
       run: |
