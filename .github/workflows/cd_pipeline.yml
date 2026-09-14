@@ -89,7 +89,7 @@ jobs:
 
     - name: Install BentoML
       run: |
-        pip install bentoml==1.4.39
+        pip install bentoml==1.4.39 pandas scikit-learn
 
     - name: Download BentoML model
       uses: actions/download-artifact@v5
