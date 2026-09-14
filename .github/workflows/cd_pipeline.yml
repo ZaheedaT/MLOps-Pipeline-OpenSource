@@ -106,7 +106,7 @@ jobs:
 
     - name: Build Bento
       run: |
-        bentoml build serving/bentofile.yaml
+        bentoml build serving/
 
 
     - name: Containerize Bento
