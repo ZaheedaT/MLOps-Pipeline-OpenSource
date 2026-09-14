@@ -104,30 +104,25 @@ jobs:
         bentoml models import ${{ github.workspace }}/house_price_model.bentomodel
 
 
-    - name: Build Bento
+    - name: Build Bento and Extract Exact Tag
       run: |
-        bentoml build serving/
+        # 1. Build and force BentoML to return only the raw string of the exact version tag
+        EXACT_TAG=$(bentoml build serving/ --output tag)
+        
+        # 2. Save this exact string directly to the runner environment
+        echo "BENTO_VERSION=$EXACT_TAG" >> "$GITHUB_ENV"
+        echo "Targeting exact version tag: $EXACT_TAG"
 
-
-    - name: Containerize Bento
+    - name: Containerize Exact Bento Version
       run: |
-        bentoml containerize "${{ steps.bento.outputs.tag }}"
-
-    - name: Get Bento tag
-      run: |
-        BENTO_TAG=$(bentoml list house_service --output json | python -c "import sys,json; data=json.load(sys.stdin); print(data[0]['tag'])")
-        echo "tag=$BENTO_TAG" >> "$GITHUB_OUTPUT"
-        echo "Bento tag: $BENTO_TAG"
-  
-
-    - name: Containerize Bento
-      run: |
-        bentoml containerize house_service:latest
+        # 3. Use the exact dynamic tag instead of an empty workflow id string
+        bentoml containerize "$BENTO_VERSION"
 
     - name: Tag BentoML Docker image
       run: |
+        # 4. Reference the exact versioned local container image instead of generic ":latest"
         docker tag \
-          house_service:latest \
+          "$BENTO_VERSION" \
           ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
 
     - name: Push Docker image
