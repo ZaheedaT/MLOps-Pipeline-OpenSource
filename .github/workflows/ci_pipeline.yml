@@ -103,7 +103,17 @@ jobs:
     - name: Register and package model
       run: |
         python ci_cd/register_model.py
+        
 
+    - name: Export BentoML model
+      run: |
+        bentoml models export house_price_model:latest ./house_price_model.bentomodel        
+
+    - name: Upload BentoML model
+      uses: actions/upload-artifact@v4
+      with:
+        name: house-price-model
+        path: house_price_model.bentomodel
     # --------------------------------------------------
     # 11. Upload Deepchecks report
     # --------------------------------------------------

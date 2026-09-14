@@ -87,38 +87,56 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
 
-    - name: Inspect Docker build context
-      run: |
-        echo "Current directory:"
-        pwd
-        
-        echo ""
-        echo "Files:"
-        ls -la
-        
-        echo ""
-        echo "Dockerfiles:"
-        find . -name "Dockerfile" -o -name "*.dockerfile"
-        
-        echo ""
-        echo ".go-version:"
-        if [ -f .go-version ]; then
-          cat .go-version
-        else
-          echo ".go-version NOT FOUND"
-        fi
+- name: Install BentoML
+  run: |
+    pip install bentoml==1.4.39
 
-    - name: Build Docker image
-      run: |
-        docker build -t house-price-model:${{ github.sha }} .
+- name: Download BentoML model
+  uses: actions/download-artifact@v5
+  with:
+    name: house-price-model
+    path: .
+    run-id: ${{ github.event.workflow_run.id }}
+    github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Tag Docker image
-      run: |
-        docker tag \
-          house-price-model:${{ github.sha }} \
-          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+- name: Import BentoML model
+  run: |
+    bentoml models import ./house_price_model.bentomodel
 
-    - name: Push Docker image
-      run: |
-        docker push \
-          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+- name: Build Bento
+  run: |
+    bentoml build serving/bentofile.yaml
+
+- name: Get Bento tag
+  id: bento
+  run: |
+    BENTO_TAG=$(bentoml list house_service --output json | python -c "import sys,json; data=json.load(sys.stdin); print(data[0]['tag'])")
+    echo "tag=$BENTO_TAG" >> "$GITHUB_OUTPUT"
+    echo "Bento tag: $BENTO_TAG"
+
+- name: Containerize Bento
+  run: |
+    bentoml containerize "${{ steps.bento.outputs.tag }}"
+
+- name: Get Bento tag
+  id: bento
+  run: |
+    BENTO_TAG=$(bentoml list house_service --output json | python -c "import sys,json; data=json.load(sys.stdin); print(data[0]['tag'])")
+    echo "tag=$BENTO_TAG" >> "$GITHUB_OUTPUT"
+    echo "Bento tag: $BENTO_TAG"
+
+
+- name: Containerize Bento
+  run: |
+    bentoml containerize house_service:latest
+
+- name: Tag BentoML Docker image
+  run: |
+    docker tag \
+      house_service:latest \
+      ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+
+- name: Push Docker image
+  run: |
+    docker push \
+      ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
