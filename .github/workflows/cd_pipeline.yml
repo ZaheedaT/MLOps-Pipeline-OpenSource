@@ -106,12 +106,16 @@ jobs:
 
     - name: Build Bento and Extract Exact Tag
       run: |
-        # 1. Build and force BentoML to return only the raw string of the exact version tag
+        # 1. Capture the raw build output string
         EXACT_TAG=$(bentoml build serving/ --output tag)
         
-        # 2. Save this exact string directly to the runner environment
-        echo "BENTO_VERSION=$EXACT_TAG" >> "$GITHUB_ENV"
-        echo "Targeting exact version tag: $EXACT_TAG"
+        # 2. Strip the leading "__tag__:" string prefix if it exists
+        CLEAN_TAG="${EXACT_TAG#__tag__:}"
+        
+        # 3. Save the clean tag (e.g., house_service:xnkgl6vqsoghs4fi) to the runner environment
+        echo "BENTO_VERSION=$CLEAN_TAG" >> "$GITHUB_ENV"
+        echo "Targeting clean, exact version tag: $CLEAN_TAG"
+
 
     - name: Containerize Exact Bento Version
       run: |
