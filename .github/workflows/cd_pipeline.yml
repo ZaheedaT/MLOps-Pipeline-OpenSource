@@ -107,19 +107,12 @@ jobs:
       run: |
         bentoml build serving/bentofile.yaml
 
-    - name: Get Bento tag
-      id: bento
-      run: |
-        BENTO_TAG=$(bentoml list house_service --output json | python -c "import sys,json; data=json.load(sys.stdin); print(data[0]['tag'])")
-        echo "tag=$BENTO_TAG" >> "$GITHUB_OUTPUT"
-        echo "Bento tag: $BENTO_TAG"
 
     - name: Containerize Bento
       run: |
         bentoml containerize "${{ steps.bento.outputs.tag }}"
 
     - name: Get Bento tag
-      id: bento
       run: |
         BENTO_TAG=$(bentoml list house_service --output json | python -c "import sys,json; data=json.load(sys.stdin); print(data[0]['tag'])")
         echo "tag=$BENTO_TAG" >> "$GITHUB_OUTPUT"
