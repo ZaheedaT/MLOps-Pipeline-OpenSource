@@ -104,10 +104,9 @@ jobs:
       run: |
         python ci_cd/register_model.py
         
+    - name: Export BentoML Model
+      run: bentoml models export house_price_model:latest ${{ github.workspace }}/house_price_model.bentomodel
 
-    - name: Export BentoML model
-      run: |
-        bentoml models export house_price_model:latest ./house_price_model.bentomodel        
 
     - name: Upload BentoML model
       uses: actions/upload-artifact@v4
