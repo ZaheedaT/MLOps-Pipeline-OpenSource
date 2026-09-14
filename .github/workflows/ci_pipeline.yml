@@ -108,6 +108,7 @@ jobs:
       run: bentoml models export house_price_model:latest ${{ github.workspace }}/house_price_model.bentomodel
 
 
+
     - name: Upload BentoML model
       uses: actions/upload-artifact@v4
       with:
