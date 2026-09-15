@@ -116,7 +116,6 @@ jobs:
         echo "BENTO_VERSION=$CLEAN_TAG" >> "$GITHUB_ENV"
         echo "Targeting clean, exact version tag: $CLEAN_TAG"
 
-
     - name: Containerize Exact Bento Version
       run: |
         # 3. Use the exact dynamic tag instead of an empty workflow id string
