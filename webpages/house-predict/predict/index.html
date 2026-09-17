@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction | Zaheeda</title>
+
+    <meta
+        name="description"
+        content="Interactive house price prediction service."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container nav">
+
+        <a href="../index.html" class="brand">
+            <span class="brand-mark">Z</span>
+            ZAHEEDA
+        </a>
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links">
+
+            <a href="../index.html">
+                Work
+            </a>
+
+            <a href="../index.html#capabilities">
+                Capabilities
+            </a>
+
+            <a href="../about/index.html">
+                About
+            </a>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+            <a
+                class="nav-github"
+                href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="prediction-hero">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                LIVE INFERENCE
+            </p>
+
+            <h1>
+                House price
+                <span>prediction.</span>
+            </h1>
+
+            <p class="hero-lead">
+                Send property features to the deployed machine learning
+                service and receive a prediction through the inference API.
+            </p>
+
+
+            <div class="prediction-layout">
+
+                <!-- FORM -->
+
+                <section class="prediction-card">
+
+                    <div class="card-header">
+
+                        <span class="card-label">
+                            MODEL INPUT
+                        </span>
+
+                        <h2>
+                            Property details
+                        </h2>
+
+                    </div>
+
+
+                    <form id="prediction-form">
+
+                        <!--
+                            The actual model feature fields will be inserted
+                            here once the deployed BentoML API contract is
+                            connected.
+                        -->
+
+                        <div class="form-grid">
+
+                            <div class="form-field">
+
+                                <label for="feature-1">
+                                    Feature 01
+                                </label>
+
+                                <input
+                                    id="feature-1"
+                                    name="feature_1"
+                                    type="number"
+                                    placeholder="Enter value"
+                                    disabled
+                                >
+
+                                <small>
+                                    API schema pending
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="feature-2">
+                                    Feature 02
+                                </label>
+
+                                <input
+                                    id="feature-2"
+                                    name="feature_2"
+                                    type="number"
+                                    placeholder="Enter value"
+                                    disabled
+                                >
+
+                                <small>
+                                    API schema pending
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="feature-3">
+                                    Feature 03
+                                </label>
+
+                                <input
+                                    id="feature-3"
+                                    name="feature_3"
+                                    type="number"
+                                    placeholder="Enter value"
+                                    disabled
+                                >
+
+                                <small>
+                                    API schema pending
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="feature-4">
+                                    Feature 04
+                                </label>
+
+                                <input
+                                    id="feature-4"
+                                    name="feature_4"
+                                    type="number"
+                                    placeholder="Enter value"
+                                    disabled
+                                >
+
+                                <small>
+                                    API schema pending
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="button button-primary prediction-button"
+                            disabled
+                        >
+                            Prediction API not connected
+                        </button>
+
+                    </form>
+
+                </section>
+
+
+                <!-- RESULT -->
+
+                <section class="prediction-result">
+
+                    <div>
+
+                        <span class="result-label">
+                            PREDICTION RESULT
+                        </span>
+
+                        <div class="prediction-status">
+
+                            <span class="status-dot"></span>
+
+                            API connection pending
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="result-value">
+                            —
+                        </div>
+
+                        <p>
+                            A prediction will appear here after the frontend
+                            is connected to the deployed BentoML inference
+                            endpoint.
+                        </p>
+
+                    </div>
+
+
+                    <div class="result-meta">
+
+                        <div>
+
+                            <span>
+                                Service
+                            </span>
+
+                            <strong>
+                                HouseService
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Serving
+                            </span>
+
+                            <strong>
+                                BentoML
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Interface
+                            </span>
+
+                            <strong>
+                                HTTP API
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPLANATION
+    ========================== -->
+
+    <section class="section capabilities-section">
+
+        <div class="container">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <p class="eyebrow">
+                        HOW IT WORKS
+                    </p>
+
+                    <h2>
+                        Browser to
+                        <span>model.</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="architecture-large">
+
+                <div class="architecture-row">
+
+                    <div class="architecture-node">
+
+                        <small>
+                            01 / INPUT
+                        </small>
+
+                        <strong>
+                            Property data
+                        </strong>
+
+                        <span>
+                            User-entered model features
+                        </span>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <div class="architecture-node">
+
+                        <small>
+                            02 / API
+                        </small>
+
+                        <strong>
+                            HTTP request
+                        </strong>
+
+                        <span>
+                            JSON sent to inference service
+                        </span>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <div class="architecture-node architecture-node-active">
+
+                        <small>
+                            03 / MODEL
+                        </small>
+
+                        <strong>
+                            HouseService
+                        </strong>
+
+                        <span>
+                            BentoML model inference
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="architecture-divider"></div>
+
+
+                <div class="architecture-row">
+
+                    <div class="architecture-node">
+
+                        <small>
+                            04 / RESPONSE
+                        </small>
+
+                        <strong>
+                            Prediction
+                        </strong>
+
+                        <span>
+                            Model response returned as JSON
+                        </span>
+
+                    </div>
+
+
+                    <div class="architecture-arrow">
+                        →
+                    </div>
+
+
+                    <div class="architecture-node">
+
+                        <small>
+                            05 / UI
+                        </small>
+
+                        <strong>
+                            Result display
+                        </strong>
+
+                        <span>
+                            Prediction rendered in browser
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <span>
+            © 2026 Zaheeda
+        </span>
+
+        <a href="../index.html">
+            Back to work ↑
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script src="../js/app.js"></script>
+
+</body>
+</html>

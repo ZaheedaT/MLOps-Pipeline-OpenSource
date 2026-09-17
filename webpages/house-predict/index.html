@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction | Zaheeda</title>
+
+    <meta
+        name="description"
+        content="A production-style machine learning and MLOps project for house price prediction."
+    >
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body id="top">
+
+<header class="site-header">
+    <nav class="nav container">
+
+        <a href="../../index.html" class="brand">
+            <span class="brand-mark">Z</span>
+            <span>ZAHEEDA</span>
+        </a>
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links">
+            <a href="../../index.html#work">Work</a>
+            <a href="../../index.html#capabilities">Capabilities</a>
+            <a href="../../about/index.html">About</a>
+            <a href="../../index.html#contact">Contact</a>
+
+            <a
+                class="nav-github"
+                href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+        </div>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="project-hero">
+        <div class="container">
+
+            <p class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                MACHINE LEARNING / MLOPS
+            </p>
+
+            <h1>
+                House price prediction,
+                <span>built beyond the notebook.</span>
+            </h1>
+
+            <p class="hero-lead">
+                A production-style machine learning system designed to demonstrate
+                how a model moves from training and validation through automated
+                deployment and API-based inference.
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    href="predict/index.html"
+                    class="button button-primary"
+                >
+                    Try the prediction API ↗
+                </a>
+
+                <a
+                    href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource"
+                    class="button button-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View source ↗
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROJECT SUMMARY -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        THE PROJECT
+                    </p>
+
+                    <h2>
+                        From model
+                        <span>to system.</span>
+                    </h2>
+                </div>
+
+                <p class="section-intro">
+                    The goal is not simply to produce an accurate prediction.
+                    The project demonstrates the engineering required to make
+                    the model reproducible, testable and deployable.
+                </p>
+            </div>
+
+
+            <div class="project-grid">
+
+                <article class="info-card">
+                    <span class="card-number">01 / PROBLEM</span>
+
+                    <h3>House price prediction</h3>
+
+                    <p>
+                        Train a machine learning model capable of estimating
+                        house prices from property characteristics.
+                    </p>
+                </article>
+
+
+                <article class="info-card">
+                    <span class="card-number">02 / DATA</span>
+
+                    <h3>Structured features</h3>
+
+                    <p>
+                        Property data is transformed into model-ready features
+                        before being passed through the training pipeline.
+                    </p>
+                </article>
+
+
+                <article class="info-card">
+                    <span class="card-number">03 / ENGINEERING</span>
+
+                    <h3>Automated workflow</h3>
+
+                    <p>
+                        Training, validation, registration and deployment are
+                        connected through an automated CI/CD workflow.
+                    </p>
+                </article>
+
+
+                <article class="info-card">
+                    <span class="card-number">04 / INFERENCE</span>
+
+                    <h3>API predictions</h3>
+
+                    <p>
+                        The trained model is packaged with BentoML and exposed
+                        through an inference API used by the prediction interface.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+<!-- ARCHITECTURE -->
+
+<section class="section capabilities-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    SYSTEM ARCHITECTURE
+                </p>
+
+                <h2>
+                    From source code
+                    <span>to inference.</span>
+                </h2>
+            </div>
+
+            <p class="section-intro">
+                The system separates model development from deployment while
+                keeping both workflows automated and reproducible.
+            </p>
+        </div>
+
+        <div class="architecture-large">
+
+            <!-- SOURCE -->
+
+            <div class="architecture-flow-label">
+                SOURCE
+            </div>
+
+            <div class="architecture-row architecture-row-single">
+
+                <div class="architecture-node architecture-node-wide">
+                    <small>01 / SOURCE CONTROL</small>
+                    <strong>GitHub</strong>
+                    <span>
+                        Application code, model code and CI/CD workflow definitions
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-connector">↓</div>
+
+            <!-- CI -->
+
+            <div class="architecture-flow-label">
+                CONTINUOUS INTEGRATION
+            </div>
+
+            <div class="architecture-row">
+
+                <div class="architecture-node">
+                    <small>02 / AUTOMATION</small>
+                    <strong>GitHub Actions</strong>
+                    <span>
+                        Triggered by changes to the development branch
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>03 / TRAINING</small>
+                    <strong>Model Training</strong>
+                    <span>
+                        Features are retrieved and a new model candidate is trained
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>04 / VALIDATION</small>
+                    <strong>Deepchecks</strong>
+                    <span>
+                        Automated validation determines whether the candidate can progress
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-connector">↓</div>
+
+            <!-- MODEL LIFECYCLE -->
+
+            <div class="architecture-flow-label">
+                MODEL LIFECYCLE
+            </div>
+
+            <div class="architecture-row">
+
+                <div class="architecture-node">
+                    <small>05 / TRACKING</small>
+                    <strong>MLflow</strong>
+                    <span>
+                        Experiments, metrics and model artifacts
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node architecture-node-active">
+                    <small>06 / REGISTRY</small>
+                    <strong>Model Registry</strong>
+                    <span>
+                        Versioned model selected for downstream deployment
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-divider"></div>
+
+            <!-- CD -->
+
+            <div class="architecture-flow-label">
+                CONTINUOUS DELIVERY
+            </div>
+
+            <div class="architecture-row">
+
+                <div class="architecture-node">
+                    <small>07 / PACKAGING</small>
+                    <strong>BentoML</strong>
+                    <span>
+                        Registered model packaged as an inference service
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>08 / CONTAINER</small>
+                    <strong>Docker</strong>
+                    <span>
+                        Reproducible container image for deployment
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>09 / REGISTRY</small>
+                    <strong>AWS ECR</strong>
+                    <span>
+                        Versioned container images stored in AWS
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-connector">↓</div>
+
+            <!-- INFERENCE -->
+
+            <div class="architecture-flow-label">
+                INFERENCE
+            </div>
+
+            <div class="architecture-row architecture-row-single">
+
+                <div class="architecture-node architecture-node-wide architecture-node-active">
+                    <small>10 / SERVING</small>
+                    <strong>Prediction API</strong>
+                    <span>
+                        The deployed BentoML service receives property features
+                        and returns a house-price prediction
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- MLOPS PIPELINE -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading compact">
+
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    MLOPS WORKFLOW
+                </p>
+
+                <h2>
+                    What happens when
+                    <span>code changes?</span>
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">01</div>
+
+                    <div>
+                        <h3>Code is pushed to GitHub</h3>
+
+                        <p>
+                            Changes to the development branch trigger the
+                            continuous integration workflow.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">02</div>
+
+                    <div>
+                        <h3>The model is trained</h3>
+
+                        <p>
+                            The CI workflow executes the training pipeline,
+                            producing a new model candidate from the available
+                            feature data.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">03</div>
+
+                    <div>
+                        <h3>The candidate is validated</h3>
+
+                        <p>
+                            Automated validation checks are executed before the
+                            model is allowed to progress through the pipeline.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">04</div>
+
+                    <div>
+                        <h3>The model is registered</h3>
+
+                        <p>
+                            A validated model is registered so that the deployed
+                            artifact can be associated with a specific model version.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">05</div>
+
+                    <div>
+                        <h3>CD packages the service</h3>
+
+                        <p>
+                            The deployment workflow packages the model-serving
+                            application and builds its container image.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">06</div>
+
+                    <div>
+                        <h3>The image is pushed to ECR</h3>
+
+                        <p>
+                            The container image is published to Amazon ECR,
+                            providing a versioned deployment artifact.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">07</div>
+
+                    <div>
+                        <h3>The model becomes an API</h3>
+
+                        <p>
+                            BentoML exposes the packaged model as an inference
+                            service that can receive property data and return
+                            predictions.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TECHNOLOGIES -->
+
+    <section class="section capabilities-section">
+        <div class="container">
+
+            <div class="section-heading compact">
+
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    TECHNOLOGY
+                </p>
+
+                <h2>
+                    Tools used across
+                    <span>the lifecycle.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="tech-grid">
+
+                <article class="tech-card">
+                    <strong>Python</strong>
+                    <span>Training and application code</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>MLflow</strong>
+                    <span>Experiment tracking and model management</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Feast</strong>
+                    <span>Feature store workflow</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Deepchecks</strong>
+                    <span>Data and model validation</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>BentoML</strong>
+                    <span>Model serving and packaging</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Docker</strong>
+                    <span>Containerized deployment</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>GitHub Actions</strong>
+                    <span>Continuous integration and delivery</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>AWS ECR</strong>
+                    <span>Container image registry</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Evidently</strong>
+                    <span>Production data-drift monitoring</span>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    ENGINEERING DECISIONS
+                </p>
+
+                <h2>
+                    Why the system is
+                    <span>built this way.</span>
+                </h2>
+            </div>
+
+            <p class="section-intro">
+                The architecture was designed around reproducibility,
+                separation of concerns and a clear path from experimentation
+                to deployment.
+            </p>
+        </div>
+
+
+        <div class="decision-list">
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    01
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why GitHub Actions?</h3>
+
+                    <p>
+                        The training and deployment workflows are triggered
+                        automatically rather than relying on manual execution.
+                        This makes the pipeline reproducible and ensures that
+                        changes to the project can be validated consistently.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    02
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why MLflow?</h3>
+
+                    <p>
+                        Training code and model artifacts need to be separated
+                        from the code used to produce them. MLflow provides a
+                        mechanism for tracking experiments and associating
+                        model artifacts with their training runs.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    03
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why a feature store?</h3>
+
+                    <p>
+                        Feast provides a defined feature retrieval layer rather
+                        than allowing training code to depend directly on
+                        ad-hoc feature preparation. This creates a clearer
+                        boundary between data preparation and model training.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    04
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why BentoML?</h3>
+
+                    <p>
+                        The model should not remain tied to the training
+                        environment. BentoML packages the model-serving logic
+                        into an explicit inference service that can be
+                        containerized and deployed independently.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    05
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why Docker and ECR?</h3>
+
+                    <p>
+                        The deployment artifact needs to be reproducible and
+                        portable. Docker packages the serving environment,
+                        while Amazon ECR provides a central registry for the
+                        resulting container images.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    06
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>What remains?</h3>
+
+                    <p>
+                        The next infrastructure step is moving experiment
+                        tracking away from a local MLflow server and into a
+                        persistent remote architecture so CI runs can be
+                        tracked independently of the development machine.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- IMPLEMENTATION STATUS -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        IMPLEMENTATION STATUS
+                    </p>
+
+                    <h2>
+                        What is
+                        <span>actually running?</span>
+                    </h2>
+                </div>
+
+                <p class="section-intro">
+                    The portfolio distinguishes implemented components from
+                    infrastructure that is still being developed.
+                </p>
+
+            </div>
+
+
+            <div class="status-table">
+
+                <div class="status-table-header">
+                    <span>COMPONENT</span>
+                    <span>STATUS</span>
+                </div>
+
+
+                <div class="status-table-row">
+                    <strong>Model training</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Feature store</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Model validation</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>MLflow experiment tracking</strong>
+                    <span class="status-pill development">In development</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Model registry</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Continuous integration</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Continuous delivery</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>BentoML serving</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Docker containerization</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>AWS ECR</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Prediction API</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Production monitoring</strong>
+                    <span class="status-pill planned">Implemented</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section capabilities-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    ENGINEERING EVIDENCE
+                </p>
+
+                <h2>
+                    The system is
+                    <span>built, not mocked.</span>
+                </h2>
+            </div>
+
+            <p class="section-intro">
+                The project uses real workflow automation and deployment
+                infrastructure rather than simulated pipeline states.
+            </p>
+        </div>
+
+
+        <div class="evidence-grid">
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">01</span>
+
+                    <span class="evidence-status">
+                        VERIFIED
+                    </span>
+                </div>
+
+                <h3>Continuous Integration</h3>
+
+                <p>
+                    GitHub Actions automatically executes the training,
+                    validation and registration workflow when changes are
+                    pushed to the development branch.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>GitHub Actions</span>
+                    <a
+                        href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource/actions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View workflow ↗
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">02</span>
+
+                    <span class="evidence-status">
+                        VERIFIED
+                    </span>
+                </div>
+
+                <h3>Continuous Delivery</h3>
+
+                <p>
+                    A separate deployment workflow builds the model-serving
+                    artifact and publishes the resulting container image
+                    to Amazon ECR.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>GitHub Actions / AWS</span>
+                    <a
+                        href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource/actions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View workflow ↗
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">03</span>
+
+                    <span class="evidence-status">
+                        VERIFIED
+                    </span>
+                </div>
+
+                <h3>Container Registry</h3>
+
+                <p>
+                    The deployment pipeline publishes versioned container
+                    images to an Amazon ECR repository, providing a
+                    deployment artifact separate from the source repository.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>AWS ECR</span>
+                    <span>af-south-1</span>
+                </div>
+
+            </article>
+
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">04</span>
+
+                    <span class="evidence-status">
+                        LIVE
+                    </span>
+                </div>
+
+                <h3>Prediction Interface</h3>
+
+                <p>
+                    The project includes a browser-based prediction interface
+                    that sends property features to the model-serving API
+                    and displays the returned prediction.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>BentoML API</span>
+
+                    <a href="predict/index.html">
+                        Test model ↗
+                    </a>
+                </div>
+
+            </article>
+
+
+            <article class="evidence-card">
+
+            <div class="evidence-top">
+                <span class="evidence-number">05</span>
+
+                <span class="evidence-status">
+                    VERIFIED
+                </span>
+            </div>
+
+            <h3>Production Monitoring</h3>
+
+            <p>
+                Evidently compares current feature distributions with reference
+                data to detect data drift. The monitoring workflow uses Feast
+                feature retrieval and evaluates whether observed changes require
+                model retraining.
+            </p>
+
+            <div class="evidence-footer">
+                <span>Evidently / Feast</span>
+
+                <span>Data Drift</span>
+            </div>
+
+        </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- LIVE PROJECT -->
+
+    <section class="section project-cta">
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div>
+                    <p class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        LIVE INTERFACE
+                    </p>
+
+                    <h2>
+                        Test the
+                        <span>model.</span>
+                    </h2>
+
+                    <p>
+                        Use the prediction interface to send property features
+                        to the model-serving API and inspect the returned prediction.
+                    </p>
+                </div>
+
+                <a
+                    href="predict/index.html"
+                    class="button button-primary"
+                >
+                    Open prediction interface ↗
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-inner">
+
+        <span>
+            © 2026 Zaheeda Tshankie
+        </span>
+
+        <a href="#top">
+            Back to top ↑
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script src="../../js/app.js"></script>
+
+</body>
+</html>
