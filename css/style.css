@@ -833,13 +833,13 @@ h2 span {
 }
 
 
-.section-heading h2,
+ .section-heading h2,
 .about-section h2,
 .contact-card h2 {
     margin: 0;
 
     font-size:
-        clamp(46px, 5.2vw, 68px);
+        clamp(52px, 6.2vw, 78px);
 
     font-weight: 600;
 }
@@ -2018,4 +2018,66 @@ h2 span {
         transition: none !important;
     }
 
+}
+
+
+/* Primary portfolio section titles */
+.section-heading h2,
+.about-section > .container > .about-grid > div:first-child h2 {
+    font-size: clamp(52px, 6.2vw, 78px);
+    letter-spacing: -.055em;
+}
+
+.section-heading .eyebrow,
+.about-section .eyebrow {
+    margin-bottom: 22px;
+}
+
+/* Experience */
+.experience-list {
+    display: grid;
+    gap: 0;
+    margin: 38px 0 34px;
+    border-top: 1px solid var(--line);
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.experience-date {
+    color: var(--purple);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.experience-item h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    letter-spacing: -.025em;
+}
+
+.experience-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+    .section-heading h2,
+    .about-section > .container > .about-grid > div:first-child h2 {
+        font-size: clamp(44px, 12vw, 62px);
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
 }
