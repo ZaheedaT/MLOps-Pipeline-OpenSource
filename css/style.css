@@ -2348,3 +2348,208 @@ h2 span {
 .experience-body p:last-child {
     margin-bottom: 0;
 }
+
+
+/* Aura-inspired portfolio presentation */
+.section-heading {
+    align-items: end;
+    margin-bottom: 58px;
+}
+
+.section-heading h2 {
+    font-size: clamp(54px, 7vw, 88px);
+    line-height: .92;
+    letter-spacing: -.065em;
+    font-weight: 600;
+}
+
+.section-intro {
+    max-width: 360px;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.portfolio-projects {
+    gap: 70px;
+}
+
+.portfolio-project {
+    grid-template-columns: 1fr 1fr;
+    min-height: 570px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.portfolio-project.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.portfolio-project-visual {
+    min-height: 570px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 72% 28%, rgba(169,129,255,.22), transparent 26%),
+        linear-gradient(135deg, #21172f 0%, #302341 55%, #19151f 100%);
+}
+
+.project-rag {
+    background:
+        radial-gradient(circle at 25% 35%, rgba(91,142,255,.2), transparent 27%),
+        linear-gradient(135deg, #171e2c, #242d3d);
+}
+
+.project-cicd {
+    background:
+        radial-gradient(circle at 70% 25%, rgba(114,185,151,.18), transparent 28%),
+        linear-gradient(135deg, #1b211e, #283129);
+}
+
+.project-eval {
+    background:
+        radial-gradient(circle at 30% 30%, rgba(203,122,255,.18), transparent 28%),
+        linear-gradient(135deg, #241c2d, #30243a);
+}
+
+.project-llama {
+    background:
+        radial-gradient(circle at 70% 30%, rgba(91,170,255,.17), transparent 27%),
+        linear-gradient(135deg, #1b2029, #29303a);
+}
+
+.project-visual-title strong {
+    font-size: clamp(42px, 5vw, 70px);
+}
+
+.portfolio-project-content {
+    padding: 70px 72px;
+}
+
+.portfolio-project-content h3 {
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1;
+    letter-spacing: -.05em;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 30px;
+}
+
+.project-tech::first-letter {
+    color: var(--purple);
+}
+
+/* Small tool pills / icons */
+.tool-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tool-pill::before {
+    content: "◆";
+    color: var(--purple);
+    font-size: 6px;
+}
+
+/* Skills: compact visual rows, not CV paragraphs */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    border: 0;
+}
+
+.skill-row {
+    display: block;
+    min-height: 205px;
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.skill-row h3 {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+.skill-row h3::before {
+    content: "✦";
+    color: var(--purple);
+    font-size: 12px;
+}
+
+.skill-row p,
+.skill-row span {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Experience: editorial portfolio layout */
+.experience-timeline {
+    border-top: 1px solid var(--line);
+}
+
+.experience-item {
+    grid-template-columns: 220px 1fr 150px;
+    gap: 40px;
+    padding: 38px 0;
+    transition: padding .2s ease;
+}
+
+.experience-item:hover {
+    padding-left: 12px;
+}
+
+.experience-meta strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.experience-meta span {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.experience-body h3 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    letter-spacing: -.035em;
+}
+
+.experience-body p {
+    font-size: 13px;
+}
+
+.experience-item::after {
+    content: "↗";
+    align-self: start;
+    justify-self: end;
+    color: var(--muted);
+    font-size: 20px;
+}
+
+/* Hide the duplicated legacy capability/experience blocks */
+body > main > .capabilities-section + .about-section {
+    display: none;
+}
+
