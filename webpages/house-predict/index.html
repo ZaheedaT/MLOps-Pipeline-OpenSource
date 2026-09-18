@@ -211,8 +211,8 @@
             </div>
 
             <p class="section-intro">
-                The system separates model development from deployment while
-                keeping both workflows automated and reproducible.
+                The system separates model development, orchestration, monitoring
+                and deployment while keeping the lifecycle automated and reproducible.
             </p>
         </div>
 
@@ -308,6 +308,67 @@
 
             <div class="architecture-divider"></div>
 
+            <!-- ORCHESTRATION & MONITORING -->
+
+            <div class="architecture-flow-label">
+                ORCHESTRATION &amp; MONITORING
+            </div>
+
+            <div class="architecture-row">
+
+                <div class="architecture-node">
+                    <small>07 / ORCHESTRATION</small>
+                    <strong>Apache Airflow</strong>
+                    <span>
+                        Scheduled data, feature, monitoring and retraining workflows
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>08 / MONITORING</small>
+                    <strong>Evidently</strong>
+                    <span>
+                        Detects data drift using current and reference feature distributions
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <small>09 / FEATURES</small>
+                    <strong>Feast</strong>
+                    <span>
+                        Feature retrieval and feedback data used by monitoring and retraining
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-connector">↓</div>
+
+            <!-- RETRAINING -->
+
+            <div class="architecture-flow-label">
+                MODEL RETRAINING
+            </div>
+
+            <div class="architecture-row architecture-row-single">
+
+                <div class="architecture-node architecture-node-wide">
+                    <small>10 / DECISION LOOP</small>
+                    <strong>Drift → Retrain → Validate → Deploy</strong>
+                    <span>
+                        Airflow can trigger retraining when monitoring detects meaningful
+                        changes in production data
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="architecture-divider"></div>
+
             <!-- CD -->
 
             <div class="architecture-flow-label">
@@ -317,7 +378,7 @@
             <div class="architecture-row">
 
                 <div class="architecture-node">
-                    <small>07 / PACKAGING</small>
+                    <small>11 / PACKAGING</small>
                     <strong>BentoML</strong>
                     <span>
                         Registered model packaged as an inference service
@@ -327,7 +388,7 @@
                 <div class="architecture-arrow">→</div>
 
                 <div class="architecture-node">
-                    <small>08 / CONTAINER</small>
+                    <small>12 / CONTAINER</small>
                     <strong>Docker</strong>
                     <span>
                         Reproducible container image for deployment
@@ -337,7 +398,7 @@
                 <div class="architecture-arrow">→</div>
 
                 <div class="architecture-node">
-                    <small>09 / REGISTRY</small>
+                    <small>13 / REGISTRY</small>
                     <strong>AWS ECR</strong>
                     <span>
                         Versioned container images stored in AWS
@@ -356,12 +417,23 @@
 
             <div class="architecture-row architecture-row-single">
 
+                <div class="architecture-node">
+                    <small>14 / ORCHESTRATION</small>
+                    <strong>Kubernetes</strong>
+                    <span>
+                        Runs the containerized BentoML service as managed pods
+                        with deployment and health-check configuration
+                    </span>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
                 <div class="architecture-node architecture-node-wide architecture-node-active">
-                    <small>10 / SERVING</small>
+                    <small>15 / SERVING</small>
                     <strong>Prediction API</strong>
                     <span>
-                        The deployed BentoML service receives property features
-                        and returns a house-price prediction
+                        The Kubernetes-hosted BentoML service receives property
+                        features and returns a house-price prediction
                     </span>
                 </div>
 
@@ -465,6 +537,23 @@
                     <div class="timeline-marker">05</div>
 
                     <div>
+                        <h3>Airflow orchestrates the lifecycle</h3>
+
+                        <p>
+                            Scheduled Airflow workflows update data and features,
+                            run monitoring checks and can initiate retraining when
+                            drift is detected.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">06</div>
+
+                    <div>
                         <h3>CD packages the service</h3>
 
                         <p>
@@ -478,7 +567,7 @@
 
                 <div class="timeline-item">
 
-                    <div class="timeline-marker">06</div>
+                    <div class="timeline-marker">07</div>
 
                     <div>
                         <h3>The image is pushed to ECR</h3>
@@ -494,7 +583,24 @@
 
                 <div class="timeline-item">
 
-                    <div class="timeline-marker">07</div>
+                    <div class="timeline-marker">08</div>
+
+                    <div>
+                        <h3>Kubernetes runs the service</h3>
+
+                        <p>
+                            The deployment artifact is run as a Kubernetes workload,
+                            allowing the serving layer to be managed independently
+                            from the CI/CD runner.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-marker">09</div>
 
                     <div>
                         <h3>The model becomes an API</h3>
@@ -569,6 +675,16 @@
                 <article class="tech-card">
                     <strong>GitHub Actions</strong>
                     <span>Continuous integration and delivery</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Apache Airflow</strong>
+                    <span>Workflow orchestration and retraining</span>
+                </article>
+
+                <article class="tech-card">
+                    <strong>Kubernetes</strong>
+                    <span>Container orchestration and workload management</span>
                 </article>
 
                 <article class="tech-card">
@@ -729,13 +845,35 @@
 
                 <div class="decision-content">
 
-                    <h3>What remains?</h3>
+                    <h3>Why Airflow?</h3>
 
                     <p>
-                        The next infrastructure step is moving experiment
-                        tracking away from a local MLflow server and into a
-                        persistent remote architecture so CI runs can be
-                        tracked independently of the development machine.
+                        CI/CD should not be responsible for scheduled production
+                        workflows. Airflow provides a separate orchestration layer
+                        for data updates, feature workflows, drift monitoring and
+                        retraining decisions.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="decision-item">
+
+                <div class="decision-number">
+                    07
+                </div>
+
+                <div class="decision-content">
+
+                    <h3>Why Kubernetes?</h3>
+
+                    <p>
+                        The serving layer needs to run independently of the CI/CD
+                        runner. Kubernetes manages the deployed BentoML workload,
+                        including pods, health checks and rollout behaviour, while
+                        the container image remains versioned in Amazon ECR.
                     </p>
 
                 </div>
@@ -803,6 +941,16 @@
                 </div>
 
                 <div class="status-table-row">
+                    <strong>Airflow orchestration</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Evidently drift monitoring</strong>
+                    <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
                     <strong>Model registry</strong>
                     <span class="status-pill implemented">Implemented</span>
                 </div>
@@ -830,6 +978,11 @@
                 <div class="status-table-row">
                     <strong>AWS ECR</strong>
                     <span class="status-pill implemented">Implemented</span>
+                </div>
+
+                <div class="status-table-row">
+                    <strong>Kubernetes deployment</strong>
+                    <span class="status-pill development">In development</span>
                 </div>
 
                 <div class="status-table-row">
@@ -920,7 +1073,8 @@
                 <p>
                     A separate deployment workflow builds the model-serving
                     artifact and publishes the resulting container image
-                    to Amazon ECR.
+                    to Amazon ECR, with Kubernetes deployment forming the
+                    production serving stage.
                 </p>
 
                 <div class="evidence-footer">
@@ -1018,6 +1172,59 @@
             </div>
 
         </article>
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">06</span>
+
+                    <span class="evidence-status">
+                        IMPLEMENTED
+                    </span>
+                </div>
+
+                <h3>Airflow Orchestration</h3>
+
+                <p>
+                    Airflow DAGs orchestrate scheduled feature/data workflows,
+                    drift checks and retraining logic, separating production
+                    workflow orchestration from the GitHub Actions CI/CD runner.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>Apache Airflow</span>
+                    <span>DAGs</span>
+                </div>
+
+            </article>
+
+
+            <article class="evidence-card">
+
+                <div class="evidence-top">
+                    <span class="evidence-number">07</span>
+
+                    <span class="evidence-status">
+                        IN DEVELOPMENT
+                    </span>
+                </div>
+
+                <h3>Kubernetes Serving</h3>
+
+                <p>
+                    Kubernetes manifests define the HouseService deployment and
+                    service layer. The production rollout is being connected to
+                    the CD workflow so ECR images can be deployed as managed
+                    workloads.
+                </p>
+
+                <div class="evidence-footer">
+                    <span>Kubernetes</span>
+                    <span>Deployment / Service</span>
+                </div>
+
+            </article>
+
 
         </div>
 
