@@ -369,7 +369,7 @@
     </section>
 
 
-    <!-- WORK -->
+    <!-- FEATURED PROJECTS -->
 
     <section class="section work-section" id="work">
 
@@ -378,212 +378,113 @@
             <div class="section-heading">
 
                 <div>
-
-                    <p class="eyebrow">
-                        01 / FEATURED PROJECTS
-                    </p>
-
-                    <h2>
-                        Featured Projects
-                    </h2>
-
+                    <p class="eyebrow">01 / FEATURED PROJECTS</p>
+                    <h2>Featured Projects</h2>
                 </div>
 
-
                 <p class="section-intro">
-
-                    A practical end-to-end project designed to demonstrate
-                    what happens after a model has been trained.
-
+                    Selected engineering projects spanning MLOps, LLM applications,
+                    evaluation, CI/CD and model fine-tuning.
                 </p>
 
             </div>
 
+            <div class="portfolio-projects">
 
-            <article class="featured-project">
-
-
-                <!-- PROJECT VISUAL -->
-
-                <div class="project-visual">
-
-                    <div class="project-topline">
-
-                        <span class="project-badge">
-                            MLOPS PROJECT
-                        </span>
-
-                        <span class="project-id">
-                            01
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-chart">
-
-                        <div class="chart-grid"></div>
-
-                        <div class="chart-line">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-mlops">
+                        <span class="project-number">01</span>
+                        <span class="project-type">MLOPS</span>
+                        <div class="project-visual-title">
+                            <small>END-TO-END ML SYSTEM</small>
+                            <strong>HOUSE PRICE<br>PREDICTION</strong>
                         </div>
-
-
-                        <div class="chart-caption">
-
-                            <span>
-                                MODEL SYSTEM
-                            </span>
-
-                            <strong>
-                                HOUSE PRICE PREDICTION
-                            </strong>
-
-                        </div>
-
+                        <div class="visual-pipeline">TRAIN → VALIDATE → REGISTER → SERVE → MONITOR → RETRAIN</div>
                     </div>
-
-
-                    <div class="project-stack">
-
-                        <span>Python</span>
-                        <span>MLflow</span>
-                        <span>Feast</span>
-                        <span>Deepchecks</span>
-                        <span>BentoML</span>
-                        <span>AWS ECR</span>
-                        <span>Airflow</span>
-                        <span>Evidently</span>
-                        <span>Kubernetes</span>
-
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">MLOps Pipeline OpenSource</p>
+                        <h3>From model training to production.</h3>
+                        <p>Designed an end-to-end MLOps system covering feature management, experiment tracking, validation, model registration, production serving, monitoring and automated retraining.</p>
+                        <div class="project-tech">Python · MLflow · Feast · BentoML · Docker · Airflow · Evidently · Kubernetes</div>
+                        <a href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource" target="_blank" rel="noopener noreferrer" class="button button-primary">View project <span>↗</span></a>
                     </div>
+                </article>
 
-                </div>
-
-
-                <!-- PROJECT INFORMATION -->
-
-                <div class="project-content">
-
-                    <p class="project-kicker">
-                        House Price Prediction
-                    </p>
-
-                    <h3>
-                        End-to-end MLOps pipeline
-                    </h3>
-
-                    <p>
-
-                        A production-style machine-learning workflow covering
-                        automated training, validation, experiment tracking,
-                        model registration, packaging, container deployment
-                        and inference.
-
-                    </p>
-
-
-                    <div class="project-status">
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                CI/CD pipeline
-                            </span>
-
-                            <strong>
-                                Automated
-                            </strong>
-
+                <article class="portfolio-project reverse">
+                    <div class="portfolio-project-visual project-rag">
+                        <span class="project-number">02</span>
+                        <span class="project-type">LLM / RAG</span>
+                        <div class="project-visual-title">
+                            <small>HEALTHCARE AI</small>
+                            <strong>HOSPITAL<br>RAG CHATBOT</strong>
                         </div>
-
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                Model serving
-                            </span>
-
-                            <strong>
-                                BentoML
-                            </strong>
-
-                        </div>
-
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                Production runtime
-                            </span>
-
-                            <strong>
-                                Kubernetes
-                            </strong>
-
-                        </div>
-
+                        <div class="visual-pipeline">AGENT → GRAPH → VECTOR SEARCH → API → UI</div>
                     </div>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="projects/house-price/index.html"
-                            class="button button-primary"
-                        >
-                            Explore project
-                            <span>→</span>
-                        </a>
-
-
-                        <a
-                            href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link"
-                        >
-                            View source ↗
-                        </a>
-
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">LLM RAG Chatbot for Hospitals</p>
+                        <h3>Agentic RAG across structured and unstructured data.</h3>
+                        <p>Built an LLM application using a LangChain agent, Neo4j GraphRAG, vector retrieval and hospital-system data, exposed through FastAPI with a Streamlit interface.</p>
+                        <div class="project-tech">Python · LangChain · Neo4j · FastAPI · Streamlit · Docker</div>
+                        <a href="https://github.com/ZaheedaT/LLM-RAG-Chatbot" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
                     </div>
+                </article>
 
-                </div>
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-cicd">
+                        <span class="project-number">03</span>
+                        <span class="project-type">CI / CD</span>
+                        <div class="project-visual-title">
+                            <small>AUTOMATED DELIVERY</small>
+                            <strong>ML<br>CI / CD</strong>
+                        </div>
+                        <div class="visual-pipeline">CODE → TRAIN → EVALUATE → REPORT → DEPLOY</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">CI/CD Automation for Machine Learning</p>
+                        <h3>Automating the ML delivery lifecycle.</h3>
+                        <p>Built a GitHub Actions pipeline that automates model training, evaluation and reporting with CML, followed by deployment of the ML application to Hugging Face Hub.</p>
+                        <div class="project-tech">GitHub Actions · CML · Scikit-learn · Hugging Face</div>
+                        <a href="https://github.com/ZaheedaT/CI-CD_Pipelines" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
-            </article>
+                <article class="portfolio-project reverse">
+                    <div class="portfolio-project-visual project-eval">
+                        <span class="project-number">04</span>
+                        <span class="project-type">LLM EVALUATION</span>
+                        <div class="project-visual-title">
+                            <small>RAG QUALITY</small>
+                            <strong>LLM<br>EVALUATION</strong>
+                        </div>
+                        <div class="visual-pipeline">RETRIEVE → GENERATE → EVALUATE → TRACK</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">LLM & RAG Evaluation with MLflow</p>
+                        <h3>Making LLM application quality measurable.</h3>
+                        <p>Developed an evaluation framework for RAG applications, tracking retrieval and generation results with MLflow and automating evaluation workflows for reproducible assessment.</p>
+                        <div class="project-tech">Python · MLflow · RAG · LLM Evaluation</div>
+                        <a href="https://github.com/ZaheedaT/LLM-Evaluation-MLFlow" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
-
-            <div class="project-note">
-
-                <span class="note-icon">
-                    ↗
-                </span>
-
-                <p>
-
-                    The project page will expose the architecture,
-                    pipeline stages, model lifecycle, monitoring and a
-                    <strong>live prediction interface</strong> connected
-                    to the deployed model API.
-
-                </p>
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-llama">
+                        <span class="project-number">05</span>
+                        <span class="project-type">GENERATIVE AI</span>
+                        <div class="project-visual-title">
+                            <small>LOCAL LLM</small>
+                            <strong>LLAMA 3<br>FINE-TUNING</strong>
+                        </div>
+                        <div class="visual-pipeline">LORA → MERGE → GGUF → QUANTIZE → LOCAL INFERENCE</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">Llama 3 Fine-Tuning & Local Deployment</p>
+                        <h3>Adapting an LLM for specialised dialogue.</h3>
+                        <p>Fine-tuned Llama 3 on a medical dialogue dataset using LoRA, converted and quantized the model for local inference, and structured the resulting model for application deployment.</p>
+                        <div class="project-tech">Python · PyTorch · Hugging Face · PEFT · LoRA · TRL · llama.cpp</div>
+                        <a href="https://github.com/ZaheedaT/Llama3-Finetuning" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
             </div>
 
@@ -592,102 +493,137 @@
     </section>
 
 
+    <!-- TECHNICAL SKILLS -->
 
-    <!-- FEATURED REPOSITORIES -->
-
-    <section class="section repos-section" id="repos">
+    <section class="section capabilities-section" id="capabilities">
 
         <div class="container">
 
             <div class="section-heading compact">
-
                 <div>
-
-                    <p class="eyebrow">
-                        02 / FEATURED REPOSITORIES
-                    </p>
-
-                    <h2>
-                        Selected repositories
-                    </h2>
-
+                    <p class="eyebrow">02 / TECHNICAL SKILLS</p>
+                    <h2>Technical Skills</h2>
                 </div>
-
             </div>
 
-            <div class="repo-grid">
+            <div class="skills-list">
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">01</span>
-                        <span class="repo-type">MLOPS</span>
-                    </div>
-                    <h3>MLOps Pipeline OpenSource</h3>
-                    <p>Production-oriented house-price ML system with GitHub Actions, MLflow, Feast, Deepchecks, Airflow, Evidently, BentoML, Docker, AWS ECR and Kubernetes.</p>
-                    <div class="repo-tags"><span>Python</span><span>MLflow</span><span>AWS</span><span>Kubernetes</span></div>
-                    <a href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>Programming</h3>
+                    <p>Python, SQL, PostgreSQL, Pandas, Scikit-learn, PySpark, C++, R, Git, Linux/Ubuntu, Conda, Jupyter</p>
                 </article>
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">02</span>
-                        <span class="repo-type">LLM / RAG</span>
-                    </div>
-                    <h3>LLM RAG Chatbot</h3>
-                    <p>End-to-end retrieval-augmented generation application combining LLMs, retrieval, application logic and deployment components.</p>
-                    <div class="repo-tags"><span>Python</span><span>LangChain</span><span>RAG</span><span>LLM</span></div>
-                    <a href="https://github.com/ZaheedaT/LLM-RAG-Chatbot" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>MLOps & ML Engineering</h3>
+                    <p>End-to-End ML Pipelines, Model Deployment & Serving, Experiment Tracking, Model Registry, Feature Stores, Model Monitoring, Data/Model Drift Detection, Automated Retraining, CI/CD for ML, ML Observability</p>
+                    <span>Tools: MLflow, Feast, BentoML, Evidently, Apache Airflow, GitHub Actions, Kubeflow, TFX, ML Metadata (MLMD), DagsHub, Hopsworks</span>
                 </article>
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">03</span>
-                        <span class="repo-type">COMPUTER VISION</span>
-                    </div>
-                    <h3>Computer Vision Flask App</h3>
-                    <p>Object-detection web application built around computer vision inference, Flask, OpenCV and MongoDB, including image and video processing.</p>
-                    <div class="repo-tags"><span>OpenCV</span><span>Flask</span><span>MongoDB</span><span>CV</span></div>
-                    <a href="https://github.com/ZaheedaT/Computer-Vision-FlaskApp" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>Cloud, Containers & Infrastructure</h3>
+                    <p>Docker, Kubernetes, YAML, Terraform, AWS (S3, SageMaker, EC2), GCP (Vertex AI, Compute Engine, Dialogflow), Azure OpenAI</p>
                 </article>
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">04</span>
-                        <span class="repo-type">GENERATIVE AI</span>
-                    </div>
-                    <h3>Llama 3 Fine-Tuning</h3>
-                    <p>Work exploring fine-tuning and dialogue use cases with Llama 3, covering modern LLM training workflows and experimentation.</p>
-                    <div class="repo-tags"><span>Llama 3</span><span>Transformers</span><span>Fine-tuning</span></div>
-                    <a href="https://github.com/ZaheedaT/Llama3-Finetuning" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>Generative AI</h3>
+                    <p>LLMs, LangChain, RAG (Retrieval-Augmented Generation), GraphRAG, Prompt Engineering, Human Feedback, Human-in-the-Loop (RLHF)</p>
                 </article>
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">05</span>
-                        <span class="repo-type">CI / CD</span>
-                    </div>
-                    <h3>CI/CD for Machine Learning</h3>
-                    <p>Machine-learning deployment automation work focused on reproducible pipelines and bringing ML workflows into software delivery.</p>
-                    <div class="repo-tags"><span>CI/CD</span><span>GitHub Actions</span><span>Docker</span></div>
-                    <a href="https://github.com/ZaheedaT/CICD-for-Machine-Learning" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>Machine Learning & AI</h3>
+                    <p>Regression, Classification, Feature Engineering, Model Evaluation, Data Mining, NLP, Sentiment Analysis, Computer Vision, CNNs, RNNs, LSTMs, Transformers, Deep Learning, TensorFlow, Keras, PyTorch</p>
                 </article>
 
-                <article class="repo-card">
-                    <div class="repo-card-top">
-                        <span class="repo-index">06</span>
-                        <span class="repo-type">LLM EVALUATION</span>
-                    </div>
-                    <h3>LLM Evaluation with MLflow</h3>
-                    <p>Evaluation-focused work using MLflow to structure experiments and assess LLM application behaviour.</p>
-                    <div class="repo-tags"><span>MLflow</span><span>LLMs</span><span>Evaluation</span></div>
-                    <a href="https://github.com/ZaheedaT/LLM-Evaluation-MLFlow" target="_blank" rel="noopener noreferrer" class="text-link">View repository ↗</a>
+                <article class="skill-row">
+                    <h3>Data & Storage</h3>
+                    <p>SQL, PostgreSQL, MongoDB, Neo4j</p>
+                </article>
+
+                <article class="skill-row">
+                    <h3>Statistics</h3>
+                    <p>Probability Theory, Distributions and Hypothesis Testing, Model Evaluation, Bayesian Models, A/B Testing</p>
                 </article>
 
             </div>
 
-            <div class="repo-footer">
-                <p>More projects, experiments and technical work are available on GitHub.</p>
-                <a href="https://github.com/ZaheedaT" target="_blank" rel="noopener noreferrer" class="button button-secondary">View all repositories <span>↗</span></a>
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section class="section about-section" id="experience">
+
+        <div class="container">
+
+            <div class="section-heading compact">
+                <div>
+                    <p class="eyebrow">03 / EXPERIENCE</p>
+                    <h2>Experience</h2>
+                </div>
+            </div>
+
+            <div class="experience-timeline">
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Oct 2024 — Present</strong><span>Outlier.ai</span></div>
+                    <div class="experience-body">
+                        <h3>Code Expert · Freelancer</h3>
+                        <p>Training and fine-tuning LLMs through prompt generation and human-in-the-loop / RLHF workflows, including text-based RLHF, vision-language alignment, reasoning and safety evaluation.</p>
+                        <p>Code refactoring, code review, debugging and performance optimisation across Python and C++ scripts.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Dec 2021 — Dec 2023</strong><span>Zelo Analytics</span></div>
+                    <div class="experience-body">
+                        <h3>Data Scientist & ML Engineer · Independent Consulting</h3>
+                        <p>Designed and developed end-to-end analytics, machine learning and AI solutions, turning models and prototypes into deployable, production-oriented applications with APIs, cloud infrastructure, MLOps pipelines and monitoring.</p>
+                        <p><b>Selected work:</b> customer segmentation, churn propensity, product recommendation, LLM/GraphRAG chatbot, CI/CD and ML pipelines, AWS SageMaker, GCP Vertex AI, Terraform, Kubernetes and computer vision.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Dec 2021 — Nov 2022</strong><span>Omdena · Remote</span></div>
+                    <div class="experience-body">
+                        <h3>Machine Learning Engineer · Community Collaborator</h3>
+                        <p>Led applied ML projects including credit scoring, NLP environmental conflict tracking and coreference resolution, with direct business-client communication and cross-functional collaboration.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Jul 2020 — Dec 2021</strong><span>The Gradient Boost · Remote</span></div>
+                    <div class="experience-body">
+                        <h3>Data Science Mentor</h3>
+                        <p>Mentored aspiring data scientists in Python, SQL, Pandas, descriptive statistics, data visualisation, introductory machine learning and presentation skills.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Jan 2018 — Dec 2019</strong><span>Telkom Insights · Cape Town</span></div>
+                    <div class="experience-body">
+                        <h3>Data Scientist — Artificial Intelligence & Insights</h3>
+                        <p>Developed churn propensity and customer segmentation solutions, contributed to chatbot and speech-to-text applications, built Python modules and pipelines, and worked across SQL, NLP, deep learning and computer vision.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>2018 — 2019</strong><span>Explore Software / BCX Insights</span></div>
+                    <div class="experience-body">
+                        <h3>Data Science Intern</h3>
+                        <p>Worked on SQL databases, data-quality reporting, exploratory data analysis, Python visualisation modules and deep-learning tutorials, with a focus on automation and team delivery.</p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-meta"><strong>Jan 2018 — Oct 2018</strong><span>Explore Data Science Academy</span></div>
+                    <div class="experience-body">
+                        <h3>Data Science Learnership</h3>
+                        <p>Completed an intensive programme applying Python, SQL, AWS, machine learning and statistical analysis to real-world projects using Agile delivery.</p>
+                    </div>
+                </article>
+
             </div>
 
         </div>
