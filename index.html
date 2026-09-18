@@ -3646,9 +3646,9 @@ return Plotly;
 </script>
 
 
-<h1 id="summary_0RWF61V5G6NBZAAH3OOKN5OEL">Data Integrity Suite</h1>
+<h1 id="summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI">Data Integrity Suite</h1>
 <p>
-    The suite is composed of various checks such as: Mixed Nulls, Conflicting Labels, Special Characters, etc...<br>
+    The suite is composed of various checks such as: Is Single Value, Special Characters, Feature Label Correlation, etc...<br>
     Each check may contain conditions (which will result in pass <span style="color: green;display:inline-block">✓</span> /
     fail <span style="color: red;display:inline-block">✖</span> / warning <span style="color: orange;font-weight:bold;display:inline-block">!</span> / error <span style="color: firebrick;font-weight:bold;display:inline-block">⁈</span>) as well as
     other outputs such as plots or tables.<br>
@@ -3657,302 +3657,204 @@ return Plotly;
 </p>
 
 <hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Conditions Summary</h2><style type="text/css">
-#T_85b77 table {
+#T_fe50c table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_85b77 thead {
+#T_fe50c thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_85b77 tbody {
+#T_fe50c tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_85b77 th {
+#T_fe50c th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_85b77 td {
+#T_fe50c td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_85b77">
+<table id="T_fe50c">
   <thead>
     <tr>
-      <th id="T_85b77_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_85b77_level0_col1" class="col_heading level0 col1" >Check</th>
-      <th id="T_85b77_level0_col2" class="col_heading level0 col2" >Condition</th>
-      <th id="T_85b77_level0_col3" class="col_heading level0 col3" >More Info</th>
+      <th id="T_fe50c_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_fe50c_level0_col1" class="col_heading level0 col1" >Check</th>
+      <th id="T_fe50c_level0_col2" class="col_heading level0 col2" >Condition</th>
+      <th id="T_fe50c_level0_col3" class="col_heading level0 col3" >More Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_85b77_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row0_col1" class="data row0 col1" ><a href="#FeatureLabelCorrelation-TestDataset_0RWF61V5G6NBZAAH3OOKN5OEL">Feature Label Correlation - Test Dataset</a></td>
-      <td id="T_85b77_row0_col2" class="data row0 col2" >Features' Predictive Power Score is less than 0.8</td>
-      <td id="T_85b77_row0_col3" class="data row0 col3" >Passed for 3 relevant columns</td>
+      <td id="T_fe50c_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row0_col1" class="data row0 col1" ><a href="#FeatureLabelCorrelation-TestDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI">Feature Label Correlation - Test Dataset</a></td>
+      <td id="T_fe50c_row0_col2" class="data row0 col2" >Features' Predictive Power Score is less than 0.8</td>
+      <td id="T_fe50c_row0_col3" class="data row0 col3" >Passed for 3 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row1_col0" class="data row1 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row1_col1" class="data row1 col1" ><a href="#FeatureLabelCorrelation-TrainDataset_0RWF61V5G6NBZAAH3OOKN5OEL">Feature Label Correlation - Train Dataset</a></td>
-      <td id="T_85b77_row1_col2" class="data row1 col2" >Features' Predictive Power Score is less than 0.8</td>
-      <td id="T_85b77_row1_col3" class="data row1 col3" >Passed for 3 relevant columns</td>
+      <td id="T_fe50c_row1_col0" class="data row1 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row1_col1" class="data row1 col1" ><a href="#FeatureLabelCorrelation-TrainDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI">Feature Label Correlation - Train Dataset</a></td>
+      <td id="T_fe50c_row1_col2" class="data row1 col2" >Features' Predictive Power Score is less than 0.8</td>
+      <td id="T_fe50c_row1_col3" class="data row1 col3" >Passed for 3 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row2_col0" class="data row2 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row2_col1" class="data row2 col1" ><a href="#DataDuplicates-TrainDataset_0RWF61V5G6NBZAAH3OOKN5OEL">Data Duplicates - Train Dataset</a></td>
-      <td id="T_85b77_row2_col2" class="data row2 col2" >Duplicate data ratio is less or equal to 5%</td>
-      <td id="T_85b77_row2_col3" class="data row2 col3" >Found 0.46% duplicate data</td>
+      <td id="T_fe50c_row2_col0" class="data row2 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row2_col1" class="data row2 col1" ><a href="#DataDuplicates-TrainDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI">Data Duplicates - Train Dataset</a></td>
+      <td id="T_fe50c_row2_col2" class="data row2 col2" >Duplicate data ratio is less or equal to 5%</td>
+      <td id="T_fe50c_row2_col3" class="data row2 col3" >Found 0.92% duplicate data</td>
     </tr>
     <tr>
-      <td id="T_85b77_row3_col0" class="data row3 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row3_col1" class="data row3 col1" ><a href="#DataDuplicates-TestDataset_0RWF61V5G6NBZAAH3OOKN5OEL">Data Duplicates - Test Dataset</a></td>
-      <td id="T_85b77_row3_col2" class="data row3 col2" >Duplicate data ratio is less or equal to 5%</td>
-      <td id="T_85b77_row3_col3" class="data row3 col3" >Found 0.92% duplicate data</td>
+      <td id="T_fe50c_row3_col0" class="data row3 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row3_col1" class="data row3 col1" >Single Value in Column - Train Dataset</td>
+      <td id="T_fe50c_row3_col2" class="data row3 col2" >Does not contain only a single value</td>
+      <td id="T_fe50c_row3_col3" class="data row3 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row4_col0" class="data row4 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row4_col1" class="data row4 col1" >Single Value in Column - Train Dataset</td>
-      <td id="T_85b77_row4_col2" class="data row4 col2" >Does not contain only a single value</td>
-      <td id="T_85b77_row4_col3" class="data row4 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row4_col0" class="data row4 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row4_col1" class="data row4 col1" >Mixed Nulls - Train Dataset</td>
+      <td id="T_fe50c_row4_col2" class="data row4 col2" >Number of different null types is less or equal to 1</td>
+      <td id="T_fe50c_row4_col3" class="data row4 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row5_col0" class="data row5 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row5_col1" class="data row5 col1" >Single Value in Column - Test Dataset</td>
-      <td id="T_85b77_row5_col2" class="data row5 col2" >Does not contain only a single value</td>
-      <td id="T_85b77_row5_col3" class="data row5 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row5_col0" class="data row5 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row5_col1" class="data row5 col1" >Single Value in Column - Test Dataset</td>
+      <td id="T_fe50c_row5_col2" class="data row5 col2" >Does not contain only a single value</td>
+      <td id="T_fe50c_row5_col3" class="data row5 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row6_col0" class="data row6 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row6_col1" class="data row6 col1" >Special Characters - Train Dataset</td>
-      <td id="T_85b77_row6_col2" class="data row6 col2" >Ratio of samples containing solely special character is less or equal to 0.1%</td>
-      <td id="T_85b77_row6_col3" class="data row6 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row6_col0" class="data row6 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row6_col1" class="data row6 col1" >Special Characters - Train Dataset</td>
+      <td id="T_fe50c_row6_col2" class="data row6 col2" >Ratio of samples containing solely special character is less or equal to 0.1%</td>
+      <td id="T_fe50c_row6_col3" class="data row6 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row7_col0" class="data row7 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row7_col1" class="data row7 col1" >Special Characters - Test Dataset</td>
-      <td id="T_85b77_row7_col2" class="data row7 col2" >Ratio of samples containing solely special character is less or equal to 0.1%</td>
-      <td id="T_85b77_row7_col3" class="data row7 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row7_col0" class="data row7 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row7_col1" class="data row7 col1" >Special Characters - Test Dataset</td>
+      <td id="T_fe50c_row7_col2" class="data row7 col2" >Ratio of samples containing solely special character is less or equal to 0.1%</td>
+      <td id="T_fe50c_row7_col3" class="data row7 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row8_col0" class="data row8 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row8_col1" class="data row8 col1" >Mixed Data Types - Test Dataset</td>
-      <td id="T_85b77_row8_col2" class="data row8 col2" >Rare data types in column are either more than 10% or less than 1% of the data</td>
-      <td id="T_85b77_row8_col3" class="data row8 col3" >4 columns passed: found 0 columns with negligible types mix, and 4 columns without any types mix</td>
+      <td id="T_fe50c_row8_col0" class="data row8 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row8_col1" class="data row8 col1" >Mixed Data Types - Test Dataset</td>
+      <td id="T_fe50c_row8_col2" class="data row8 col2" >Rare data types in column are either more than 10% or less than 1% of the data</td>
+      <td id="T_fe50c_row8_col3" class="data row8 col3" >4 columns passed: found 0 columns with negligible types mix, and 4 columns without any types mix</td>
     </tr>
     <tr>
-      <td id="T_85b77_row9_col0" class="data row9 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row9_col1" class="data row9 col1" >Mixed Data Types - Train Dataset</td>
-      <td id="T_85b77_row9_col2" class="data row9 col2" >Rare data types in column are either more than 10% or less than 1% of the data</td>
-      <td id="T_85b77_row9_col3" class="data row9 col3" >4 columns passed: found 0 columns with negligible types mix, and 4 columns without any types mix</td>
+      <td id="T_fe50c_row9_col0" class="data row9 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row9_col1" class="data row9 col1" >Mixed Data Types - Train Dataset</td>
+      <td id="T_fe50c_row9_col2" class="data row9 col2" >Rare data types in column are either more than 10% or less than 1% of the data</td>
+      <td id="T_fe50c_row9_col3" class="data row9 col3" >4 columns passed: found 0 columns with negligible types mix, and 4 columns without any types mix</td>
     </tr>
     <tr>
-      <td id="T_85b77_row10_col0" class="data row10 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row10_col1" class="data row10 col1" >Mixed Nulls - Test Dataset</td>
-      <td id="T_85b77_row10_col2" class="data row10 col2" >Number of different null types is less or equal to 1</td>
-      <td id="T_85b77_row10_col3" class="data row10 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row10_col0" class="data row10 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row10_col1" class="data row10 col1" >Mixed Nulls - Test Dataset</td>
+      <td id="T_fe50c_row10_col2" class="data row10 col2" >Number of different null types is less or equal to 1</td>
+      <td id="T_fe50c_row10_col3" class="data row10 col3" >Passed for 4 relevant columns</td>
     </tr>
     <tr>
-      <td id="T_85b77_row11_col0" class="data row11 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row11_col1" class="data row11 col1" >Mixed Nulls - Train Dataset</td>
-      <td id="T_85b77_row11_col2" class="data row11 col2" >Number of different null types is less or equal to 1</td>
-      <td id="T_85b77_row11_col3" class="data row11 col3" >Passed for 4 relevant columns</td>
+      <td id="T_fe50c_row11_col0" class="data row11 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row11_col1" class="data row11 col1" >String Mismatch - Train Dataset</td>
+      <td id="T_fe50c_row11_col2" class="data row11 col2" >No string variants</td>
+      <td id="T_fe50c_row11_col3" class="data row11 col3" >Passed for 1 relevant column</td>
     </tr>
     <tr>
-      <td id="T_85b77_row12_col0" class="data row12 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row12_col1" class="data row12 col1" >String Mismatch - Train Dataset</td>
-      <td id="T_85b77_row12_col2" class="data row12 col2" >No string variants</td>
-      <td id="T_85b77_row12_col3" class="data row12 col3" >Passed for 1 relevant column</td>
+      <td id="T_fe50c_row12_col0" class="data row12 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row12_col1" class="data row12 col1" >Data Duplicates - Test Dataset</td>
+      <td id="T_fe50c_row12_col2" class="data row12 col2" >Duplicate data ratio is less or equal to 5%</td>
+      <td id="T_fe50c_row12_col3" class="data row12 col3" >Found 0% duplicate data</td>
     </tr>
     <tr>
-      <td id="T_85b77_row13_col0" class="data row13 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row13_col1" class="data row13 col1" >String Mismatch - Test Dataset</td>
-      <td id="T_85b77_row13_col2" class="data row13 col2" >No string variants</td>
-      <td id="T_85b77_row13_col3" class="data row13 col3" >Passed for 1 relevant column</td>
+      <td id="T_fe50c_row13_col0" class="data row13 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row13_col1" class="data row13 col1" >String Mismatch - Test Dataset</td>
+      <td id="T_fe50c_row13_col2" class="data row13 col2" >No string variants</td>
+      <td id="T_fe50c_row13_col3" class="data row13 col3" >Passed for 1 relevant column</td>
     </tr>
     <tr>
-      <td id="T_85b77_row14_col0" class="data row14 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row14_col1" class="data row14 col1" >String Length Out Of Bounds - Test Dataset</td>
-      <td id="T_85b77_row14_col2" class="data row14 col2" >Ratio of string length outliers is less or equal to 0%</td>
-      <td id="T_85b77_row14_col3" class="data row14 col3" >No relevant columns to check were found</td>
+      <td id="T_fe50c_row14_col0" class="data row14 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row14_col1" class="data row14 col1" >String Length Out Of Bounds - Test Dataset</td>
+      <td id="T_fe50c_row14_col2" class="data row14 col2" >Ratio of string length outliers is less or equal to 0%</td>
+      <td id="T_fe50c_row14_col3" class="data row14 col3" >No relevant columns to check were found</td>
     </tr>
     <tr>
-      <td id="T_85b77_row15_col0" class="data row15 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_85b77_row15_col1" class="data row15 col1" >String Length Out Of Bounds - Train Dataset</td>
-      <td id="T_85b77_row15_col2" class="data row15 col2" >Ratio of string length outliers is less or equal to 0%</td>
-      <td id="T_85b77_row15_col3" class="data row15 col3" >No relevant columns to check were found</td>
+      <td id="T_fe50c_row15_col0" class="data row15 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_fe50c_row15_col1" class="data row15 col1" >String Length Out Of Bounds - Train Dataset</td>
+      <td id="T_fe50c_row15_col2" class="data row15 col2" >Ratio of string length outliers is less or equal to 0%</td>
+      <td id="T_fe50c_row15_col3" class="data row15 col3" >No relevant columns to check were found</td>
     </tr>
   </tbody>
 </table>
-<hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Check With Conditions Output</h2><h4 id="DataDuplicates-TrainDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Data Duplicates - Train Dataset</b></h4><p>Checks for duplicate samples in the dataset. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_data_duplicates.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
-#T_f4b1d table {
+<hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Check With Conditions Output</h2><h4 id="DataDuplicates-TrainDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI"><b>Data Duplicates - Train Dataset</b></h4><p>Checks for duplicate samples in the dataset. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_data_duplicates.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
+#T_d0e0c table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_f4b1d thead {
+#T_d0e0c thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_f4b1d tbody {
+#T_d0e0c tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_f4b1d th {
+#T_d0e0c th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_f4b1d td {
-  text-align: left;
-  white-space: pre-wrap;
-}
-</style>
-<table id="T_f4b1d">
-  <thead>
-    <tr>
-      <th id="T_f4b1d_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_f4b1d_level0_col1" class="col_heading level0 col1" >Condition</th>
-      <th id="T_f4b1d_level0_col2" class="col_heading level0 col2" >More Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="T_f4b1d_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_f4b1d_row0_col1" class="data row0 col1" >Duplicate data ratio is less or equal to 5%</td>
-      <td id="T_f4b1d_row0_col2" class="data row0 col2" >Found 0.46% duplicate data</td>
-    </tr>
-  </tbody>
-</table>
-<h5><b>Additional Outputs</b></h5><div>0.46% of data samples are duplicates. </div><div>Each row in the table shows an example of duplicate data and the number of times it appears.</div><style type="text/css">
-#T_d25d1 table {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d25d1 thead {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d25d1 tbody {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d25d1 th {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d25d1 td {
+#T_d0e0c td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_d25d1">
+<table id="T_d0e0c">
   <thead>
     <tr>
-      <th class="blank" >&nbsp;</th>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_d25d1_level0_col0" class="col_heading level0 col0" >area</th>
-      <th id="T_d25d1_level0_col1" class="col_heading level0 col1" >mainroad</th>
-      <th id="T_d25d1_level0_col2" class="col_heading level0 col2" >bedrooms</th>
-      <th id="T_d25d1_level0_col3" class="col_heading level0 col3" >price</th>
-    </tr>
-    <tr>
-      <th class="index_name level0" >Instances</th>
-      <th class="index_name level1" >Number of Duplicates</th>
-      <th class="blank col0" >&nbsp;</th>
-      <th class="blank col1" >&nbsp;</th>
-      <th class="blank col2" >&nbsp;</th>
-      <th class="blank col3" >&nbsp;</th>
+      <th id="T_d0e0c_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_d0e0c_level0_col1" class="col_heading level0 col1" >Condition</th>
+      <th id="T_d0e0c_level0_col2" class="col_heading level0 col2" >More Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_d25d1_level0_row0" class="row_heading level0 row0" >279, 280</th>
-      <th id="T_d25d1_level1_row0" class="row_heading level1 row0" >2</th>
-      <td id="T_d25d1_row0_col0" class="data row0 col0" >6360</td>
-      <td id="T_d25d1_row0_col1" class="data row0 col1" >1</td>
-      <td id="T_d25d1_row0_col2" class="data row0 col2" >2</td>
-      <td id="T_d25d1_row0_col3" class="data row0 col3" >4270000</td>
-    </tr>
-    <tr>
-      <th id="T_d25d1_level0_row1" class="row_heading level0 row1" >49, 50</th>
-      <th id="T_d25d1_level1_row1" class="row_heading level1 row1" >2</th>
-      <td id="T_d25d1_row1_col0" class="data row1 col0" >7440</td>
-      <td id="T_d25d1_row1_col1" class="data row1 col1" >1</td>
-      <td id="T_d25d1_row1_col2" class="data row1 col2" >3</td>
-      <td id="T_d25d1_row1_col3" class="data row1 col3" >7420000</td>
-    </tr>
-  </tbody>
-</table>
-<br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="DataDuplicates-TestDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Data Duplicates - Test Dataset</b></h4><p>Checks for duplicate samples in the dataset. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_data_duplicates.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
-#T_d5299 table {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d5299 thead {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d5299 tbody {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d5299 th {
-  text-align: left;
-  white-space: pre-wrap;
-}
-#T_d5299 td {
-  text-align: left;
-  white-space: pre-wrap;
-}
-</style>
-<table id="T_d5299">
-  <thead>
-    <tr>
-      <th id="T_d5299_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_d5299_level0_col1" class="col_heading level0 col1" >Condition</th>
-      <th id="T_d5299_level0_col2" class="col_heading level0 col2" >More Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="T_d5299_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_d5299_row0_col1" class="data row0 col1" >Duplicate data ratio is less or equal to 5%</td>
-      <td id="T_d5299_row0_col2" class="data row0 col2" >Found 0.92% duplicate data</td>
+      <td id="T_d0e0c_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_d0e0c_row0_col1" class="data row0 col1" >Duplicate data ratio is less or equal to 5%</td>
+      <td id="T_d0e0c_row0_col2" class="data row0 col2" >Found 0.92% duplicate data</td>
     </tr>
   </tbody>
 </table>
 <h5><b>Additional Outputs</b></h5><div>0.92% of data samples are duplicates. </div><div>Each row in the table shows an example of duplicate data and the number of times it appears.</div><style type="text/css">
-#T_6f413 table {
+#T_d94cf table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_6f413 thead {
+#T_d94cf thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_6f413 tbody {
+#T_d94cf tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_6f413 th {
+#T_d94cf th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_6f413 td {
+#T_d94cf td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_6f413">
+<table id="T_d94cf">
   <thead>
     <tr>
       <th class="blank" >&nbsp;</th>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_6f413_level0_col0" class="col_heading level0 col0" >area</th>
-      <th id="T_6f413_level0_col1" class="col_heading level0 col1" >mainroad</th>
-      <th id="T_6f413_level0_col2" class="col_heading level0 col2" >bedrooms</th>
-      <th id="T_6f413_level0_col3" class="col_heading level0 col3" >price</th>
+      <th id="T_d94cf_level0_col0" class="col_heading level0 col0" >area</th>
+      <th id="T_d94cf_level0_col1" class="col_heading level0 col1" >mainroad</th>
+      <th id="T_d94cf_level0_col2" class="col_heading level0 col2" >bedrooms</th>
+      <th id="T_d94cf_level0_col3" class="col_heading level0 col3" >price</th>
     </tr>
     <tr>
       <th class="index_name level0" >Instances</th>
@@ -3965,50 +3867,74 @@ return Plotly;
   </thead>
   <tbody>
     <tr>
-      <th id="T_6f413_level0_row0" class="row_heading level0 row0" >185, 184</th>
-      <th id="T_6f413_level1_row0" class="row_heading level1 row0" >2</th>
-      <td id="T_6f413_row0_col0" class="data row0 col0" >3000</td>
-      <td id="T_6f413_row0_col1" class="data row0 col1" >1</td>
-      <td id="T_6f413_row0_col2" class="data row0 col2" >3</td>
-      <td id="T_6f413_row0_col3" class="data row0 col3" >5110000</td>
+      <th id="T_d94cf_level0_row0" class="row_heading level0 row0" >367, 366</th>
+      <th id="T_d94cf_level1_row0" class="row_heading level1 row0" >2</th>
+      <td id="T_d94cf_row0_col0" class="data row0 col0" >3630</td>
+      <td id="T_d94cf_row0_col1" class="data row0 col1" >1</td>
+      <td id="T_d94cf_row0_col2" class="data row0 col2" >2</td>
+      <td id="T_d94cf_row0_col3" class="data row0 col3" >3675000</td>
+    </tr>
+    <tr>
+      <th id="T_d94cf_level0_row1" class="row_heading level0 row1" >104, 102</th>
+      <th id="T_d94cf_level1_row1" class="row_heading level1 row1" >2</th>
+      <td id="T_d94cf_row1_col0" class="data row1 col0" >5500</td>
+      <td id="T_d94cf_row1_col1" class="data row1 col1" >1</td>
+      <td id="T_d94cf_row1_col2" class="data row1 col2" >3</td>
+      <td id="T_d94cf_row1_col3" class="data row1 col3" >6195000</td>
+    </tr>
+    <tr>
+      <th id="T_d94cf_level0_row2" class="row_heading level0 row2" >54, 55</th>
+      <th id="T_d94cf_level1_row2" class="row_heading level1 row2" >2</th>
+      <td id="T_d94cf_row2_col0" class="data row2 col0" >6000</td>
+      <td id="T_d94cf_row2_col1" class="data row2 col1" >1</td>
+      <td id="T_d94cf_row2_col2" class="data row2 col2" >3</td>
+      <td id="T_d94cf_row2_col3" class="data row2 col3" >7350000</td>
+    </tr>
+    <tr>
+      <th id="T_d94cf_level0_row3" class="row_heading level0 row3" >280, 279</th>
+      <th id="T_d94cf_level1_row3" class="row_heading level1 row3" >2</th>
+      <td id="T_d94cf_row3_col0" class="data row3 col0" >6360</td>
+      <td id="T_d94cf_row3_col1" class="data row3 col1" >1</td>
+      <td id="T_d94cf_row3_col2" class="data row3 col2" >2</td>
+      <td id="T_d94cf_row3_col3" class="data row3 col3" >4270000</td>
     </tr>
   </tbody>
 </table>
-<br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="FeatureLabelCorrelation-TrainDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Feature Label Correlation - Train Dataset</b></h4><p>Return the PPS (Predictive Power Score) of all features in relation to the label. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_feature_label_correlation.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
-#T_1f87a table {
+<br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="FeatureLabelCorrelation-TrainDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI"><b>Feature Label Correlation - Train Dataset</b></h4><p>Return the PPS (Predictive Power Score) of all features in relation to the label. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_feature_label_correlation.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
+#T_4f2d8 table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_1f87a thead {
+#T_4f2d8 thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_1f87a tbody {
+#T_4f2d8 tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_1f87a th {
+#T_4f2d8 th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_1f87a td {
+#T_4f2d8 td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_1f87a">
+<table id="T_4f2d8">
   <thead>
     <tr>
-      <th id="T_1f87a_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_1f87a_level0_col1" class="col_heading level0 col1" >Condition</th>
-      <th id="T_1f87a_level0_col2" class="col_heading level0 col2" >More Info</th>
+      <th id="T_4f2d8_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_4f2d8_level0_col1" class="col_heading level0 col1" >Condition</th>
+      <th id="T_4f2d8_level0_col2" class="col_heading level0 col2" >More Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_1f87a_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_1f87a_row0_col1" class="data row0 col1" >Features' Predictive Power Score is less than 0.8</td>
-      <td id="T_1f87a_row0_col2" class="data row0 col2" >Passed for 3 relevant columns</td>
+      <td id="T_4f2d8_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_4f2d8_row0_col1" class="data row0 col1" >Features' Predictive Power Score is less than 0.8</td>
+      <td id="T_4f2d8_row0_col2" class="data row0 col2" >Passed for 3 relevant columns</td>
     </tr>
   </tbody>
 </table>
@@ -7632,9 +7558,9 @@ maplibre-gl/dist/maplibre-gl.mjs:
 
 window.Plotly = Plotly;
 return Plotly;
-}));</script>                <div id="c4ad94b2-2364-4858-b683-5fb868bd2d49" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("c4ad94b2-2364-4858-b683-5fb868bd2d49")) {                    Plotly.newPlot(                        "c4ad94b2-2364-4858-b683-5fb868bd2d49",                        [{"marker":{"color":"#00008b"},"name":"Train","text":["\u003cb\u003e0.06\u003c\u002fb\u003e","\u003cb\u003e0.03\u003c\u002fb\u003e","\u003cb\u003e0.02\u003c\u002fb\u003e"],"textposition":"outside","x":["bedrooms","mainroad","area"],"y":{"dtype":"f8","bdata":"MMOJUObnrT\u002fQLXxoEMShPwC++ZuHp5U\u002f"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"yaxis":{"title":{"text":"Predictive Power Score (PPS)"},"range":[0,1.05]},"xaxis":{"range":[-3,5],"type":"category","title":{"text":"Column"}},"legend":{"x":1.0,"y":1.0},"barmode":"group","height":500,"title":{"text":"Predictive Power Score (PPS) - Can a feature predict the label by itself?"}},                        {"responsive": true}                    ).then(function(){
+}));</script>                <div id="d1f0ff03-e121-460e-9367-f06c904ef225" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("d1f0ff03-e121-460e-9367-f06c904ef225")) {                    Plotly.newPlot(                        "d1f0ff03-e121-460e-9367-f06c904ef225",                        [{"marker":{"color":"#00008b"},"name":"Train","text":["\u003cb\u003e0.06\u003c\u002fb\u003e","\u003cb\u003e0.02\u003c\u002fb\u003e","\u003cb\u003e0.0\u003c\u002fb\u003e"],"textposition":"outside","x":["bedrooms","mainroad","area"],"y":{"dtype":"f8","bdata":"MPg7LVZ3rT9AqqpjlumWPwAAAAAAAAAA"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"yaxis":{"title":{"text":"Predictive Power Score (PPS)"},"range":[0,1.05]},"xaxis":{"range":[-3,5],"type":"category","title":{"text":"Column"}},"legend":{"x":1.0,"y":1.0},"barmode":"group","height":500,"title":{"text":"Predictive Power Score (PPS) - Can a feature predict the label by itself?"}},                        {"responsive": true}                    ).then(function(){
 
-var gd = document.getElementById('c4ad94b2-2364-4858-b683-5fb868bd2d49');
+var gd = document.getElementById('d1f0ff03-e121-460e-9367-f06c904ef225');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -7656,41 +7582,41 @@ if (outputEl) {{
     x.observe(outputEl, {childList: true});
 }}
 
-                        })                };            </script>        </div><div>The Predictive Power Score (PPS) is used to estimate the ability of a feature to predict the label by itself (Read more about <a href=https://docs.deepchecks.com/stable/tabular/auto_checks/train_test_validation/plot_feature_label_correlation_change.html target="_blank">Predictive Power Score</a>). A high PPS (close to 1) can mean that this feature's success in predicting the label is actually due to data leakage - meaning that the feature holds information that is based on the label to begin with.</div><br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="FeatureLabelCorrelation-TestDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Feature Label Correlation - Test Dataset</b></h4><p>Return the PPS (Predictive Power Score) of all features in relation to the label. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_feature_label_correlation.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
-#T_d4cab table {
+                        })                };            </script>        </div><div>The Predictive Power Score (PPS) is used to estimate the ability of a feature to predict the label by itself (Read more about <a href=https://docs.deepchecks.com/stable/tabular/auto_checks/train_test_validation/plot_feature_label_correlation_change.html target="_blank">Predictive Power Score</a>). A high PPS (close to 1) can mean that this feature's success in predicting the label is actually due to data leakage - meaning that the feature holds information that is based on the label to begin with.</div><br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="FeatureLabelCorrelation-TestDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI"><b>Feature Label Correlation - Test Dataset</b></h4><p>Return the PPS (Predictive Power Score) of all features in relation to the label. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_feature_label_correlation.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Conditions Summary</b></h5><style type="text/css">
+#T_88709 table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_d4cab thead {
+#T_88709 thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_d4cab tbody {
+#T_88709 tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_d4cab th {
+#T_88709 th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_d4cab td {
+#T_88709 td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_d4cab">
+<table id="T_88709">
   <thead>
     <tr>
-      <th id="T_d4cab_level0_col0" class="col_heading level0 col0" >Status</th>
-      <th id="T_d4cab_level0_col1" class="col_heading level0 col1" >Condition</th>
-      <th id="T_d4cab_level0_col2" class="col_heading level0 col2" >More Info</th>
+      <th id="T_88709_level0_col0" class="col_heading level0 col0" >Status</th>
+      <th id="T_88709_level0_col1" class="col_heading level0 col1" >Condition</th>
+      <th id="T_88709_level0_col2" class="col_heading level0 col2" >More Info</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_d4cab_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
-      <td id="T_d4cab_row0_col1" class="data row0 col1" >Features' Predictive Power Score is less than 0.8</td>
-      <td id="T_d4cab_row0_col2" class="data row0 col2" >Passed for 3 relevant columns</td>
+      <td id="T_88709_row0_col0" class="data row0 col0" ><div style="color: green;text-align: center">✓</div></td>
+      <td id="T_88709_row0_col1" class="data row0 col1" >Features' Predictive Power Score is less than 0.8</td>
+      <td id="T_88709_row0_col2" class="data row0 col2" >Passed for 3 relevant columns</td>
     </tr>
   </tbody>
 </table>
@@ -11314,9 +11240,9 @@ maplibre-gl/dist/maplibre-gl.mjs:
 
 window.Plotly = Plotly;
 return Plotly;
-}));</script>                <div id="ec593d6e-a6a9-407d-b2f7-b4fb9131894a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ec593d6e-a6a9-407d-b2f7-b4fb9131894a")) {                    Plotly.newPlot(                        "ec593d6e-a6a9-407d-b2f7-b4fb9131894a",                        [{"marker":{"color":"#69b3a2"},"name":"Test","text":["\u003cb\u003e0.06\u003c\u002fb\u003e","\u003cb\u003e0.0\u003c\u002fb\u003e","\u003cb\u003e0.0\u003c\u002fb\u003e"],"textposition":"outside","x":["bedrooms","mainroad","area"],"y":{"dtype":"f8","bdata":"4OyYKoVksD8AFpgJOalcPwAAAAAAAAAA"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"yaxis":{"title":{"text":"Predictive Power Score (PPS)"},"range":[0,1.05]},"xaxis":{"range":[-3,5],"type":"category","title":{"text":"Column"}},"legend":{"x":1.0,"y":1.0},"barmode":"group","height":500,"title":{"text":"Predictive Power Score (PPS) - Can a feature predict the label by itself?"}},                        {"responsive": true}                    ).then(function(){
+}));</script>                <div id="cdd58306-2195-41a8-b3b9-aaba99cd02b5" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("cdd58306-2195-41a8-b3b9-aaba99cd02b5")) {                    Plotly.newPlot(                        "cdd58306-2195-41a8-b3b9-aaba99cd02b5",                        [{"marker":{"color":"#69b3a2"},"name":"Test","text":["\u003cb\u003e0.04\u003c\u002fb\u003e","\u003cb\u003e0.01\u003c\u002fb\u003e","\u003cb\u003e0.0\u003c\u002fb\u003e"],"textposition":"outside","x":["bedrooms","mainroad","area"],"y":{"dtype":"f8","bdata":"UMbJU1KVpj\u002fAh6WE3z6NPwAAAAAAAAAA"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"yaxis":{"title":{"text":"Predictive Power Score (PPS)"},"range":[0,1.05]},"xaxis":{"range":[-3,5],"type":"category","title":{"text":"Column"}},"legend":{"x":1.0,"y":1.0},"barmode":"group","height":500,"title":{"text":"Predictive Power Score (PPS) - Can a feature predict the label by itself?"}},                        {"responsive": true}                    ).then(function(){
 
-var gd = document.getElementById('ec593d6e-a6a9-407d-b2f7-b4fb9131894a');
+var gd = document.getElementById('cdd58306-2195-41a8-b3b9-aaba99cd02b5');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -11338,275 +11264,279 @@ if (outputEl) {{
     x.observe(outputEl, {childList: true});
 }}
 
-                        })                };            </script>        </div><div>The Predictive Power Score (PPS) is used to estimate the ability of a feature to predict the label by itself (Read more about <a href=https://docs.deepchecks.com/stable/tabular/auto_checks/train_test_validation/plot_feature_label_correlation_change.html target="_blank">Predictive Power Score</a>). A high PPS (close to 1) can mean that this feature's success in predicting the label is actually due to data leakage - meaning that the feature holds information that is based on the label to begin with.</div><br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Check Without Conditions Output</h2><h4 id="OutlierSampleDetection-TrainDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Outlier Sample Detection - Train Dataset</b></h4><p>Detects outliers in a dataset using the LoOP algorithm. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_outlier_sample_detection.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Additional Outputs</b></h5><div><span>
+                        })                };            </script>        </div><div>The Predictive Power Score (PPS) is used to estimate the ability of a feature to predict the label by itself (Read more about <a href=https://docs.deepchecks.com/stable/tabular/auto_checks/train_test_validation/plot_feature_label_correlation_change.html target="_blank">Predictive Power Score</a>). A high PPS (close to 1) can mean that this feature's success in predicting the label is actually due to data leakage - meaning that the feature holds information that is based on the label to begin with.</div><br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a><hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Check Without Conditions Output</h2><h4 id="OutlierSampleDetection-TrainDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI"><b>Outlier Sample Detection - Train Dataset</b></h4><p>Detects outliers in a dataset using the LoOP algorithm. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_outlier_sample_detection.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Additional Outputs</b></h5><div><span>
                     The Outlier Probability Score is calculated by the LoOP algorithm which measures the local deviation
                     of density of a given sample with respect to its neighbors. These outlier scores are directly
                     interpretable as a probability of an object being an outlier (see
                     <a href="https://www.dbs.ifi.lmu.de/Publikationen/Papers/LoOP1649.pdf"
                     target="_blank" rel="noopener noreferrer">link</a> for more information).<br><br>
                     </span></div><style type="text/css">
-#T_4ff00 table {
+#T_eee81 table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_4ff00 thead {
+#T_eee81 thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_4ff00 tbody {
+#T_eee81 tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_4ff00 th {
+#T_eee81 th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_4ff00 td {
+#T_eee81 td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_4ff00">
+<table id="T_eee81">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_4ff00_level0_col0" class="col_heading level0 col0" >Outlier Probability Score</th>
-      <th id="T_4ff00_level0_col1" class="col_heading level0 col1" >area</th>
-      <th id="T_4ff00_level0_col2" class="col_heading level0 col2" >mainroad</th>
-      <th id="T_4ff00_level0_col3" class="col_heading level0 col3" >bedrooms</th>
-      <th id="T_4ff00_level0_col4" class="col_heading level0 col4" >price</th>
+      <th id="T_eee81_level0_col0" class="col_heading level0 col0" >Outlier Probability Score</th>
+      <th id="T_eee81_level0_col1" class="col_heading level0 col1" >area</th>
+      <th id="T_eee81_level0_col2" class="col_heading level0 col2" >mainroad</th>
+      <th id="T_eee81_level0_col3" class="col_heading level0 col3" >bedrooms</th>
+      <th id="T_eee81_level0_col4" class="col_heading level0 col4" >price</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_4ff00_level0_row0" class="row_heading level0 row0" >131</th>
-      <td id="T_4ff00_row0_col0" class="data row0 col0" >0.96</td>
-      <td id="T_4ff00_row0_col1" class="data row0 col1" >5828</td>
-      <td id="T_4ff00_row0_col2" class="data row0 col2" >1</td>
-      <td id="T_4ff00_row0_col3" class="data row0 col3" >4</td>
-      <td id="T_4ff00_row0_col4" class="data row0 col4" >5810000</td>
+      <th id="T_eee81_level0_row0" class="row_heading level0 row0" >131</th>
+      <td id="T_eee81_row0_col0" class="data row0 col0" >0.95</td>
+      <td id="T_eee81_row0_col1" class="data row0 col1" >5828</td>
+      <td id="T_eee81_row0_col2" class="data row0 col2" >1</td>
+      <td id="T_eee81_row0_col3" class="data row0 col3" >4</td>
+      <td id="T_eee81_row0_col4" class="data row0 col4" >5810000</td>
     </tr>
     <tr>
-      <th id="T_4ff00_level0_row1" class="row_heading level0 row1" >310</th>
-      <td id="T_4ff00_row1_col0" class="data row1 col0" >0.96</td>
-      <td id="T_4ff00_row1_col1" class="data row1 col1" >5985</td>
-      <td id="T_4ff00_row1_col2" class="data row1 col2" >1</td>
-      <td id="T_4ff00_row1_col3" class="data row1 col3" >3</td>
-      <td id="T_4ff00_row1_col4" class="data row1 col4" >4130000</td>
+      <th id="T_eee81_level0_row1" class="row_heading level0 row1" >455</th>
+      <td id="T_eee81_row1_col0" class="data row1 col0" >0.95</td>
+      <td id="T_eee81_row1_col1" class="data row1 col1" >5495</td>
+      <td id="T_eee81_row1_col2" class="data row1 col2" >1</td>
+      <td id="T_eee81_row1_col3" class="data row1 col3" >3</td>
+      <td id="T_eee81_row1_col4" class="data row1 col4" >3129000</td>
     </tr>
     <tr>
-      <th id="T_4ff00_level0_row2" class="row_heading level0 row2" >455</th>
-      <td id="T_4ff00_row2_col0" class="data row2 col0" >0.96</td>
-      <td id="T_4ff00_row2_col1" class="data row2 col1" >5495</td>
-      <td id="T_4ff00_row2_col2" class="data row2 col2" >1</td>
-      <td id="T_4ff00_row2_col3" class="data row2 col3" >3</td>
-      <td id="T_4ff00_row2_col4" class="data row2 col4" >3129000</td>
+      <th id="T_eee81_level0_row2" class="row_heading level0 row2" >310</th>
+      <td id="T_eee81_row2_col0" class="data row2 col0" >0.95</td>
+      <td id="T_eee81_row2_col1" class="data row2 col1" >5985</td>
+      <td id="T_eee81_row2_col2" class="data row2 col2" >1</td>
+      <td id="T_eee81_row2_col3" class="data row2 col3" >3</td>
+      <td id="T_eee81_row2_col4" class="data row2 col4" >4130000</td>
     </tr>
     <tr>
-      <th id="T_4ff00_level0_row3" class="row_heading level0 row3" >528</th>
-      <td id="T_4ff00_row3_col0" class="data row3 col0" >0.94</td>
-      <td id="T_4ff00_row3_col1" class="data row3 col1" >3970</td>
-      <td id="T_4ff00_row3_col2" class="data row3 col2" >0</td>
-      <td id="T_4ff00_row3_col3" class="data row3 col3" >1</td>
-      <td id="T_4ff00_row3_col4" class="data row3 col4" >2275000</td>
+      <th id="T_eee81_level0_row3" class="row_heading level0 row3" >392</th>
+      <td id="T_eee81_row3_col0" class="data row3 col0" >0.95</td>
+      <td id="T_eee81_row3_col1" class="data row3 col1" >3990</td>
+      <td id="T_eee81_row3_col2" class="data row3 col2" >1</td>
+      <td id="T_eee81_row3_col3" class="data row3 col3" >3</td>
+      <td id="T_eee81_row3_col4" class="data row3 col4" >3500000</td>
     </tr>
     <tr>
-      <th id="T_4ff00_level0_row4" class="row_heading level0 row4" >278</th>
-      <td id="T_4ff00_row4_col0" class="data row4 col0" >0.82</td>
-      <td id="T_4ff00_row4_col1" class="data row4 col1" >3400</td>
-      <td id="T_4ff00_row4_col2" class="data row4 col2" >1</td>
-      <td id="T_4ff00_row4_col3" class="data row4 col3" >3</td>
-      <td id="T_4ff00_row4_col4" class="data row4 col4" >4277000</td>
+      <th id="T_eee81_level0_row4" class="row_heading level0 row4" >445</th>
+      <td id="T_eee81_row4_col0" class="data row4 col0" >0.95</td>
+      <td id="T_eee81_row4_col1" class="data row4 col1" >3450</td>
+      <td id="T_eee81_row4_col2" class="data row4 col2" >1</td>
+      <td id="T_eee81_row4_col3" class="data row4 col3" >1</td>
+      <td id="T_eee81_row4_col4" class="data row4 col4" >3150000</td>
     </tr>
   </tbody>
 </table>
-<br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="OutlierSampleDetection-TestDataset_0RWF61V5G6NBZAAH3OOKN5OEL"><b>Outlier Sample Detection - Test Dataset</b></h4><p>Detects outliers in a dataset using the LoOP algorithm. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_outlier_sample_detection.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Additional Outputs</b></h5><div><span>
+<br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a><hr style="background-color: #eee;border: 0 none;color: #eee;height: 4px;"><h4 id="OutlierSampleDetection-TestDataset_NBZ1B1WAA9Y9BTAT6EHWBZYWI"><b>Outlier Sample Detection - Test Dataset</b></h4><p>Detects outliers in a dataset using the LoOP algorithm. <a href="https://docs.deepchecks.com/0.19/tabular/auto_checks/data_integrity/plot_outlier_sample_detection.html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Read More...</a></p><h5><b>Additional Outputs</b></h5><div><span>
                     The Outlier Probability Score is calculated by the LoOP algorithm which measures the local deviation
                     of density of a given sample with respect to its neighbors. These outlier scores are directly
                     interpretable as a probability of an object being an outlier (see
                     <a href="https://www.dbs.ifi.lmu.de/Publikationen/Papers/LoOP1649.pdf"
                     target="_blank" rel="noopener noreferrer">link</a> for more information).<br><br>
                     </span></div><style type="text/css">
-#T_71508 table {
+#T_1cb2a table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_71508 thead {
+#T_1cb2a thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_71508 tbody {
+#T_1cb2a tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_71508 th {
+#T_1cb2a th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_71508 td {
+#T_1cb2a td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_71508">
+<table id="T_1cb2a">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_71508_level0_col0" class="col_heading level0 col0" >Outlier Probability Score</th>
-      <th id="T_71508_level0_col1" class="col_heading level0 col1" >area</th>
-      <th id="T_71508_level0_col2" class="col_heading level0 col2" >mainroad</th>
-      <th id="T_71508_level0_col3" class="col_heading level0 col3" >bedrooms</th>
-      <th id="T_71508_level0_col4" class="col_heading level0 col4" >price</th>
+      <th id="T_1cb2a_level0_col0" class="col_heading level0 col0" >Outlier Probability Score</th>
+      <th id="T_1cb2a_level0_col1" class="col_heading level0 col1" >area</th>
+      <th id="T_1cb2a_level0_col2" class="col_heading level0 col2" >mainroad</th>
+      <th id="T_1cb2a_level0_col3" class="col_heading level0 col3" >bedrooms</th>
+      <th id="T_1cb2a_level0_col4" class="col_heading level0 col4" >price</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_71508_level0_row0" class="row_heading level0 row0" >445</th>
-      <td id="T_71508_row0_col0" class="data row0 col0" >0.92</td>
-      <td id="T_71508_row0_col1" class="data row0 col1" >3450</td>
-      <td id="T_71508_row0_col2" class="data row0 col2" >1</td>
-      <td id="T_71508_row0_col3" class="data row0 col3" >1</td>
-      <td id="T_71508_row0_col4" class="data row0 col4" >3150000</td>
+      <th id="T_1cb2a_level0_row0" class="row_heading level0 row0" >540</th>
+      <td id="T_1cb2a_row0_col0" class="data row0 col0" >0.89</td>
+      <td id="T_1cb2a_row0_col1" class="data row0 col1" >3000</td>
+      <td id="T_1cb2a_row0_col2" class="data row0 col2" >1</td>
+      <td id="T_1cb2a_row0_col3" class="data row0 col3" >2</td>
+      <td id="T_1cb2a_row0_col4" class="data row0 col4" >1820000</td>
     </tr>
     <tr>
-      <th id="T_71508_level0_row1" class="row_heading level0 row1" >216</th>
-      <td id="T_71508_row1_col0" class="data row1 col0" >0.75</td>
-      <td id="T_71508_row1_col1" class="data row1 col1" >6040</td>
-      <td id="T_71508_row1_col2" class="data row1 col2" >1</td>
-      <td id="T_71508_row1_col3" class="data row1 col3" >3</td>
-      <td id="T_71508_row1_col4" class="data row1 col4" >4830000</td>
+      <th id="T_1cb2a_level0_row1" class="row_heading level0 row1" >66</th>
+      <td id="T_1cb2a_row1_col0" class="data row1 col0" >0.76</td>
+      <td id="T_1cb2a_row1_col1" class="data row1 col1" >13200</td>
+      <td id="T_1cb2a_row1_col2" class="data row1 col2" >1</td>
+      <td id="T_1cb2a_row1_col3" class="data row1 col3" >2</td>
+      <td id="T_1cb2a_row1_col4" class="data row1 col4" >6930000</td>
     </tr>
     <tr>
-      <th id="T_71508_level0_row2" class="row_heading level0 row2" >198</th>
-      <td id="T_71508_row2_col0" class="data row2 col0" >0.65</td>
-      <td id="T_71508_row2_col1" class="data row2 col1" >5948</td>
-      <td id="T_71508_row2_col2" class="data row2 col2" >1</td>
-      <td id="T_71508_row2_col3" class="data row2 col3" >3</td>
-      <td id="T_71508_row2_col4" class="data row2 col4" >4935000</td>
+      <th id="T_1cb2a_level0_row2" class="row_heading level0 row2" >161</th>
+      <td id="T_1cb2a_row2_col0" class="data row2 col0" >0.68</td>
+      <td id="T_1cb2a_row2_col1" class="data row2 col1" >6100</td>
+      <td id="T_1cb2a_row2_col2" class="data row2 col2" >1</td>
+      <td id="T_1cb2a_row2_col3" class="data row2 col3" >3</td>
+      <td id="T_1cb2a_row2_col4" class="data row2 col4" >5460000</td>
     </tr>
     <tr>
-      <th id="T_71508_level0_row3" class="row_heading level0 row3" >399</th>
-      <td id="T_71508_row3_col0" class="data row3 col0" >0.56</td>
-      <td id="T_71508_row3_col1" class="data row3 col1" >7350</td>
-      <td id="T_71508_row3_col2" class="data row3 col2" >1</td>
-      <td id="T_71508_row3_col3" class="data row3 col3" >2</td>
-      <td id="T_71508_row3_col4" class="data row3 col4" >3500000</td>
+      <th id="T_1cb2a_level0_row3" class="row_heading level0 row3" >34</th>
+      <td id="T_1cb2a_row3_col0" class="data row3 col0" >0.67</td>
+      <td id="T_1cb2a_row3_col1" class="data row3 col1" >6840</td>
+      <td id="T_1cb2a_row3_col2" class="data row3 col2" >1</td>
+      <td id="T_1cb2a_row3_col3" class="data row3 col3" >5</td>
+      <td id="T_1cb2a_row3_col4" class="data row3 col4" >8120000</td>
     </tr>
     <tr>
-      <th id="T_71508_level0_row4" class="row_heading level0 row4" >234</th>
-      <td id="T_71508_row4_col0" class="data row4 col0" >0.48</td>
-      <td id="T_71508_row4_col1" class="data row4 col1" >3880</td>
-      <td id="T_71508_row4_col2" class="data row4 col2" >1</td>
-      <td id="T_71508_row4_col3" class="data row4 col3" >3</td>
-      <td id="T_71508_row4_col4" class="data row4 col4" >4620000</td>
+      <th id="T_1cb2a_level0_row4" class="row_heading level0 row4" >152</th>
+      <td id="T_1cb2a_row4_col0" class="data row4 col0" >0.65</td>
+      <td id="T_1cb2a_row4_col1" class="data row4 col1" >5400</td>
+      <td id="T_1cb2a_row4_col2" class="data row4 col2" >1</td>
+      <td id="T_1cb2a_row4_col3" class="data row4 col3" >5</td>
+      <td id="T_1cb2a_row4_col4" class="data row4 col4" >5565000</td>
     </tr>
   </tbody>
 </table>
-<br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a><hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Other Checks That Weren't Displayed</h2>
+<br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a><hr style="background-color: black;border: 0 none;color: black;height: 1px;"><h2>Other Checks That Weren't Displayed</h2>
 <style type="text/css">
-#T_3872f table {
+#T_71218 table {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_3872f thead {
+#T_71218 thead {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_3872f tbody {
+#T_71218 tbody {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_3872f th {
+#T_71218 th {
   text-align: left;
   white-space: pre-wrap;
 }
-#T_3872f td {
+#T_71218 td {
   text-align: left;
   white-space: pre-wrap;
 }
 </style>
-<table id="T_3872f">
+<table id="T_71218">
   <thead>
     <tr>
-      <th id="T_3872f_level0_col0" class="col_heading level0 col0" >Check</th>
-      <th id="T_3872f_level0_col1" class="col_heading level0 col1" >Reason</th>
+      <th id="T_71218_level0_col0" class="col_heading level0 col0" >Check</th>
+      <th id="T_71218_level0_col1" class="col_heading level0 col1" >Reason</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_3872f_row0_col0" class="data row0 col0" >Conflicting Labels - Train Dataset</td>
-      <td id="T_3872f_row0_col1" class="data row0 col1" >Check is irrelevant for regression tasks</td>
+      <td id="T_71218_row0_col0" class="data row0 col0" >Feature Feature Correlation - Train Dataset</td>
+      <td id="T_71218_row0_col1" class="data row0 col1" >`np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.</td>
     </tr>
     <tr>
-      <td id="T_3872f_row1_col0" class="data row1 col0" >Conflicting Labels - Test Dataset</td>
-      <td id="T_3872f_row1_col1" class="data row1 col1" >Check is irrelevant for regression tasks</td>
+      <td id="T_71218_row1_col0" class="data row1 col0" >Conflicting Labels - Train Dataset</td>
+      <td id="T_71218_row1_col1" class="data row1 col1" >Check is irrelevant for regression tasks</td>
     </tr>
     <tr>
-      <td id="T_3872f_row2_col0" class="data row2 col0" >Feature Feature Correlation - Train Dataset</td>
-      <td id="T_3872f_row2_col1" class="data row2 col1" >`np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.</td>
+      <td id="T_71218_row2_col0" class="data row2 col0" >Conflicting Labels - Test Dataset</td>
+      <td id="T_71218_row2_col1" class="data row2 col1" >Check is irrelevant for regression tasks</td>
     </tr>
     <tr>
-      <td id="T_3872f_row3_col0" class="data row3 col0" >Feature Feature Correlation - Test Dataset</td>
-      <td id="T_3872f_row3_col1" class="data row3 col1" >`np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.</td>
+      <td id="T_71218_row3_col0" class="data row3 col0" >Feature Feature Correlation - Test Dataset</td>
+      <td id="T_71218_row3_col1" class="data row3 col1" >`np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.</td>
     </tr>
     <tr>
-      <td id="T_3872f_row4_col0" class="data row4 col0" >Identifier Label Correlation - Test Dataset</td>
-      <td id="T_3872f_row4_col1" class="data row4 col1" >DatasetValidationError: Dataset does not contain an index or a datetime. see <a href="https://docs.deepchecks.com/0.19/user-guide/tabular/dataset_object.html?html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Dataset docs</a></td>
+      <td id="T_71218_row4_col0" class="data row4 col0" >Identifier Label Correlation - Train Dataset</td>
+      <td id="T_71218_row4_col1" class="data row4 col1" >DatasetValidationError: Dataset does not contain an index or a datetime. see <a href="https://docs.deepchecks.com/0.19/user-guide/tabular/dataset_object.html?html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Dataset docs</a></td>
     </tr>
     <tr>
-      <td id="T_3872f_row5_col0" class="data row5 col0" >Identifier Label Correlation - Train Dataset</td>
-      <td id="T_3872f_row5_col1" class="data row5 col1" >DatasetValidationError: Dataset does not contain an index or a datetime. see <a href="https://docs.deepchecks.com/0.19/user-guide/tabular/dataset_object.html?html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Dataset docs</a></td>
+      <td id="T_71218_row5_col0" class="data row5 col0" >Identifier Label Correlation - Test Dataset</td>
+      <td id="T_71218_row5_col1" class="data row5 col1" >DatasetValidationError: Dataset does not contain an index or a datetime. see <a href="https://docs.deepchecks.com/0.19/user-guide/tabular/dataset_object.html?html?utm_source=display_output&utm_medium=referral&utm_campaign=check_link" target="_blank">Dataset docs</a></td>
     </tr>
     <tr>
-      <td id="T_3872f_row6_col0" class="data row6 col0" >Single Value in Column - Train Dataset</td>
-      <td id="T_3872f_row6_col1" class="data row6 col1" >Nothing found</td>
+      <td id="T_71218_row6_col0" class="data row6 col0" >Mixed Nulls - Train Dataset</td>
+      <td id="T_71218_row6_col1" class="data row6 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row7_col0" class="data row7 col0" >Single Value in Column - Test Dataset</td>
-      <td id="T_3872f_row7_col1" class="data row7 col1" >Nothing found</td>
+      <td id="T_71218_row7_col0" class="data row7 col0" >Single Value in Column - Train Dataset</td>
+      <td id="T_71218_row7_col1" class="data row7 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row8_col0" class="data row8 col0" >Mixed Data Types - Test Dataset</td>
-      <td id="T_3872f_row8_col1" class="data row8 col1" >Nothing found</td>
+      <td id="T_71218_row8_col0" class="data row8 col0" >Mixed Data Types - Test Dataset</td>
+      <td id="T_71218_row8_col1" class="data row8 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row9_col0" class="data row9 col0" >Mixed Data Types - Train Dataset</td>
-      <td id="T_3872f_row9_col1" class="data row9 col1" >Nothing found</td>
+      <td id="T_71218_row9_col0" class="data row9 col0" >Mixed Data Types - Train Dataset</td>
+      <td id="T_71218_row9_col1" class="data row9 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row10_col0" class="data row10 col0" >Mixed Nulls - Test Dataset</td>
-      <td id="T_3872f_row10_col1" class="data row10 col1" >Nothing found</td>
+      <td id="T_71218_row10_col0" class="data row10 col0" >Mixed Nulls - Test Dataset</td>
+      <td id="T_71218_row10_col1" class="data row10 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row11_col0" class="data row11 col0" >Mixed Nulls - Train Dataset</td>
-      <td id="T_3872f_row11_col1" class="data row11 col1" >Nothing found</td>
+      <td id="T_71218_row11_col0" class="data row11 col0" >String Mismatch - Train Dataset</td>
+      <td id="T_71218_row11_col1" class="data row11 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row12_col0" class="data row12 col0" >String Length Out Of Bounds - Test Dataset</td>
-      <td id="T_3872f_row12_col1" class="data row12 col1" >Nothing found</td>
+      <td id="T_71218_row12_col0" class="data row12 col0" >String Length Out Of Bounds - Train Dataset</td>
+      <td id="T_71218_row12_col1" class="data row12 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row13_col0" class="data row13 col0" >String Length Out Of Bounds - Train Dataset</td>
-      <td id="T_3872f_row13_col1" class="data row13 col1" >Nothing found</td>
+      <td id="T_71218_row13_col0" class="data row13 col0" >Single Value in Column - Test Dataset</td>
+      <td id="T_71218_row13_col1" class="data row13 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row14_col0" class="data row14 col0" >Special Characters - Train Dataset</td>
-      <td id="T_3872f_row14_col1" class="data row14 col1" >Nothing found</td>
+      <td id="T_71218_row14_col0" class="data row14 col0" >Special Characters - Train Dataset</td>
+      <td id="T_71218_row14_col1" class="data row14 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row15_col0" class="data row15 col0" >Special Characters - Test Dataset</td>
-      <td id="T_3872f_row15_col1" class="data row15 col1" >Nothing found</td>
+      <td id="T_71218_row15_col0" class="data row15 col0" >Special Characters - Test Dataset</td>
+      <td id="T_71218_row15_col1" class="data row15 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row16_col0" class="data row16 col0" >String Mismatch - Train Dataset</td>
-      <td id="T_3872f_row16_col1" class="data row16 col1" >Nothing found</td>
+      <td id="T_71218_row16_col0" class="data row16 col0" >String Length Out Of Bounds - Test Dataset</td>
+      <td id="T_71218_row16_col1" class="data row16 col1" >Nothing found</td>
     </tr>
     <tr>
-      <td id="T_3872f_row17_col0" class="data row17 col0" >String Mismatch - Test Dataset</td>
-      <td id="T_3872f_row17_col1" class="data row17 col1" >Nothing found</td>
+      <td id="T_71218_row17_col0" class="data row17 col0" >String Mismatch - Test Dataset</td>
+      <td id="T_71218_row17_col1" class="data row17 col1" >Nothing found</td>
+    </tr>
+    <tr>
+      <td id="T_71218_row18_col0" class="data row18 col0" >Data Duplicates - Test Dataset</td>
+      <td id="T_71218_row18_col1" class="data row18 col1" >Nothing found</td>
     </tr>
   </tbody>
 </table>
-<br><a href="#summary_0RWF61V5G6NBZAAH3OOKN5OEL" style="font-size: 14px;">Go to top</a>
+<br><a href="#summary_NBZ1B1WAA9Y9BTAT6EHWBZYWI" style="font-size: 14px;">Go to top</a>
             </body>
             </html>
