@@ -839,7 +839,7 @@ h2 span {
     margin: 0;
 
     font-size:
-        clamp(38px, 4.3vw, 58px);
+        clamp(46px, 5.2vw, 68px);
 
     font-weight: 600;
 }
@@ -1226,6 +1226,112 @@ h2 span {
 
     color: var(--muted);
 
+    font-size: 12px;
+}
+
+
+
+
+/* =========================
+   FEATURED REPOSITORIES
+========================= */
+
+.repos-section {
+    background: var(--surface);
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.repo-card {
+    min-height: 330px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 8px 30px rgba(44, 25, 77, .05);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.repo-card:hover {
+    transform: translateY(-4px);
+    border-color: #cfc4e2;
+    box-shadow: 0 16px 40px rgba(44, 25, 77, .09);
+}
+
+.repo-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 38px;
+}
+
+.repo-index {
+    color: var(--purple);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.repo-type {
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.repo-card h3 {
+    margin: 0 0 13px;
+    font-size: 24px;
+}
+
+.repo-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.repo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.repo-tags span {
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--muted);
+    background: var(--surface-soft);
+    font-size: 9px;
+}
+
+.repo-card .text-link {
+    margin-top: auto;
+    padding-top: 25px;
+}
+
+.repo-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.repo-footer p {
+    margin: 0;
+    color: var(--muted);
     font-size: 12px;
 }
 
@@ -1834,6 +1940,15 @@ h2 span {
         font-size: 32px;
     }
 
+
+    .repo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repo-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 
     .capability-grid {
         grid-template-columns: 1fr;
