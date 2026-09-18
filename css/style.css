@@ -1703,6 +1703,30 @@ h2 span {
         grid-template-columns: 1fr;
     }
 
+    .portfolio-project,
+    .portfolio-project.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-project.reverse .portfolio-project-visual,
+    .portfolio-project.reverse .portfolio-project-content {
+        order: initial;
+    }
+
+    .portfolio-project-visual {
+        min-height: 390px;
+    }
+
+    .portfolio-project-content {
+        padding: 40px;
+    }
+
+    .skill-row,
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
 
     .capability-grid {
         grid-template-columns:
@@ -1940,6 +1964,19 @@ h2 span {
         font-size: 32px;
     }
 
+    .portfolio-project-content {
+        padding: 32px 24px;
+    }
+
+    .portfolio-project-content h3 {
+        font-size: 32px;
+    }
+
+    .portfolio-project-visual {
+        min-height: 340px;
+        padding: 22px;
+    }
+
 
     .repo-grid {
         grid-template-columns: 1fr;
@@ -2080,4 +2117,234 @@ h2 span {
         grid-template-columns: 1fr;
         gap: 7px;
     }
+}
+
+
+/* =========================
+   PORTFOLIO PROJECTS
+========================= */
+
+.portfolio-projects {
+    display: grid;
+    gap: 24px;
+}
+
+.portfolio-project {
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    min-height: 510px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: 0 12px 45px rgba(44, 25, 77, .06);
+}
+
+.portfolio-project.reverse {
+    grid-template-columns: 1.08fr .92fr;
+}
+
+.portfolio-project.reverse .portfolio-project-visual {
+    order: 2;
+}
+
+.portfolio-project.reverse .portfolio-project-content {
+    order: 1;
+}
+
+.portfolio-project-visual {
+    position: relative;
+    min-height: 510px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #21192e;
+    color: white;
+}
+
+.project-rag { background: #181f2b; }
+.project-cicd { background: #20211d; }
+.project-eval { background: #241d2d; }
+.project-llama { background: #1c2028; }
+
+.project-number,
+.project-type {
+    position: relative;
+    z-index: 2;
+}
+
+.project-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 11px;
+    color: #aaa0b6;
+}
+
+.project-type {
+    position: absolute;
+    top: 29px;
+    right: 29px;
+    padding: 7px 9px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 7px;
+    color: #cfc6da;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+.project-visual-title {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 8px;
+}
+
+.project-visual-title small {
+    color: #94899f;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.project-visual-title strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: .95;
+    letter-spacing: -.05em;
+}
+
+.visual-pipeline {
+    position: relative;
+    z-index: 2;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.13);
+    color: #aaa0b6;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .1em;
+}
+
+.portfolio-project-content {
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-project-content h3 {
+    max-width: 560px;
+    margin: 0;
+    font-size: clamp(34px, 3.3vw, 50px);
+    font-weight: 600;
+}
+
+.portfolio-project-content > p:not(.project-kicker) {
+    max-width: 570px;
+    margin: 22px 0 25px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.project-tech {
+    max-width: 570px;
+    margin-bottom: 30px;
+    color: var(--purple-dark);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+.portfolio-project-content .button {
+    width: fit-content;
+}
+
+/* =========================
+   CV TECHNICAL SKILLS
+========================= */
+
+.skills-list {
+    border-top: 1px solid var(--line);
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 285px 1fr;
+    gap: 45px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.skill-row h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.skill-row p,
+.skill-row span {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.skill-row span {
+    display: block;
+    margin-top: 8px;
+    color: var(--text);
+    font-size: 12px;
+}
+
+/* =========================
+   EXPERIENCE TIMELINE
+========================= */
+
+.experience-timeline {
+    border-top: 1px solid var(--line);
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 55px;
+    padding: 38px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.experience-meta {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+}
+
+.experience-meta strong {
+    color: var(--purple);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.experience-meta span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.experience-body h3 {
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+.experience-body p {
+    max-width: 700px;
+    margin: 0 0 11px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.experience-body p:last-child {
+    margin-bottom: 0;
 }
