@@ -72,4 +72,4 @@ with DAG(
         task_id='no_update'
     )
 
-check_drift_task >> [update_dashboard_task, no_update_task]
+    check_drift_task >> [update_dashboard_task, no_update_task]

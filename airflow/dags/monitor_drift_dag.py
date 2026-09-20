@@ -48,12 +48,12 @@ def monitor_drift():
         print("DRIFT DETECTED -> RETRAIN")
         return "trigger_retrain"
 
-    elif result.returncode == 0:
+    if result.returncode == 0:
         print("NO DRIFT -> NO RETRAIN")
         return "no_retrain"
 
-    else:
-        raise AirflowException(
+
+    raise AirflowException(
             f"monitor_drift.py failed with exit code {result.returncode}"
         )
     
@@ -61,18 +61,82 @@ def retrain_model():
     script_path = os.path.join(ROOT_PATH,"airflow","train_model.py")
 
     # Run the command using a list
-    result = subprocess.run([PYTHON_PATH, script_path], capture_output=True, text=True)
-    return "trigger_retrain"
+    result = subprocess.run(
+        [PYTHON_PATH, script_path], capture_output=True, text=True)
 
-def deploy_model():
-    script_path = os.path.join(ROOT_PATH,"serving","service.py")
+    logging.info("========== RETRAIN STDOUT ==========")
+    logging.info(result.stdout)
 
-    # Serve the BentoML service with reload
-    #subprocess.run(["bentoml", "serve", script_path, "--reload"])
-    subprocess.Popen(
-        ["bentoml", "serve", script_path, "--reload"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+    logging.info("========== RETRAIN STDERR ==========")
+    logging.info(result.stderr)
+
+    if result.returncode != 0:
+        raise AirflowException(
+            f"Model retraining failed with exit code {result.returncode}"
+        )
+
+    image_uri = None
+
+    for line in result.stdout.splitlines():
+        if line.startswith("DEPLOY_IMAGE_URI="):
+            image_uri = line.split("=", 1)[1].strip()
+            break
+    if not image_uri:
+        raise AirflowException(
+            "Retraining model succeeded but no ECR image URI was returned."
+        )
+
+    logging.info("New runtime model image: %s",
+                 image_uri)
+
+    return image_uri
+
+
+def deploy_model(ti):
+    image_uri = ti.xcom_pull(
+        task_ids="trigger_retrain"
+    )
+
+    if not image_uri:
+        raise AirflowException(
+            "No ECR image URI received from retraining task."
+        )
+
+    logging.info(
+        "Deploying image to Kubernetes: %s",
+        image_uri
+    )
+
+    script_path = os.path.join(
+        ROOT_PATH,
+        "airflow",
+        "deploy_model.py"
+    )
+
+    env = os.environ.copy()
+    env["IMAGE_URI"] = image_uri
+
+    result = subprocess.run(
+        [PYTHON_PATH, script_path],
+        capture_output=True,
+        text=True,
+        env=env
+    )
+
+    logging.info("========== DEPLOY STDOUT ==========")
+    logging.info(result.stdout)
+
+    logging.info("========== DEPLOY STDERR ==========")
+    logging.info(result.stderr)
+
+    if result.returncode != 0:
+        raise AirflowException(
+            f"Kubernetes deployment failed with exit code "
+            f"{result.returncode}"
+        )
+
+    logging.info(
+        "Kubernetes deployment completed successfully."
     )
 
 # Define the DAG
@@ -81,14 +145,12 @@ default_args = {
     'depends_on_past': False,
     'email_on_failure': False,
     'email_on_retry': False,
-    #'retries': 1,
-    #'retry_delay': timedelta(minutes=5),
 }
 
 with DAG(
     'check_drift_and_retrain',
     default_args=default_args,
-    description='DAG to check data drift and retrain if required',
+    description="Monitor data drift, retrain when required, and deploy to Kubernetes",
     schedule_interval=timedelta(minutes=5),
     start_date=datetime(2025, 1, 1),
     catchup=False,
@@ -109,6 +171,11 @@ with DAG(
         python_callable=deploy_model
     )
 
+    pipeline_complete = EmptyOperator(
+        task_id="pipeline_complete",
+        trigger_rule="none_failed_min_one_success", # Is used because BranchPythonOperator skips the branch that wasn't selected.
+    )
 
-check_drift_task >> [retrain_task, no_retrain_task]
-retrain_task >> deploy_model_task
+    check_drift_task >> [retrain_task, no_retrain_task]
+    retrain_task >> deploy_model_task
+    [no_retrain_task, deploy_model_task] >> pipeline_complete

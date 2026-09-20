@@ -5,15 +5,20 @@ import pandas as pd
 import sqlalchemy as db
 import pickle
 import logging
+import subprocess
+
 sys.path.append(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 #-------------------------------------------------------------------------
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
-ROOT_PATH = os.environ["ROOT"]
+ROOT_PATH = os.environ["ROOT_PATH"]
 PYTHON_PATH = os.environ["PYTHON_PATH"]
-SCRIPT_PATH= os.path.join(ROOT_PATH, "/airflow/update_datastore.py")
 DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
+
+AWS_REGION = os.environ["AWS_REGION"]
+ECR_REGISTRY = os.environ["ECR_REGISTRY"]
+ECR_REPOSITORY = os.environ.get("ECR_REPOSITORY", "house-price-model")
 #-------------------------------------------------------------------------
 
 from feature_store.exec_feature_store import ExecuteFeatureStore
@@ -48,7 +53,7 @@ class TrainModel:
         return X_hist
 
     def predict_new_data(self):
-        path = os.getcwd() + "//serving//feedback.csv"
+        path = os.path.join(ROOT_PATH, "serving", "feedback.csv")
         X_new = pd.read_csv(path)
         X_new.drop(["event_timestamp", "prediction"], axis=1, inplace=True)
         lr_model = self.house_model.load_model()
@@ -96,14 +101,153 @@ class TrainModel:
         model_name = bento_model.import_model("house_price_model", model_info.model_uri)
         logging.info(str.format('Imported model {0} to BentoML', model_name))
 
+    def run_command(self, command, input_text=None):
+        result = subprocess.run(
+            command,
+            cwd=ROOT_PATH,
+            input=input_text,
+            capture_output=True,
+            text=True
+        )
+
+        if result.stdout:
+            logging.info(result.stdout)
+
+        if result.stderr:
+            logging.info(result.stderr)
+
+        if result.returncode != 0:
+            logging.error(
+                "Command failed with exit code %s: %s",
+                result.returncode,
+                " ".join(command)
+            )
+            raise RuntimeError(
+                f"Command failed: {' '.join(command)}"
+            )
+
+        return result.stdout.strip()
+
+    def build_bento(self):
+        logging.info("Building BentoML image.")
+
+        output = self.run_command(
+            ["bentoml", "build", "serving/", "--output", "tag"]
+        )
+
+        bento_tag = output.removeprefix("__tag__:")
+
+        logging.info("BentoML build completed: %s", bento_tag)
+
+        return bento_tag
+
+    def containerize_bento(self, bento_tag):
+        logging.info("Containerizing Bento: %s", bento_tag)
+
+        self.run_command(
+            ["bentoml", "containerize", bento_tag]
+        )
+
+        logging.info("Bento containerization completed.")
+
+    def login_to_ecr(self):
+        logging.info("Logging into Amazon ECR.")
+
+        password = self.run_command(
+            [
+                "aws",
+                "ecr",
+                "get-login-password",
+                "--region",
+                AWS_REGION
+            ]
+        )
+
+        self.run_command(
+            [
+                "docker",
+                "login",
+                "--username",
+                "AWS",
+                "--password-stdin",
+                ECR_REGISTRY
+            ],
+            input_text=password
+        )
+
+        logging.info("ECR login completed.")
+
+    def push_to_ecr(self, bento_tag):
+        bento_version = bento_tag.split(":", 1)[1]
+        image_tag = f"airflow-{bento_version}"
+
+        image_uri = (
+            f"{ECR_REGISTRY}/"
+            f"{ECR_REPOSITORY}:"
+            f"{image_tag}"
+        )
+
+        logging.info("Tagging image as: %s", image_uri)
+
+        self.run_command(
+            [
+                "docker",
+                "tag",
+                bento_tag,
+                image_uri
+            ]
+        )
+
+        logging.info("Pushing image to ECR: %s", image_uri)
+
+        self.run_command(
+            [
+                "docker",
+                "push",
+                image_uri
+            ]
+        )
+
+        logging.info(
+            "Successfully pushed image to ECR: %s",
+            image_uri
+        )
+
+        return image_uri
+
+    def build_and_push_ecr_image(self):
+        bento_tag = self.build_bento()
+
+        self.containerize_bento(bento_tag)
+
+        self.login_to_ecr()
+
+        image_uri = self.push_to_ecr(bento_tag)
+
+        logging.info(
+            "Runtime model image ready for deployment: %s",
+            image_uri
+        )
+
+        return image_uri
+
 if __name__ == "__main__":
 
     os.chdir(ROOT_PATH)
     trainer = TrainModel()
     X_hist = trainer.get_current_features()
     X_new = trainer.predict_new_data()
-    trainer.create_and_train_new_dataset_with_target(X_hist, X_new)
+    trainer.create_and_train_new_dataset_with_target(
+        X_hist,
+        X_new
+    )
+
     m_info = trainer.register_model()
     trainer.serve_model(m_info)
-    logging.info("Model trained and registered")
+    image_uri = trainer.build_and_push_ecr_image()
+    logging.info(
+        "Model trained, registered, containerized and pushed to ECR"
+    )
+
+    print(f"DEPLOY_IMAGE_URI={image_uri}")
 

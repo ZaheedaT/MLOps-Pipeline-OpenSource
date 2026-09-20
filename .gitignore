@@ -174,3 +174,8 @@ cython_debug/
 # Pickles
 *.pklmodel/*.pkl
 *.db
+*.zip
+
+# Private Keys
+*.key
+*.key.pub

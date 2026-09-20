@@ -22,6 +22,12 @@ jobs:
       with:
         ref: ${{ github.event.workflow_run.head_sha }}
 
+
+    - name: Set image tag
+      run: |
+        echo "IMAGE_TAG=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_ENV"
+        echo "Using image tag: ${{ github.event.workflow_run.head_sha }}"
+
     - name: Check GitHub OIDC environment
       run: |
         echo "Repository: ${{ github.repository }}"
@@ -126,12 +132,12 @@ jobs:
         # 4. Reference the exact versioned local container image instead of generic ":latest"
         docker tag \
           "$BENTO_VERSION" \
-          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+          ${{ steps.login-ecr.outputs.registry }}/house-price-model:$IMAGE_TAG
 
     - name: Push Docker image
       run: |
         docker push \
-          ${{ steps.login-ecr.outputs.registry }}/house-price-model:${{ github.sha }}
+          ${{ steps.login-ecr.outputs.registry }}/house-price-model:$IMAGE_TAG
 
 
 

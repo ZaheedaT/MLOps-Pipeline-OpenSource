@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: house-service
-          image: house_service:soibhnvj7sghakye
-          imagePullPolicy: IfNotPresent
+          image: ${IMAGE_URI}
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           readinessProbe:

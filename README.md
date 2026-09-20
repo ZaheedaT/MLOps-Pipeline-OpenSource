@@ -24,3 +24,116 @@ The project involves:
 6. **Containerization:** Use Docker to containerize the model
 7. **Continuous Integration:** Implement CI to initiate model and data validation with every modification to the source code. (Using DeepChecks, could use Evidently to stay in the same ecosystem)
 8. **Model monitoring & retraining:** Consistently evaluate the model with new data and retrain as necessary.
+
+## Project Workflow
+                         ┌──────────────────┐
+                         │      GitHub      │
+                         └────────┬─────────┘
+                                  │
+                                  ▼
+                         ┌──────────────────┐
+                         │  GitHub Actions  │
+                         │      CI / CD     │
+                         └────────┬─────────┘
+                                  │
+                    ┌─────────────┴─────────────┐
+                    │                           │
+                    ▼                           ▼
+             MODEL LIFECYCLE              CONTAINER DELIVERY
+                    │                           │
+              ┌─────┴─────┐               ┌───┴────┐
+              │           │               │        │
+            Feast       MLflow          BentoML   Docker
+              │           │               │        │
+              ▼           ▼               └───┬────┘
+           Training    Registry                │
+              │                                ▼
+              ▼                               ECR
+         Deepchecks                            │
+                                               ▼
+                                          Kubernetes
+                                               │
+                                        ┌──────┴──────┐
+                                        │             │
+                                       Pod          Service
+                                        │             │
+                                        └──────┬──────┘
+                                               │
+                                               ▼
+                                          BentoML API
+
+
+                    ┌──────────────────────────────────┐
+                    │             AIRFLOW              │
+                    │                                  │
+                    │       Data / Feature flow        │
+                    │                │                 │
+                    │                ▼                 │
+                    │        Evidently monitoring      │
+                    │                │                 │
+                    │          data changed?           │
+                    │           /          \            │
+                    │         NO            YES         │
+                    │         │              │          │
+                    │         ▼              ▼          │
+                    │      No-op          Retrain       │
+                    │         │              │          │
+                    │         │              ▼          │
+                    │         │          Validate       │
+                    │         │              │          │
+                    │         │              ▼          │
+                    │         │         Deploy to      │
+                    │         │        Kubernetes      │
+                    │         │              │          │
+                    │         └──────────────┴──────────┤
+                    │                       │            │
+                    │                       ▼            │
+                    │                  DAG SUCCESS      │
+                    └──────────────────────────────────┘
+
+### Airflow DAG workflow
+                  check_data_drift
+                         │
+                    ┌────┴────┐
+                    │         │
+                   NO        YES
+                    │         │
+                    ▼         ▼
+              no_change     retrain
+                    │         │
+                    │         ▼
+                    │       deploy
+                    │         │
+                    └────┬────┘
+                         ▼
+                      complete
+## Run the project
+
+### 1. Tag the Deployment Image and push to ECR 
+
+``` Bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+kubectl set image deployment/house-service \
+  house-service="$ECR_REGISTRY/house-price-model:$IMAGE_TAG"
+```
+
+## Kubernetes EKS Clusters
+
+Configure observability
+
+Control plane logging
+
+If you see the individual log types, enable:
+
+✅ API
+✅ Audit
+✅ Authenticator
+✅ Controller manager
+✅ Scheduler
+
+These send EKS control-plane logs to Amazon CloudWatch, which is useful for a production-style MLOps project and troubleshooting.
+
+Prometheus / Container Insights / enhanced observability:
+If AWS presents optional paid monitoring features, leave them off for now. Your project already uses Evidently for ML/data monitoring, so we don't need to duplicate that with additional AWS monitoring costs.

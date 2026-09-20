@@ -12,7 +12,7 @@ from monitoring.evidently_monitoring import *
 
 #-------------------------------------------------------------------------
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
-ROOT_PATH = os.environ["ROOT"]
+ROOT_PATH = os.environ["ROOT_PATH"]
 #PYTHON_PATH = os.environ["PYTHON_PATH"]
 #SCRIPT_PATH= os.path.join(ROOT_PATH, "airflow", "update_datastore.py")
 DATA_PATH = os.path.join(ROOT_PATH, "data", "train.csv")
@@ -75,8 +75,13 @@ class MonitorDrift:
             params={"reference_end": reference_end}
         )
 
+
         print("CURRENT ENTITY DATA:")
         print(entity_df_cur)
+
+        if entity_df_cur.empty:
+            print("NO NEW DATA DETECTED")
+            return reference, pd.DataFrame(columns=reference.columns)
 
         current = self.f_store.get_online_features(store, entity_df_cur)
         current = current[
@@ -86,24 +91,24 @@ class MonitorDrift:
 
 
     def monitor_drift(self, reference=None, current=None):
-        if(reference is None or current is None):
+        if reference is None or current is None:
             reference, current = self.get_reference_and_current_data()
 
+        if current.empty:
+            print("NO NEW DATA -> NO DRIFT")
+            return False
 
         logging.info("reference:%s", reference)
-        logging.info("reference:%s", current)
+        logging.info("current:%s", current)
 
         ws = self.monitoring.create_workspace(WORKSPACE)
-        project = self.monitoring.search_or_create_project(PROJECT, ws)
-        #Data drift report
-
         print(self.monitoring.current_strategy)
-        drift = self.monitoring.execute_strategy(reference, current, ws)
-        #Data drift test report
         self.monitoring.current_strategy = DataDriftTestReport()
-        test_suite = self.monitoring.execute_strategy(reference, current, ws)
+        test_suite = self.monitoring.execute_strategy(
+            reference, current, ws)
         # Check if drift is detected
-        drift_detected = any(test["status"] == "FAIL" for test in test_suite.as_dict()["tests"])
+        drift_detected = any(test["status"] == "FAIL"
+                             for test in test_suite.as_dict()["tests"])
         return drift_detected
 
 
