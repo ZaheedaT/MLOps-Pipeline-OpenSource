@@ -19,6 +19,7 @@
         rel="stylesheet"
     >
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -47,8 +48,8 @@
         <div class="nav-links" id="navLinks">
 
             <a href="#work">Work</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#about">About</a>
+            <a href="#capabilities">Technical Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
 
             <a
@@ -110,6 +111,15 @@
                     >
                         GitHub
                         <span>↗</span>
+                    </a>
+
+                    <a
+                        href="assets/Zaheeda-Tshankie-CV.pdf"
+                        class="button button-secondary"
+                        download
+                    >
+                        Download CV
+                        <span>↓</span>
                     </a>
 
                 </div>
@@ -214,7 +224,7 @@
                             <div class="branch-line"></div>
 
                             <span>
-                                validation · registry · deployment
+                                Feast · Airflow · Evidently · validation · registry
                             </span>
 
                         </div>
@@ -258,9 +268,9 @@
 
                                 <small>06</small>
 
-                                <strong>API</strong>
+                                <strong>Kubernetes</strong>
 
-                                <span>Inference</span>
+                                <span>Production runtime</span>
 
                             </div>
 
@@ -275,7 +285,7 @@
                             </span>
 
                             <span>
-                                MODEL → PRODUCTION
+                                MODEL → PRODUCTION → MONITOR → RETRAIN
                             </span>
 
                         </div>
@@ -360,7 +370,7 @@
     </section>
 
 
-    <!-- WORK -->
+    <!-- FEATURED PROJECTS -->
 
     <section class="section work-section" id="work">
 
@@ -369,211 +379,147 @@
             <div class="section-heading">
 
                 <div>
-
-                    <p class="eyebrow">
-                        01 / FEATURED WORK
-                    </p>
-
-                    <h2>
-                        Production-minded
-                        <br>
-                        <span>machine learning.</span>
-                    </h2>
-
+                    <p class="eyebrow">01 / FEATURED PROJECTS</p>
+                    <h2>Featured Projects</h2>
                 </div>
-
 
                 <p class="section-intro">
-
-                    A practical end-to-end project designed to demonstrate
-                    what happens after a model has been trained.
-
+                    Selected engineering projects spanning MLOps, LLM applications,
+                    evaluation, CI/CD and model fine-tuning.
                 </p>
 
             </div>
 
+            <div class="portfolio-projects">
 
-            <article class="featured-project">
-
-
-                <!-- PROJECT VISUAL -->
-
-                <div class="project-visual">
-
-                    <div class="project-topline">
-
-                        <span class="project-badge">
-                            MLOPS PROJECT
-                        </span>
-
-                        <span class="project-id">
-                            01
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-chart">
-
-                        <div class="chart-grid"></div>
-
-                        <div class="chart-line">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-mlops">
+                        <span class="project-number">01</span>
+                        <span class="project-type">MLOPS</span>
+                        <div class="project-visual-title">
+                            <small>END-TO-END ML SYSTEM</small>
+                            <strong>HOUSE PRICE<br>PREDICTION</strong>
                         </div>
-
-
-                        <div class="chart-caption">
-
-                            <span>
-                                MODEL SYSTEM
-                            </span>
-
-                            <strong>
-                                HOUSE PRICE PREDICTION
-                            </strong>
-
-                        </div>
-
+                        <div class="visual-pipeline">TRAIN → VALIDATE → REGISTER → SERVE → MONITOR → RETRAIN</div>
                     </div>
-
-
-                    <div class="project-stack">
-
-                        <span>Python</span>
-                        <span>MLflow</span>
-                        <span>Feast</span>
-                        <span>Deepchecks</span>
-                        <span>BentoML</span>
-                        <span>AWS ECR</span>
-
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">MLOps Pipeline OpenSource</p>
+                        <h3>From model training to production.</h3>
+                        <p>Designed an end-to-end MLOps system covering feature management, experiment tracking, validation, model registration, production serving, monitoring and automated retraining.</p>
+                        <div class="project-tools">
+                        <span class="tool-pill"><i class="tool-icon devicon-python-plain"></i>Python</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>MLflow</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>Feast</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>BentoML</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-docker-plain"></i>Docker</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-apacheairflow-plain"></i>Airflow</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>Evidently</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-kubernetes-plain"></i>Kubernetes</span>
                     </div>
-
-                </div>
-
-
-                <!-- PROJECT INFORMATION -->
-
-                <div class="project-content">
-
-                    <p class="project-kicker">
-                        House Price Prediction
-                    </p>
-
-                    <h3>
-                        End-to-end MLOps pipeline
-                    </h3>
-
-                    <p>
-
-                        A production-style machine-learning workflow covering
-                        automated training, validation, experiment tracking,
-                        model registration, packaging, container deployment
-                        and inference.
-
-                    </p>
-
-
-                    <div class="project-status">
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                CI/CD pipeline
-                            </span>
-
-                            <strong>
-                                Automated
-                            </strong>
-
-                        </div>
-
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                Model serving
-                            </span>
-
-                            <strong>
-                                BentoML
-                            </strong>
-
-                        </div>
-
-
-                        <div class="status-row">
-
-                            <span class="status-dot"></span>
-
-                            <span>
-                                Container registry
-                            </span>
-
-                            <strong>
-                                AWS ECR
-                            </strong>
-
-                        </div>
-
+                        <a href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource" target="_blank" rel="noopener noreferrer" class="button button-primary">View project <span>↗</span></a>
                     </div>
+                </article>
 
-
-                    <div class="project-actions">
-
-                        <a
-                            href="projects/house-price/index.html"
-                            class="button button-primary"
-                        >
-                            Explore project
-                            <span>→</span>
-                        </a>
-
-
-                        <a
-                            href="https://github.com/ZaheedaT/MLOps-Pipeline-OpenSource"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link"
-                        >
-                            View source ↗
-                        </a>
-
+                <article class="portfolio-project reverse">
+                    <div class="portfolio-project-visual project-rag">
+                        <span class="project-number">02</span>
+                        <span class="project-type">LLM / RAG</span>
+                        <div class="project-visual-title">
+                            <small>HEALTHCARE AI</small>
+                            <strong>HOSPITAL<br>RAG CHATBOT</strong>
+                        </div>
+                        <div class="visual-pipeline">AGENT → GRAPH → VECTOR SEARCH → API → UI</div>
                     </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">LLM RAG Chatbot for Hospitals</p>
+                        <h3>Agentic RAG across structured and unstructured data.</h3>
+                        <p>Built an LLM application using a LangChain agent, Neo4j GraphRAG, vector retrieval and hospital-system data, exposed through FastAPI with a Streamlit interface.</p>
+                        <div class="project-tools">
+                        <span class="tool-pill"><i class="tool-icon devicon-python-plain"></i>Python</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>LangChain</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-neo4j-plain"></i>Neo4j</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-fastapi-plain"></i>FastAPI</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-streamlit-plain"></i>Streamlit</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-docker-plain"></i>Docker</span>
+                    </div>
+                        <a href="https://github.com/ZaheedaT/LLM-RAG-Chatbot" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
-                </div>
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-cicd">
+                        <span class="project-number">03</span>
+                        <span class="project-type">CI / CD</span>
+                        <div class="project-visual-title">
+                            <small>AUTOMATED DELIVERY</small>
+                            <strong>ML<br>CI / CD</strong>
+                        </div>
+                        <div class="visual-pipeline">CODE → TRAIN → EVALUATE → REPORT → DEPLOY</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">CI/CD Automation for Machine Learning</p>
+                        <h3>Automating the ML delivery lifecycle.</h3>
+                        <p>Built a GitHub Actions pipeline that automates model training, evaluation and reporting with CML, followed by deployment of the ML application to Hugging Face Hub.</p>
+                        <div class="project-tools">
+                        <span class="tool-pill"><i class="tool-icon devicon-github-original"></i>GitHub Actions</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>CML</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-scikitlearn-plain"></i>Scikit-learn</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-huggingface-plain"></i>Hugging Face</span>
+                    </div>
+                        <a href="https://github.com/ZaheedaT/CI-CD_Pipelines" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
-            </article>
+                <article class="portfolio-project reverse">
+                    <div class="portfolio-project-visual project-eval">
+                        <span class="project-number">04</span>
+                        <span class="project-type">LLM EVALUATION</span>
+                        <div class="project-visual-title">
+                            <small>RAG QUALITY</small>
+                            <strong>LLM<br>EVALUATION</strong>
+                        </div>
+                        <div class="visual-pipeline">RETRIEVE → GENERATE → EVALUATE → TRACK</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">LLM & RAG Evaluation with MLflow</p>
+                        <h3>Making LLM application quality measurable.</h3>
+                        <p>Developed an evaluation framework for RAG applications, tracking retrieval and generation results with MLflow and automating evaluation workflows for reproducible assessment.</p>
+                        <div class="project-tools">
+                        <span class="tool-pill"><i class="tool-icon devicon-python-plain"></i>Python</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>MLflow</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>RAG</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>LLM Evaluation</span>
+                    </div>
+                        <a href="https://github.com/ZaheedaT/LLM-Evaluation-MLFlow" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
-
-            <div class="project-note">
-
-                <span class="note-icon">
-                    ↗
-                </span>
-
-                <p>
-
-                    The project page will expose the architecture,
-                    pipeline stages, model lifecycle, monitoring and a
-                    <strong>live prediction interface</strong> connected
-                    to the deployed model API.
-
-                </p>
+                <article class="portfolio-project">
+                    <div class="portfolio-project-visual project-llama">
+                        <span class="project-number">05</span>
+                        <span class="project-type">GENERATIVE AI</span>
+                        <div class="project-visual-title">
+                            <small>LOCAL LLM</small>
+                            <strong>LLAMA 3<br>FINE-TUNING</strong>
+                        </div>
+                        <div class="visual-pipeline">LORA → MERGE → GGUF → QUANTIZE → LOCAL INFERENCE</div>
+                    </div>
+                    <div class="portfolio-project-content">
+                        <p class="project-kicker">Llama 3 Fine-Tuning & Local Deployment</p>
+                        <h3>Adapting an LLM for specialised dialogue.</h3>
+                        <p>Fine-tuned Llama 3 on a medical dialogue dataset using LoRA, converted and quantized the model for local inference, and structured the resulting model for application deployment.</p>
+                        <div class="project-tools">
+                        <span class="tool-pill"><i class="tool-icon devicon-python-plain"></i>Python</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-pytorch-plain"></i>PyTorch</span>
+                        <span class="tool-pill"><i class="tool-icon devicon-huggingface-plain"></i>Hugging Face</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>PEFT</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>LoRA</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>TRL</span>
+                        <span class="tool-pill"><i class="tool-icon "></i>llama.cpp</span>
+                    </div>
+                        <a href="https://github.com/ZaheedaT/Llama3-Finetuning" target="_blank" rel="noopener noreferrer" class="button button-secondary">View project <span>↗</span></a>
+                    </div>
+                </article>
 
             </div>
 
@@ -582,233 +528,50 @@
     </section>
 
 
-    <!-- CAPABILITIES -->
-
-    <section
-        class="section capabilities-section"
-        id="capabilities"
-    >
-
+    <!-- TECHNICAL SKILLS -->
+    <section class="section capabilities-section" id="capabilities">
         <div class="container">
-
             <div class="section-heading compact">
-
-                <div>
-
-                    <p class="eyebrow">
-                        02 / CAPABILITIES
-                    </p>
-
-                    <h2>
-                        From model development
-                        <br>
-                        to <span>production.</span>
-                    </h2>
-
-                </div>
-
+                <div><p class="eyebrow">02 / TECHNICAL SKILLS</p><h2>Technical Skills</h2></div>
+                <p class="section-intro">The tools and engineering disciplines I use to build, deploy and evaluate machine-learning systems.</p>
             </div>
-
-
-            <div class="capability-grid">
-
-
-                <article class="capability-card">
-
-                    <span class="card-index">
-                        01
-                    </span>
-
-                    <div class="card-icon">
-                        ⌘
-                    </div>
-
-                    <h3>
-                        Machine Learning
-                    </h3>
-
-                    <p>
-                        Model development, evaluation, feature engineering
-                        and practical problem solving.
-                    </p>
-
-                    <div class="card-tags">
-                        <span>scikit-learn</span>
-                        <span>PyTorch</span>
-                        <span>TensorFlow</span>
-                    </div>
-
-                </article>
-
-
-                <article class="capability-card">
-
-                    <span class="card-index">
-                        02
-                    </span>
-
-                    <div class="card-icon">
-                        ◫
-                    </div>
-
-                    <h3>
-                        MLOps
-                    </h3>
-
-                    <p>
-                        Automated workflows connecting experimentation,
-                        validation, registration and deployment.
-                    </p>
-
-                    <div class="card-tags">
-                        <span>MLflow</span>
-                        <span>GitHub Actions</span>
-                        <span>Deepchecks</span>
-                    </div>
-
-                </article>
-
-
-                <article class="capability-card">
-
-                    <span class="card-index">
-                        03
-                    </span>
-
-                    <div class="card-icon">
-                        ◇
-                    </div>
-
-                    <h3>
-                        Model Serving
-                    </h3>
-
-                    <p>
-                        Packaging models into reproducible services and
-                        exposing them through inference APIs.
-                    </p>
-
-                    <div class="card-tags">
-                        <span>BentoML</span>
-                        <span>REST APIs</span>
-                        <span>Docker</span>
-                    </div>
-
-                </article>
-
-
-                <article class="capability-card">
-
-                    <span class="card-index">
-                        04
-                    </span>
-
-                    <div class="card-icon">
-                        ⌁
-                    </div>
-
-                    <h3>
-                        Cloud & Data
-                    </h3>
-
-                    <p>
-                        Cloud infrastructure and data components supporting
-                        reliable machine-learning systems.
-                    </p>
-
-                    <div class="card-tags">
-                        <span>AWS</span>
-                        <span>Feast</span>
-                        <span>PostgreSQL</span>
-                    </div>
-
-                </article>
-
+            <div class="skills-list">
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">01</span><h3>Programming</h3></div><div class="skill-tools">
+                    <span class="tool-pill"><i class="tool-icon devicon-python-plain"></i>Python</span><span class="tool-pill"><i class="tool-icon"></i>SQL</span><span class="tool-pill"><i class="tool-icon devicon-postgresql-plain"></i>PostgreSQL</span><span class="tool-pill"><i class="tool-icon devicon-pandas-plain"></i>Pandas</span><span class="tool-pill"><i class="tool-icon devicon-scikitlearn-plain"></i>Scikit-learn</span><span class="tool-pill"><i class="tool-icon devicon-apachespark-original"></i>PySpark</span><span class="tool-pill"><i class="tool-icon devicon-cplusplus-plain"></i>C++</span><span class="tool-pill"><i class="tool-icon devicon-r-plain"></i>R</span><span class="tool-pill"><i class="tool-icon devicon-git-plain"></i>Git</span><span class="tool-pill"><i class="tool-icon devicon-linux-plain"></i>Linux</span><span class="tool-pill"><i class="tool-icon devicon-jupyter-plain"></i>Jupyter</span>
+                </div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">02</span><h3>MLOps & ML Engineering</h3></div><p class="skill-description">End-to-end ML pipelines, model deployment and serving, experiment tracking, model registries, feature stores, monitoring, drift detection, automated retraining and ML observability.</p><div class="skill-tools">
+                    <span class="tool-pill"><i class="tool-icon"></i>MLflow</span><span class="tool-pill"><i class="tool-icon"></i>Feast</span><span class="tool-pill"><i class="tool-icon"></i>BentoML</span><span class="tool-pill"><i class="tool-icon"></i>Evidently</span><span class="tool-pill"><i class="tool-icon devicon-apacheairflow-plain"></i>Airflow</span><span class="tool-pill"><i class="tool-icon devicon-github-original"></i>GitHub Actions</span><span class="tool-pill"><i class="tool-icon"></i>Kubeflow</span><span class="tool-pill"><i class="tool-icon"></i>TFX</span><span class="tool-pill"><i class="tool-icon"></i>DagsHub</span><span class="tool-pill"><i class="tool-icon"></i>Hopsworks</span>
+                </div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">03</span><h3>Cloud, Containers & Infrastructure</h3></div><div class="skill-tools">
+                    <span class="tool-pill"><i class="tool-icon devicon-docker-plain"></i>Docker</span><span class="tool-pill"><i class="tool-icon devicon-kubernetes-plain"></i>Kubernetes</span><span class="tool-pill"><i class="tool-icon"></i>YAML</span><span class="tool-pill"><i class="tool-icon devicon-terraform-plain"></i>Terraform</span><span class="tool-pill"><i class="tool-icon devicon-amazonwebservices-plain-wordmark"></i>AWS</span><span class="tool-pill"><i class="tool-icon devicon-googlecloud-plain"></i>GCP</span><span class="tool-pill"><i class="tool-icon"></i>Azure OpenAI</span>
+                </div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">04</span><h3>Generative AI</h3></div><div class="skill-tools">
+                    <span class="tool-pill"><i class="tool-icon"></i>LLMs</span><span class="tool-pill"><i class="tool-icon"></i>LangChain</span><span class="tool-pill"><i class="tool-icon"></i>RAG</span><span class="tool-pill"><i class="tool-icon"></i>GraphRAG</span><span class="tool-pill"><i class="tool-icon"></i>Prompt Engineering</span><span class="tool-pill"><i class="tool-icon"></i>RLHF / HITL</span>
+                </div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">05</span><h3>Machine Learning & AI</h3></div><div class="skill-tools">
+                    <span class="tool-pill"><i class="tool-icon devicon-scikitlearn-plain"></i>Scikit-learn</span><span class="tool-pill"><i class="tool-icon devicon-tensorflow-original"></i>TensorFlow</span><span class="tool-pill"><i class="tool-icon devicon-pytorch-original"></i>PyTorch</span><span class="tool-pill"><i class="tool-icon devicon-keras-plain"></i>Keras</span><span class="tool-pill"><i class="tool-icon"></i>NLP</span><span class="tool-pill"><i class="tool-icon"></i>Computer Vision</span><span class="tool-pill"><i class="tool-icon"></i>Transformers</span><span class="tool-pill"><i class="tool-icon"></i>Deep Learning</span>
+                </div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">06</span><h3>Data & Storage</h3></div><div class="skill-tools"><span class="tool-pill"><i class="tool-icon devicon-postgresql-plain"></i>PostgreSQL</span><span class="tool-pill"><i class="tool-icon devicon-mongodb-plain"></i>MongoDB</span><span class="tool-pill"><i class="tool-icon devicon-neo4j-plain"></i>Neo4j</span><span class="tool-pill"><i class="tool-icon"></i>SQL</span></div></article>
+                <article class="skill-row"><div class="skill-heading"><span class="skill-index">07</span><h3>Statistics</h3></div><div class="skill-tools"><span class="tool-pill"><i class="tool-icon"></i>Probability</span><span class="tool-pill"><i class="tool-icon"></i>Hypothesis Testing</span><span class="tool-pill"><i class="tool-icon"></i>Bayesian Models</span><span class="tool-pill"><i class="tool-icon"></i>A/B Testing</span><span class="tool-pill"><i class="tool-icon"></i>Model Evaluation</span></div></article>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- ABOUT -->
-
-    <section class="section about-section" id="about">
-
-        <div class="container about-grid">
-
-            <div>
-
-                <p class="eyebrow">
-                    03 / ABOUT
-                </p>
-
-                <h2>
-                    Turning data science
-                    <br>
-                    into <span>working systems.</span>
-                </h2>
-
+    <!-- EXPERIENCE -->
+    <section class="section about-section" id="experience">
+        <div class="container">
+            <div class="section-heading compact"><div><p class="eyebrow">03 / EXPERIENCE</p><h2>Experience</h2></div><p class="section-intro">Data science, machine learning and AI engineering across consulting, production work and applied research.</p></div>
+            <div class="experience-timeline">
+                <article class="experience-item"><div class="experience-meta"><strong>Oct 2024 — Present</strong><span>Outlier.ai</span></div><div class="experience-body"><h3>Code Expert · Freelancer</h3><p>LLM training and fine-tuning, prompt generation, RLHF and human-in-the-loop evaluation, alongside Python and C++ code review, debugging, refactoring and performance optimisation.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>Dec 2021 — Dec 2023</strong><span>Zelo Analytics</span></div><div class="experience-body"><h3>Data Scientist & ML Engineer · Independent Consulting</h3><p>Built end-to-end analytics, machine-learning and AI solutions, including segmentation, churn, recommendation, LLM/GraphRAG, CI/CD and MLOps pipelines, cloud infrastructure and monitoring.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>Dec 2021 — Nov 2022</strong><span>Omdena · AI for Good</span></div><div class="experience-body"><h3>Machine Learning Engineer · Community Collaborator</h3><p>Led applied ML work across credit scoring, NLP environmental conflict tracking and coreference resolution, with business-client communication and cross-functional collaboration.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>Jul 2020 — Dec 2021</strong><span>The Gradient Boost</span></div><div class="experience-body"><h3>Data Science Mentor</h3><p>Mentored aspiring data scientists in Python, SQL, Pandas, statistics, visualisation, machine learning and technical communication.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>Jan 2018 — Dec 2019</strong><span>Telkom Insights</span></div><div class="experience-body"><h3>Data Scientist · Artificial Intelligence & Insights</h3><p>Developed churn and segmentation solutions, contributed to chatbot and speech-to-text applications, built Python pipelines and worked across SQL, NLP, deep learning and computer vision.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>2018 — 2019</strong><span>Explore Software / BCX Insights</span></div><div class="experience-body"><h3>Data Science Intern</h3><p>Worked on SQL databases, data-quality reporting, exploratory analysis, Python visualisation modules and deep-learning work.</p></div><span class="experience-arrow">↗</span></article>
+                <article class="experience-item"><div class="experience-meta"><strong>Jan 2018 — Oct 2018</strong><span>Explore Data Science Academy</span></div><div class="experience-body"><h3>Data Science Learnership</h3><p>Applied Python, SQL, AWS, machine learning and statistics to real-world projects using Agile delivery.</p></div><span class="experience-arrow">↗</span></article>
             </div>
-
-
-            <div class="about-copy">
-
-                <p class="about-lead">
-
-                    My work sits at the intersection of data science,
-                    machine learning and software engineering.
-
-                </p>
-
-
-                <p>
-
-                    I am particularly interested in the engineering layer
-                    around machine learning: reproducible pipelines, model
-                    lifecycle management, deployment, APIs and monitoring.
-
-                    The goal is not simply to build a model that works in
-                    an experiment, but to understand how that model becomes
-                    part of a dependable system.
-
-                </p>
-
-
-                <div class="about-facts">
-
-                    <div>
-                        <strong>BSc</strong>
-                        <span>
-                            Applied Mathematics<br>
-                            & Computer Science
-                        </span>
-                    </div>
-
-                    <div>
-                        <strong>ML</strong>
-                        <span>
-                            Applied machine<br>
-                            learning projects
-                        </span>
-                    </div>
-
-                    <div>
-                        <strong>MLOps</strong>
-                        <span>
-                            Production-oriented<br>
-                            system design
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
-
     </section>
-
 
     <!-- CONTACT -->
 
@@ -822,7 +585,7 @@
             <div>
 
                 <p class="eyebrow">
-                    04 / CONTACT
+                    05 / CONTACT
                 </p>
 
                 <h2>
@@ -838,7 +601,7 @@
 
                 <!-- Replace this with your actual professional email -->
                 <a
-                    href="mailto:hello@example.com"
+                    href="mailto:zaheedatshankie@gmail.com"
                     class="button button-primary"
                 >
                     Get in touch
