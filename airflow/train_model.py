@@ -6,6 +6,7 @@ import sqlalchemy as db
 import pickle
 import logging
 import subprocess
+import boto3
 
 sys.path.append(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -41,6 +42,32 @@ class TrainModel:
         self.params = None
         self.f_store = ExecuteFeatureStore()
         self.house_model = HouseModel()
+
+    def upload_model_to_s3(self):
+        model_path = os.path.join(
+            ROOT_PATH,
+            "model",
+            "house_regression_model.pkl"
+        )
+
+        bucket = os.environ["MODEL_S3_BUCKET"]
+        key = os.environ.get(
+            "MODEL_S3_KEY",
+            "mlops/house-price/model/house_regression_model.pkl"
+        )
+
+        s3 = boto3.client(
+            "s3",
+            region_name=AWS_REGION
+        )
+
+        s3.upload_file(
+            model_path,
+            bucket,
+            key
+        )
+
+        print(f"Uploaded retrained model to s3://{bucket}/{key}")
 
     def get_current_features(self):
         engine = db.create_engine(DB_CONNECTION_STRING)
@@ -92,7 +119,7 @@ class TrainModel:
         logging.info("Model re-trained and saved as model.pkl")
 
     def register_model(self):
-        self.house_model.mlflow_config()
+        self.house_model.configure_mlflow()
         model_info = self.house_model.register()
         return model_info
     
@@ -117,13 +144,11 @@ class TrainModel:
             logging.info(result.stderr)
 
         if result.returncode != 0:
-            logging.error(
-                "Command failed with exit code %s: %s",
-                result.returncode,
-                " ".join(command)
-            )
             raise RuntimeError(
-                f"Command failed: {' '.join(command)}"
+                f"Command failed: {' '.join(command)}\n"
+                f"Return code: {result.returncode}\n"
+                f"STDOUT:\n{result.stdout}\n"
+                f"STDERR:\n{result.stderr}"
             )
 
         return result.stdout.strip()
@@ -237,11 +262,8 @@ if __name__ == "__main__":
     trainer = TrainModel()
     X_hist = trainer.get_current_features()
     X_new = trainer.predict_new_data()
-    trainer.create_and_train_new_dataset_with_target(
-        X_hist,
-        X_new
-    )
-
+    trainer.create_and_train_new_dataset_with_target(X_hist, X_new)
+    trainer.upload_model_to_s3()
     m_info = trainer.register_model()
     trainer.serve_model(m_info)
     image_uri = trainer.build_and_push_ecr_image()

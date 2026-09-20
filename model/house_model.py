@@ -61,29 +61,62 @@ class HouseModel:
 
     # Load model
     def load_model(self):
-        # Check if the file exists before trying to open it
-        if not os.path.exists("model/house_regression_model.pkl"):
-            print("No saved model found on disk.")
-            return None
+        model_path = "model/house_regression_model.pkl"
+
+        if not os.path.exists(model_path):
+            print("No local model found. Downloading model from S3...")
+
+            import boto3
+
+            bucket = os.getenv("MODEL_S3_BUCKET")
+            key = os.getenv(
+                "MODEL_S3_KEY",
+                "mlops/house-price/model/house_regression_model.pkl"
+            )
+
+            if not bucket:
+                raise ValueError(
+                    "MODEL_S3_BUCKET environment variable is not set."
+                )
+
+            os.makedirs(os.path.dirname(model_path), exist_ok=True)
+
+            s3 = boto3.client(
+                "s3",
+                region_name=os.getenv("AWS_REGION", "af-south-1")
+            )
+
+            s3.download_file(
+                bucket,
+                key,
+                model_path
+            )
+
+            print(f"Downloaded model from s3://{bucket}/{key}")
 
         try:
-            with open("model/house_regression_model.pkl", "rb") as f:
+            with open(model_path, "rb") as f:
                 loaded_obj = pickle.load(f)
 
             if isinstance(loaded_obj, GridSearchCV):
                 return loaded_obj.best_estimator_
+
             return loaded_obj
+
         except (AttributeError, KeyError, ImportError) as e:
-            # If scikit-learn version differences corrupt the pickle, catch it safely
-            print(f"Failed to load model due to version mismatch or corruption: {e}")
+            print(
+                f"Failed to load model due to version mismatch "
+                f"or corruption: {e}"
+            )
             return None
 
     def predict(self, data):
         model = self.load_model()
-        # Test data (sample input for prediction)
-        #test_data = [5.1, 3.5, 1.4, 0.2]  # Example features
+
+        if hasattr(model, "feature_names_in_"):
+            data = data[model.feature_names_in_]
+
         prediction = model.predict(data)
-        #print(f"Prediction for {test_data}: {int(prediction[0])}")
         return prediction
 
     def metrics(self, y_true, y_pred):
@@ -178,8 +211,10 @@ class HouseModel:
             self.log_gridsearch()
 
             #Define signature
-            signature = infer_signature(np.array(self.x_train), np.array(self.predict(self.x_test)))
-
+            signature = infer_signature(
+                self.x_train,
+                self.predict(self.x_test)
+            )
             #Log and Register best model
             model_info = log_model(
                 sk_model=self.grid_search.best_estimator_,
