@@ -16,12 +16,21 @@ jobs:
   train-model:
     runs-on: ubuntu-latest
 
-    env:
-      MODEL_S3_BUCKET: ${{ vars.MODEL_S3_BUCKET }}
-      MODEL_S3_KEY: ${{ vars.MODEL_S3_KEY }}
-      AWS_REGION: ${{ vars.AWS_REGION }}
     
     steps:
+    # --------------------------------------------------
+    # 1. Check S3 environment
+    # --------------------------------------------------
+    - name: Check S3 environment
+      env:
+        MODEL_S3_BUCKET: ${{ vars.MODEL_S3_BUCKET }}
+        MODEL_S3_KEY: ${{ vars.MODEL_S3_KEY }}
+        AWS_REGION: ${{ vars.AWS_REGION }}
+
+      run: |
+        echo "MODEL_S3_BUCKET=$MODEL_S3_BUCKET"
+        echo "MODEL_S3_KEY=$MODEL_S3_KEY"
+        echo "AWS_REGION=$AWS_REGION"
     # --------------------------------------------------
     # 1. Checkout
     # --------------------------------------------------
