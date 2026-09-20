@@ -82,7 +82,15 @@ jobs:
     - name: Run Data Validation (Deepchecks)
       run: |
         python ci_cd/validation.py
+    # --------------------------------------------------
+    # 10. Configure AWS credentials
+    # --------------------------------------------------
 
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::${{ vars.ACCOUNT_ID }}:role/GitHubActions-ECR
+        aws-region: af-south-1
     # --------------------------------------------------
     # 8. Train model
     # --------------------------------------------------
@@ -96,6 +104,16 @@ jobs:
     - name: Validate trained model
       run: |
         python ci_cd/model_validation.py
+
+    # --------------------------------------------------
+    # 11. Upload Model pkl to S3
+    # --------------------------------------------------
+
+    - name: Upload trained model to S3
+      run: |
+        aws s3 cp \
+          model/house_regression_model.pkl \
+          s3://${{ vars.MODEL_S3_BUCKET }}/${{ vars.MODEL_S3_KEY }}
 
     # --------------------------------------------------
     # 10. Register model + Import into BentoML

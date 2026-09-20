@@ -1,0 +1,15 @@
+{
+  "id": "01a0bca5-edae-7b50-a16a-5d3e7905f631",
+  "name": "live dashboard",
+  "description": null,
+  "dashboard": {
+    "name": "live dashboard",
+    "panels": [],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2026-09-20T04:29:46.030780"
+}
