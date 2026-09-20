@@ -66,13 +66,15 @@ class HouseModel:
         if not os.path.exists(model_path):
             print("No local model found. Downloading model from S3...")
 
-            import boto3
-
             bucket = os.getenv("MODEL_S3_BUCKET")
             key = os.getenv(
                 "MODEL_S3_KEY",
                 "mlops/house-price/model/house_regression_model.pkl"
             )
+
+            print("DEBUG MODEL_S3_BUCKET:", repr(os.getenv("MODEL_S3_BUCKET")))
+            print("DEBUG MODEL_S3_KEY:", repr(os.getenv("MODEL_S3_KEY")))
+            print("DEBUG AWS_REGION:", repr(os.getenv("AWS_REGION")))
 
             if not bucket:
                 raise ValueError(
