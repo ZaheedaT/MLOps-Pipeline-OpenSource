@@ -94,10 +94,30 @@ class Monitoring:
     def current_strategy(self, strategy):
         self._strategy = strategy
 
-    def execute_strategy(self, reference: pd.DataFrame, current: pd.DataFrame, workspace: WorkspaceBase = None, column_mapping : ColumnMapping = None):
-        if(self._workspace is None):
+    def execute_strategy(
+            self,
+            reference: pd.DataFrame,
+            current: pd.DataFrame,
+            workspace: WorkspaceBase = None,
+            column_mapping: ColumnMapping = None
+    ):
+        if self._workspace is None:
             self._workspace = workspace
-        report = self._strategy.create_report(self._workspace, self._project, reference, current, column_mapping)
+
+        if self._project is None:
+            self.search_or_create_project(
+                project_name="monitoring project",
+                workspace=self._workspace
+            )
+
+        report = self._strategy.create_report(
+            self._workspace,
+            self._project,
+            reference,
+            current,
+            column_mapping
+        )
+
         print("Report Created successfully!!")
         return report
 

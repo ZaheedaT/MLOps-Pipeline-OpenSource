@@ -64,17 +64,22 @@ class MonitorDrift:
         # Current = recently observed feature data
         engine = self.get_db_connection()
 
-        entity_df_cur = pd.read_sql(
-            text("""
-            SELECT house_id
-            FROM public.house_features_sql
-            WHERE event_timestamp > :reference_end
-            ORDER BY event_timestamp
-            """),
-            con=engine,
-            params={"reference_end": reference_end}
-        )
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("""
+                    SELECT house_id
+                    FROM public.house_features_sql
+                    WHERE event_timestamp > :reference_end
+                    ORDER BY event_timestamp
+                """),
+                {"reference_end": reference_end}
+            )
 
+            rows = result.fetchall()
+            entity_df_cur = pd.DataFrame(
+                rows,
+                columns=result.keys()
+            )
 
         print("CURRENT ENTITY DATA:")
         print(entity_df_cur)
