@@ -118,7 +118,7 @@ class Monitoring:
             column_mapping
         )
 
-        print("Report Created successfully!!")
+        print("Monitoring result created successfully!!")
         return report
 
     def add_dashboard_panel(self, project: evidently.ui.base.Project, panel_type: str, **kwargs):

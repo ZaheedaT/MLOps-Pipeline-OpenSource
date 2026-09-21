@@ -151,7 +151,8 @@ with DAG(
     'check_drift_and_retrain',
     default_args=default_args,
     description="Monitor data drift, retrain when required, and deploy to Kubernetes",
-    schedule_interval=timedelta(minutes=5),
+    #schedule_interval=timedelta(minutes=5),
+    schedule_interval=None,
     start_date=datetime(2025, 1, 1),
     catchup=False,
 ) as dag:
@@ -178,4 +179,5 @@ with DAG(
 
     check_drift_task >> [retrain_task, no_retrain_task]
     retrain_task >> deploy_model_task
-    [no_retrain_task, deploy_model_task] >> pipeline_complete
+    deploy_model_task >> pipeline_complete
+    no_retrain_task >> pipeline_complete
