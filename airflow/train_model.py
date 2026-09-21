@@ -71,16 +71,22 @@ class TrainModel:
 
     def get_current_features(self):
         engine = db.create_engine(DB_CONNECTION_STRING)
-        logging.info("engine init")
+        logging.info("engine initialized")
 
-        with engine.connect() as connection:
+        connection = engine.raw_connection()
+
+        try:
             Y_hist = pd.read_sql(
                 "SELECT house_id, price FROM public.house_target_sql",
                 con=connection
             )
+        finally:
+            connection.close()
+            engine.dispose()
 
         store = self.f_store.get_feature_store()
         logging.info("feature store initialized")
+
         X_hist = self.f_store.get_online_features(
             store,
             pd.DataFrame(Y_hist["house_id"])
@@ -89,7 +95,6 @@ class TrainModel:
         X_hist["price"] = Y_hist["price"]
 
         return X_hist
-
     def predict_new_data(self):
         path = os.path.join(ROOT_PATH, "serving", "feedback.csv")
         X_new = pd.read_csv(path)

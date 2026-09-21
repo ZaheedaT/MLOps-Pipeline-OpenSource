@@ -31,23 +31,31 @@ class HouseService:
         with open('feedback.csv', 'w', newline='') as file: 
             fieldnames = ["event_timestamp", "area", "bedrooms", "mainroad", "prediction"] 
             writer = csv.DictWriter(file, fieldnames = fieldnames) 
-            writer.writeheader() 
+            writer.writeheader()
 
-    @bentoml.api # BentoML API Decorator , to receive new unseen Production data to then make predictions
-    def predict(self, input_data:np.ndarray) -> np.ndarray:
-        pred = self.model.predict(input_data)
+    @bentoml.api
+    def predict(self, input_data: np.ndarray) -> np.ndarray:
+        input_df = pd.DataFrame(
+            input_data,
+            columns=["mainroad", "area", "bedrooms"]
+        )
+
+        pred = self.model.predict(input_df)
         print(pred)
-        timestamps = pd.date_range( 
-            end=pd.Timestamp.now(),  
-            start=pd.Timestamp.now(),  
-            periods=1,  
-            freq=None).to_frame(name="event_timestamp", index=False) 
-        
-        with open('feedback.csv', 'a', newline='') as file: 
-            writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC) 
-            val = starmap(lambda x,y,z:[x,y,z], np.asarray(input_data).tolist()) 
-            data = [] 
-            for i in next(val):
-                data.append(i)  
-            writer.writerow([timestamps.event_timestamp[0], data[0], data[1], data[2], pred[0]])
+
+        timestamp = pd.Timestamp.now()
+
+        with open("feedback.csv", "a", newline="") as file:
+            writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
+
+            data = input_df.iloc[0]
+
+            writer.writerow([
+                timestamp,
+                data["area"],
+                data["bedrooms"],
+                data["mainroad"],
+                pred[0]
+            ])
+
         return np.asarray(pred)

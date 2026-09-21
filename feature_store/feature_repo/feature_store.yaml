@@ -3,7 +3,7 @@ provider: local
 registry:
     registry_type: sql
     registry_store_type: PostgreSQLRegistryStore
-    path: postgresql+psycopg://postgres:73200@localhost:5432/feast_registry
+    path: postgresql+psycopg2://postgres:73200@localhost:5432/feast_registry
     cache_ttl_seconds: 60000
     sqlalchemy_config_kwargs:
         echo: false

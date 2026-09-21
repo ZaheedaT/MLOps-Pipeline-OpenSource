@@ -137,3 +137,5 @@ These send EKS control-plane logs to Amazon CloudWatch, which is useful for a pr
 
 Prometheus / Container Insights / enhanced observability:
 If AWS presents optional paid monitoring features, leave them off for now. Your project already uses Evidently for ML/data monitoring, so we don't need to duplicate that with additional AWS monitoring costs.
+
+

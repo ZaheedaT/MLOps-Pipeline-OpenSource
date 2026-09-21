@@ -172,10 +172,15 @@ cython_debug/
 .pypirc
 
 # Pickles
-*.pklmodel/*.pkl
+*.pklmodel
+*.pkl
 *.db
 *.zip
 
 # Private Keys
 *.key
 *.key.pub
+
+# Model Output Data
+
+/mlartifacts
